@@ -93,8 +93,25 @@ if array_length_1d(attack_sound_grid[attack]) > 0 {
     for (i = 0; i < array_length_1d(attack_sounds); i++) {
         var sound = attack_sounds[i]
         if sound.window == window && sound.frame == window_timer {
-            var pitch_offset = (random_func(8, 2, false) - 1) * sound.pitch_variation
-            sound_play(sound.sound, false, false, 1, sound.pitch + pitch_offset)
+
+            var sound_pitch = 1
+            var sound_pitch_variation = 0
+            var sound_volume = 1
+
+            if variable_instance_exists(sound, "pitch") {
+                sound_pitch = sound.pitch
+            }
+
+            if variable_instance_exists(sound, "pitch_variation") {
+                sound_pitch_variation = sound.pitch_variation
+            }
+
+            if variable_instance_exists(sound, "volume") {
+                sound_volume = sound.volume
+            }
+
+            var pitch_offset = (random_func(8, 2, false) - 1) * sound_pitch_variation
+            sound_play(sound.sound, false, false, sound_volume, sound_pitch + pitch_offset)
         }
     }
 }

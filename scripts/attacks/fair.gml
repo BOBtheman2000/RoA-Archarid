@@ -13,15 +13,18 @@ attack_sound_grid[AT_FAIR] = [{
     pitch_variation:0
 }]
 
+// Startup
 set_window_value(AT_FAIR, 1, AG_WINDOW_TYPE, 1);
 set_window_value(AT_FAIR, 1, AG_WINDOW_LENGTH, 8);
 set_window_value(AT_FAIR, 1, AG_WINDOW_ANIM_FRAMES, 2);
 
+// Active
 set_window_value(AT_FAIR, 2, AG_WINDOW_TYPE, 1);
 set_window_value(AT_FAIR, 2, AG_WINDOW_LENGTH, 4);
 set_window_value(AT_FAIR, 2, AG_WINDOW_ANIM_FRAMES, 2);
 set_window_value(AT_FAIR, 2, AG_WINDOW_ANIM_FRAME_START, 2);
 
+// Endlag
 set_window_value(AT_FAIR, 3, AG_WINDOW_TYPE, 1);
 set_window_value(AT_FAIR, 3, AG_WINDOW_LENGTH, 6);
 set_window_value(AT_FAIR, 3, AG_WINDOW_ANIM_FRAMES, 2);
