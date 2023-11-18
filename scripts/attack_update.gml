@@ -89,9 +89,9 @@ if (attack == AT_DSPECIAL){
 // Barney's extended sound engine! Pitch shift sounds in realtime!
 
 if array_length_1d(attack_sound_grid[attack]) > 0 {
-    var window_sounds = attack_sound_grid[attack]
-    for (i = 0; i < array_length_1d(window_sounds); i++) {
-        var sound = window_sounds[i]
+    var attack_sounds = attack_sound_grid[attack]
+    for (i = 0; i < array_length_1d(attack_sounds); i++) {
+        var sound = attack_sounds[i]
         if sound.window == window && sound.frame == window_timer {
             var pitch_offset = (random_func(8, 2, false) - 1) * sound.pitch_variation
             sound_play(sound.sound, false, false, 1, sound.pitch + pitch_offset)

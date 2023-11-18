@@ -110,12 +110,22 @@ barney_archarid_current_orb = 0
 
 // custom sound engine!
 attack_sound_grid = array_create(50, [])
+hit_sound_grid = array_create(50, [])
 
 // usage example:
 
 // attack_sound_grid[AT_BAIR] = [{
 //     window:2,
 //     frame:3,
+//     sound:asset_get("mfx_star"),
+//     pitch:1.2
+//     pitch_variation:0.2
+// }]
+
+// hit sound example:
+
+// hit_sound_grid[AT_BAIR] = [{
+//     hitbox:2,
 //     sound:asset_get("mfx_star"),
 //     pitch:1.2
 //     pitch_variation:0.2
