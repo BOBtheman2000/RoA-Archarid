@@ -13,8 +13,8 @@ sprite_change_offset("jump", 28, 39);
 sprite_change_offset("doublejump", 28, 39);
 sprite_change_offset("walljump", 28, 29);
 sprite_change_offset("pratfall", 28, 29);
-sprite_change_offset("land", 28, 39);
-sprite_change_offset("landinglag", 28, 39);
+sprite_change_offset("land", 58, 69);
+sprite_change_offset("landinglag", 58, 69);
 
 sprite_change_offset("hurt", 28, 39);
 sprite_change_offset("bighurt", 28, 39);
@@ -24,7 +24,7 @@ sprite_change_offset("parry", 28, 39);
 sprite_change_offset("roll_forward", 28, 29);
 sprite_change_offset("roll_backward", 28, 29);
 sprite_change_offset("airdodge", 28, 39);
-sprite_change_offset("waveland", 28, 39);
+sprite_change_offset("waveland", 58, 69);
 sprite_change_offset("tech", 28, 39);
 
 sprite_change_offset("jab", 22, 29);
