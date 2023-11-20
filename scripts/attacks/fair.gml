@@ -9,7 +9,7 @@ attack_sound_grid[AT_FAIR] = [{
     window:1,
     frame:8,
     sound:asset_get("sfx_swipe_medium2"),
-    pitch:1.2,
+    pitch:2.8,
     pitch_variation:0
 }]
 
@@ -21,12 +21,14 @@ set_window_value(AT_FAIR, 1, AG_WINDOW_ANIM_FRAMES, 2);
 // Active
 set_window_value(AT_FAIR, 2, AG_WINDOW_TYPE, 1);
 set_window_value(AT_FAIR, 2, AG_WINDOW_LENGTH, 4);
+set_window_value(AT_FAIR, 2, AG_WINDOW_HSPEED, 2);
+set_window_value(AT_FAIR, 2, AG_WINDOW_VSPEED, -1);
 set_window_value(AT_FAIR, 2, AG_WINDOW_ANIM_FRAMES, 2);
 set_window_value(AT_FAIR, 2, AG_WINDOW_ANIM_FRAME_START, 2);
 
 // Endlag
 set_window_value(AT_FAIR, 3, AG_WINDOW_TYPE, 1);
-set_window_value(AT_FAIR, 3, AG_WINDOW_LENGTH, 6);
+set_window_value(AT_FAIR, 3, AG_WINDOW_LENGTH, 3);
 set_window_value(AT_FAIR, 3, AG_WINDOW_ANIM_FRAMES, 2);
 set_window_value(AT_FAIR, 3, AG_WINDOW_ANIM_FRAME_START, 4);
 set_window_value(AT_FAIR, 3, AG_WINDOW_HAS_WHIFFLAG, 5);
@@ -44,10 +46,10 @@ set_hitbox_value(AT_FAIR, 1, HG_PARENT_HITBOX, 1);
 set_hitbox_value(AT_FAIR, 1, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_FAIR, 1, HG_WINDOW, 2);
 set_hitbox_value(AT_FAIR, 1, HG_LIFETIME, 3);
-set_hitbox_value(AT_FAIR, 1, HG_HITBOX_X, 30);
-set_hitbox_value(AT_FAIR, 1, HG_HITBOX_Y, -15);
+set_hitbox_value(AT_FAIR, 1, HG_HITBOX_X, 20);
+set_hitbox_value(AT_FAIR, 1, HG_HITBOX_Y, -5);
 set_hitbox_value(AT_FAIR, 1, HG_WIDTH, 75);
-set_hitbox_value(AT_FAIR, 1, HG_HEIGHT, 40);
+set_hitbox_value(AT_FAIR, 1, HG_HEIGHT, 60);
 set_hitbox_value(AT_FAIR, 1, HG_PRIORITY, 2);
 set_hitbox_value(AT_FAIR, 1, HG_DAMAGE, 8);
 set_hitbox_value(AT_FAIR, 1, HG_ANGLE, 60);
