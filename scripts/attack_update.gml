@@ -111,7 +111,9 @@ if array_length_1d(attack_sound_grid[attack]) > 0 {
             }
 
             var pitch_offset = (random_func(8, 2, false) - 1) * sound_pitch_variation
-            sound_play(sound.sound, false, false, sound_volume, sound_pitch + pitch_offset)
+            
+            // Room speed multiplier is a little easter egg if you slow the game down :3
+            sound_play(sound.sound, false, false, sound_volume, (sound_pitch + pitch_offset) * (room_speed / 60))
         }
     }
 }
