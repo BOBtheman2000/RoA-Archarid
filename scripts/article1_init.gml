@@ -14,13 +14,18 @@ can_be_hit[other.player] = 30
 tethered_player = other
 
 tether_distance_max = 120
-tether_distance_snap = 20 // adds onto the original distance, used to handle teleports and the like
-tether_hsp_snap = 15 // just a raw speed check, used for knockback
-tether_vsp_snap = 20
-tether_spring_mult_x = 0.8
-tether_spring_mult_y = 1.0
-tether_clamp_strength = 0.6
+tether_tension_snap = 20 // tension before the tether snaps
+tether_looseness = 0.8 // velocity multiplier when reducing the speed before applying tension modifier
+tether_bounce_modifier = 0.8 // strength of "bounciness"
 
-tension = 0
+// alters the damage falloff formula for the tension threshold while in hitstun
+// 20/6/100/200 makes the damage falloff properly start at around 60, hits 12 at about 80
+// https://www.desmos.com/calculator/mpe1hfshm9 to check curve
+tether_tension_snap_hitstun = 20 // value at 0
+tether_tension_snap_hitstun_min = 6 // absolute minimum regardless of formula output
+tether_tension_snap_hitstun_damage_max = 100
+tether_tension_snap_hitstun_thresh_modifier = 200 // just trust me on this one
+
+tension_thresh = 0
 
 queue_snap = false

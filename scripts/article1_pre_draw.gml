@@ -5,7 +5,7 @@ var tether_to_y = tethered_player.y - tethered_player.char_height / 2
 var tether_len = point_distance(x - 3, y - 3, tethered_player.x, tether_to_y)
 var tether_dir = point_direction(x - 3, y - 3, tethered_player.x, tether_to_y)
 
-var tension_colour = (1 - tension) * 255
+var tension_colour = (1 - tension_thresh) * 255
 
 var tether_colour = make_colour_rgb(255, tension_colour, tension_colour)
 

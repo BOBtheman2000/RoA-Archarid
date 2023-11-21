@@ -1,49 +1,83 @@
-// empty
-
 if get_gameplay_time() % 4 == 0 {
     image_index++
 }
 
-var tether_max_x = x + tether_distance_max
-var tether_min_x = x - tether_distance_max
+print(tension)
 
-var tether_max_y = y + tether_distance_max
-var tether_min_y = y - tether_distance_max
-
+// Player tethering behaviour
 with(tethered_player) {
 
-    var tether_distance = point_distance(x, y, other.x, other.y)
-    var tether_diff = tether_distance - other.tether_distance_max
+    // print("x: " + string(x) + " y: " + string(y) + " hsp: " + string(hsp) + " vsp: " + string(vsp))
 
-    other.tension = max(0, tether_diff / other.tether_distance_snap)
+    var tether_distance = point_distance(other.x, other.y, x, y)
+    var tension = tether_distance - other.tether_distance_max
 
-    if tether_diff > 0 {
-        if other.tension > 1 || abs(hsp) > other.tether_hsp_snap || abs(vsp) > other.tether_vsp_snap {
-            other.queue_snap = true
-            break
-        }
+    if tension < 0 {
+        tension = 0
+        break
+    }
 
-        var tether_direction = point_distance(x, y, other.x, other.y)
+    var damage = min(get_player_damage(player), other.tether_tension_snap_hitstun_damage_max - 1)
 
-        hsp = sign(other.x - x) * abs(lengthdir_x(tether_diff, tether_direction)) * other.tether_spring_mult_x
-        if free {
-            vsp = sign(other.y - y) * abs(lengthdir_y(tether_diff, tether_direction)) * other.tether_spring_mult_y
-        }
+    // Formula for tension limiter based on damage falloff
+    var tension_snap_hitstun_mod = (
+        other.tether_tension_snap_hitstun + (
+            other.tether_tension_snap_hitstun_thresh_modifier / (
+                damage - other.tether_tension_snap_hitstun_damage_max
+                )
+            ) + other.tether_tension_snap_hitstun_thresh_modifier / other.tether_tension_snap_hitstun_damage_max
+        )
 
-        if state == PS_PRATFALL {
+    tension_snap_hitstun_mod = max(tension_snap_hitstun_mod, other.tether_tension_snap_hitstun_min)
+    
+    other.tension_thresh = tension / (state == PS_HITSTUN ? tension_snap_hitstun_mod : other.tether_tension_snap)
 
-            state = PS_IDLE_AIR
+    print(other.tension_thresh)
 
-        }
-
-        if state == PS_HITSTUN {
-            can_tech = true
-        }
-
+    if other.tension_thresh > 1 {
+        other.queue_snap = true
+        break
     }
     
-    x = lerp(x, clamp(x, tether_min_x, tether_max_x), other.tether_clamp_strength)
-    y = lerp(y, clamp(y, tether_min_y, tether_max_y), other.tether_clamp_strength)
+    if state == PS_HITSTUN && shield_pressed {
+        set_state(PS_WALL_TECH)
+    }
+
+    var target_hsp = hsp * other.tether_looseness
+    var target_vsp = vsp * other.tether_looseness
+
+    var offset = point_distance(hsp, vsp, target_hsp, target_vsp)
+
+    var target_x = x + target_hsp
+    var target_y = y + target_vsp
+
+    var bounce_direction = point_direction(target_x, target_y, other.x, other.y)
+
+    // print("tho: " + string(target_hsp))
+    // print("tvo: " + string(target_vsp))
+
+    var bounce = (tension + offset) * other.tether_bounce_modifier
+
+    // print("gh: " + string(lengthdir_x(bounce, bounce_direction)))
+    // print("gv: " + string(lengthdir_y(bounce, bounce_direction)))
+
+    target_hsp += lengthdir_x(bounce, bounce_direction)
+    target_vsp += lengthdir_y(bounce, bounce_direction)
+
+    // just in case this new vsp is bouncy, let's restore a jump
+    if vsp > 0 && target_vsp < 0 {
+        djumps = min(djumps, max_djumps - 1)
+    }
+
+    hsp = target_hsp
+    vsp = target_vsp
+
+    // print("bd: " + string(bounce_direction))
+    // print("b: " + string(bounce))
+    // print("th: " + string(target_hsp))
+    // print("tv: " + string(target_vsp))
+    // print("o: " + string(offset))
+    // print("t: " + string(other.tension))
 
 }
 
