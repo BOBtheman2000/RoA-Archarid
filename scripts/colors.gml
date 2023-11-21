@@ -82,7 +82,7 @@ set_color_profile_slot( 7, 1, 167, 186, 74 ); //Accent
 set_color_profile_slot( 7, 2, 211, 226, 154 ); //Bands
 set_color_profile_slot( 7, 3, 211, 226, 154 ); //Abdomen Pattern
 set_color_profile_slot( 7, 4, 211, 226, 154 ); //Tooth
-set_color_profile_slot( 7, 5, 255, 255, 255 ); //Eyes & web string
+set_color_profile_slot( 7, 5, 167, 186, 74 ); //Eyes & web string
 
 // Violence
 set_color_profile_slot( 8, 0, 196, 196, 196 ); //Body
