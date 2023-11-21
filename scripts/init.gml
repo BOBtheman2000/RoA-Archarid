@@ -100,8 +100,22 @@ air_dodge_sound = asset_get("sfx_quick_dodge");
 bubble_x = -4;
 bubble_y = -2;
 
-set_character_color_shading( 7, 0 ); //Remove EA skin shading
+// ehehehe
+can_wall_cling = true;
 
+wall_climbing = 0;
+
+wall_cling_sprite = sprite_get("walljump");
+wall_climb_sprite_up = sprite_get("wallclimb_up");
+wall_climb_sprite_down = sprite_get("wallclimb_down");
+
+wall_climb_speed_up = -1.2;
+wall_climb_speed_down = 3;
+
+walljump_start_anim_time = 8;
+walljump_leave_time = 0;
+walljump_extended_time_default = 600;
+walljump_extended_time = walljump_extended_time_default;
 
 // it's like this so it remains consistent with other players
 barney_archarid_tethered_to_orb = false
