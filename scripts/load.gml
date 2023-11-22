@@ -56,4 +56,6 @@ sprite_change_offset("plat", 64, 94);
 
 sprite_change_offset("web_point", 20, 20);
 
+sprite_change_offset("web_line_sprite", 0, 3);
+
 sprite_change_offset("nspecial_proj", 64, 94);

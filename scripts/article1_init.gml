@@ -33,6 +33,23 @@ can_be_hit[other.player] = 10
     tension_thresh = 0
 
 // orb tether relevant stuff
-    tethered_orb = false
+    tethered_orb = noone
+
+    jumping_player = noone
+    jumping_state_timer = 0
+    jumping_state_time_max = 10
+    jumping_state_time_max_mod = 13 //adjustable
+    jumping_player_offset = 0
+    jumping_player_offset_max = 10
+    jumping_player_direction = 0
+
+    jump_strength = 14
+    jump_strength_base = 10
+    jump_strength_mod = 30
+
+    jump_pull_sound = 0
+
+    jump_midpoint_x = 0
+    jump_midpoint_y = 0
 
 queue_snap = false

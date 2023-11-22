@@ -82,6 +82,9 @@ if tether_type == 'player' {
         // just in case this new vsp is bouncy, let's restore a jump
         if vsp > 0 && target_vsp < 0 {
             djumps = min(djumps, max_djumps - 1)
+            if state == PS_PRATFALL {
+                set_state(PS_IDLE_AIR)
+            }
         }
 
         hsp = target_hsp
@@ -94,6 +97,73 @@ if tether_type == 'player' {
         // print("o: " + string(offset))
         // print("t: " + string(other.tension))
 
+    }
+}
+
+if tether_type == 'orb' {
+    if jumping_state_timer <= 0 {
+        jumping_player = noone
+        with (oPlayer) {
+            var player_collision = collision_line(other.x, other.y, other.tethered_orb.x, other.tethered_orb.y, id, true, false)
+            if player_collision != noone && jump_pressed {
+                if (state == PS_JUMPSQUAT || state == PS_FIRST_JUMP || state == PS_DOUBLE_JUMP || state == PS_WALL_JUMP || state == PS_IDLE_AIR) {
+                    hsp = 0
+                    vsp = 0
+                    set_state(PS_IDLE_AIR)
+                    clear_button_buffer(PC_JUMP_PRESSED)
+                    other.jumping_player = self
+
+                    // you look sad. have your double jump back :)
+                    djumps = min(djumps, max_djumps - 1)
+                }
+            }
+        }
+        if jumping_player != noone {
+            jumping_state_timer = jumping_state_time_max
+            jumping_player_offset = 0
+            jump_midpoint_x = lerp(x, tethered_orb.x, 0.5)
+            jump_midpoint_y = lerp(y, tethered_orb.y, 0.5)
+
+            // calculate jump direction
+            var potential_direction = jumping_player.joy_dir
+            var tether_direction = point_direction(x, y, tethered_orb.x, tethered_orb.y)
+            if jumping_player.joy_pad_idle {
+                // bias towards up
+                potential_direction = 90
+            }
+            jumping_player_direction = tether_direction - 90
+            if abs(angle_difference(
+                potential_direction, tether_direction + 90
+                )) < abs(angle_difference(
+                potential_direction, tether_direction - 90
+                )) {
+                // we don't actually know if this is up or down, this just favours whichever half your stick direction ends up in
+                jumping_player_direction = tether_direction + 90
+            }
+
+            // modify jump start time & jump strength based on tether length
+            var tether_length = point_distance(x, y, tethered_orb.x, tethered_orb.y)
+            jumping_state_time_max = ceil(tether_length / jumping_state_time_max_mod)
+            jump_strength = ceil(tether_length / jump_strength_mod) + jump_strength_base
+        }
+    } else {
+        sound_stop(jump_pull_sound)
+        jump_pull_sound = sound_play(asset_get("sfx_may_wrap1"), false, noone, 1, 1.6 - (jumping_state_timer / 10))
+        jumping_state_timer = max(jumping_state_timer - 1, 0)
+        jumping_player_offset = lerp(jumping_player_offset, jumping_player_offset_max, 0.5)
+        jump_midpoint_x = lerp(x, tethered_orb.x, 0.5) + lengthdir_x(jumping_player_offset, -jumping_player_direction)
+        jump_midpoint_y = lerp(y, tethered_orb.y, 0.5) + lengthdir_y(jumping_player_offset, -jumping_player_direction)
+        with (jumping_player) {
+            x = lerp(x, other.jump_midpoint_x, 0.6)
+            y = lerp(y, other.jump_midpoint_y, 0.6)
+            if other.jumping_state_timer <= 0 || shield_pressed {
+                other.jumping_state_timer = 0
+                hsp = lengthdir_x(other.jump_strength, other.jumping_player_direction)
+                vsp = lengthdir_y(other.jump_strength, other.jumping_player_direction)
+                sound_stop(other.jump_pull_sound)
+                sound_play(asset_get("sfx_leafy_hit1"), false, noone, 1, 1.4)
+            }
+        }
     }
 }
 
