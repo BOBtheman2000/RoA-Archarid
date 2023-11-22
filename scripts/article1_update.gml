@@ -22,6 +22,7 @@ if tether_type == 'player' {
 
         if tension < 0 {
             tension = 0
+            other.tether_snap_lockout = false
             break
         }
 
@@ -42,7 +43,7 @@ if tether_type == 'player' {
 
         // print(other.tension_thresh)
 
-        if other.tension_thresh > 1 {
+        if other.tension_thresh > 1 && !other.tether_snap_lockout {
             other.queue_snap = true
             break
         }
@@ -51,8 +52,10 @@ if tether_type == 'player' {
             set_state(PS_WALL_TECH)
         }
 
-        var target_hsp = hsp * other.tether_looseness
-        var target_vsp = vsp * other.tether_looseness
+        var looseness = other.tether_looseness
+
+        var target_hsp = hsp * looseness
+        var target_vsp = vsp * looseness
 
         var offset = point_distance(hsp, vsp, target_hsp, target_vsp)
 
@@ -64,7 +67,11 @@ if tether_type == 'player' {
         // print("tho: " + string(target_hsp))
         // print("tvo: " + string(target_vsp))
 
-        var bounce = (tension + offset) * other.tether_bounce_modifier
+        // if we're in snap lockout, the bounce should be a LOT weaker
+        // but this should scale with damage so we can still fling people around
+        var tension_mod = other.tether_snap_lockout ? other.tether_bounce_modifier * damage / 1000 : other.tether_bounce_modifier
+
+        var bounce = (tension + offset) * tension_mod
 
         // print("gh: " + string(lengthdir_x(bounce, bounce_direction)))
         // print("gv: " + string(lengthdir_y(bounce, bounce_direction)))

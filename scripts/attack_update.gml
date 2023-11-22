@@ -80,10 +80,6 @@ if (attack == AT_USPECIAL){
 
 // Down special
 if (attack == AT_DSPECIAL){
-    print("w: " + string(window))
-    print("wt: " + string(window_timer))
-    print("hs: " + string(hsp))
-    print("vs: " + string(vsp))
     if window == 1 {
         if window_timer == 16 && (special_down && free) {
             window_timer--

@@ -3,19 +3,15 @@ if attack == AT_DSPECIAL {
     // create the orb
     if !barney_archarid_tethered_to_orb {
         barney_archarid_current_orb = instance_create(x, y, "obj_article1");
-        barney_archarid_current_orb.tethered_player = hit_player_obj
-        with (hit_player_obj) {
-            barney_archarid_tethered_to_orb = true
-        }
         sound_play(web_point_spawn_sound, false, false, 1, 2)
+    } else {
+        barney_archarid_current_orb.tether_snap_lockout = true
     }
-    // if barney_archarid_tethered_to_orb {
-    //     barney_archarid_current_orb.tethered_player = hit_player_obj
-    //     barney_archarid_tethered_to_orb = false
-    //     with (hit_player_obj) {
-    //         barney_archarid_tethered_to_orb = true
-    //     }
-    // }
+    barney_archarid_tethered_to_orb = false
+    barney_archarid_current_orb.tethered_player = hit_player_obj
+    with (hit_player_obj) {
+        barney_archarid_tethered_to_orb = true
+    }
 }
 
 // Barney's extended sound engine! Pitch shift hit sounds!

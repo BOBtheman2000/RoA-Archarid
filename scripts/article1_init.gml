@@ -27,6 +27,9 @@ can_be_hit[other.player] = 10
     tether_tension_snap_hitstun_damage_max = 100
     tether_tension_snap_hitstun_thresh_modifier = 200 // just trust me on this one
 
+    // refuse to snap until inbounds
+    tether_snap_lockout = false
+
     tension_thresh = 0
 
 // orb tether relevant stuff
