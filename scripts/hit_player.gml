@@ -41,7 +41,7 @@ if array_length_1d(hit_sound_grid[my_hitboxID.attack]) > 0 {
             var pitch_offset = (random_func(8, 2, false) - 1) * sound_pitch_variation
 
             // Room speed multiplier is a little easter egg if you slow the game down :3
-            sound_play(sound.sound, false, false, sound_volume, (sound_pitch + pitch_offset) * (room_speed / 60))
+            sound_play(sound.sound, false, noone, sound_volume, (sound_pitch + pitch_offset) * (room_speed / 60))
         }
     }
 }

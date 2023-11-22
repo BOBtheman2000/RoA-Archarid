@@ -107,7 +107,7 @@ if (attack == AT_DSPECIAL){
                 barney_archarid_current_orb.tethered_orb = new_orb
                 new_orb.tether_type = 'orb'
                 new_orb.tethered_orb = barney_archarid_current_orb
-                sound_play(web_point_spawn_sound, false, false, 1, 2)
+                sound_play(web_point_spawn_sound, false, noone, 1, 2)
             }
         }
     }
@@ -142,7 +142,7 @@ if array_length_1d(attack_sound_grid[attack]) > 0 {
             var pitch_offset = (random_func(8, 2, false) - 1) * sound_pitch_variation
             
             // Room speed multiplier is a little easter egg if you slow the game down :3
-            sound_play(sound.sound, false, false, sound_volume, (sound_pitch + pitch_offset) * (room_speed / 60))
+            sound_play(sound.sound, false, noone, sound_volume, (sound_pitch + pitch_offset) * (room_speed / 60))
         }
     }
 }
