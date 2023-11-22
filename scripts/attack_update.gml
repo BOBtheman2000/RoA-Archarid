@@ -1,4 +1,4 @@
-//B - Reversals
+// B - Reversals
 if (attack == AT_NSPECIAL || attack == AT_FSPECIAL || attack == AT_DSPECIAL || attack == AT_USPECIAL){
     trigger_b_reverse();
 }
@@ -15,6 +15,7 @@ if (attack == AT_JAB) {
     }
 }
 
+// sandbert
 if (attack == AT_NSPECIAL){
     if (window == 3){
         if (special_pressed){
@@ -24,6 +25,7 @@ if (attack == AT_NSPECIAL){
     }
 }
 
+// sandbert
 if (attack == AT_FSPECIAL){
     if (window == 2){
         if (special_pressed){
@@ -35,6 +37,7 @@ if (attack == AT_FSPECIAL){
     can_fast_fall = false;
 }
 
+// sandbert
 if (attack == AT_USPECIAL){
     if (window == 1 && window_timer == 1){
         times_through = 0;
@@ -75,18 +78,48 @@ if (attack == AT_USPECIAL){
     }
 }
 
+// Down special
 if (attack == AT_DSPECIAL){
-    if (window == 1 && window_timer == 1 && !hitstop){
-        if !barney_archarid_tethered_to_orb {
-            barney_archarid_tethered_to_orb = true
-            barney_archarid_current_orb = instance_create(x, y, "obj_article1");
+    print("w: " + string(window))
+    print("wt: " + string(window_timer))
+    print("hs: " + string(hsp))
+    print("vs: " + string(vsp))
+    if window == 1 {
+        if window_timer == 16 && (special_down && free) {
+            window_timer--
+        }
+    }
+    if window == 2 {
+        if window_timer == 0 && !free {
+            // these need to be mocked because of window 8 behavior
+            hsp = get_window_value(AT_DSPECIAL, 2, AG_WINDOW_HSPEED) * spr_dir
+            vsp = get_window_value(AT_DSPECIAL, 2, AG_WINDOW_VSPEED)
+        }
+    }
+    if window == 3 {
+        if window_timer == 1 && !hitstop && has_hit == false && has_hit_player = false {
+            if !barney_archarid_tethered_to_orb {
+                // spawn new orb, i'm now attached
+                barney_archarid_tethered_to_orb = true
+                barney_archarid_current_orb = instance_create(x, y, "obj_article1")
+                sound_play(web_point_spawn_sound, false, false, 1, 2)
+            } else {
+                // reattach existing orb to new one
+                barney_archarid_tethered_to_orb = false
+                var new_orb = instance_create(x, y, "obj_article1")
+                barney_archarid_current_orb.tether_type = 'none'
+                barney_archarid_current_orb.tethered_orb = new_orb
+                new_orb.tether_type = 'orb'
+                new_orb.tethered_orb = barney_archarid_current_orb
+                sound_play(web_point_spawn_sound, false, false, 1, 2)
+            }
         }
     }
     can_fast_fall = false;
     can_move = false
 }
 
-// Barney's extended sound engine! Pitch shift sounds in realtime!
+// Barney's extended sound engine! Pitch shift attack sounds!
 
 if array_length_1d(attack_sound_grid[attack]) > 0 {
     var attack_sounds = attack_sound_grid[attack]

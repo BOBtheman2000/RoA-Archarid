@@ -83,9 +83,9 @@ air_dodge_speed = 7.5;
 roll_forward_startup_frames = 1;
 roll_forward_active_frames = 5;
 roll_forward_recovery_frames = 3;
-roll_back_startup_frames = 2;
-roll_back_active_frames = 4;
-roll_back_recovery_frames = 2;
+roll_back_startup_frames = 1;
+roll_back_active_frames = 5;
+roll_back_recovery_frames = 3;
 roll_forward_max = 9; //roll speed
 roll_backward_max = 9;
 
@@ -121,6 +121,15 @@ walljump_extended_time = walljump_extended_time_default;
 barney_archarid_tethered_to_orb = false
 barney_archarid_current_orb = 0
 
+// always true if a character is archarid
+barney_archarid_yes = true
+with (oPlayer) {
+    if "barney_archarid_yes" not in self {
+        barney_archarid_yes = false
+    }
+}
+
+web_point_spawn_sound = asset_get("sfx_may_whip2")
 
 // custom sound engine!
 attack_sound_grid = array_create(50, [])

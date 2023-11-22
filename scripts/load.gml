@@ -24,7 +24,7 @@ sprite_change_offset("hurtground", 28, 39);
 
 sprite_change_offset("parry", 28, 39);
 sprite_change_offset("roll_forward", 58, 69);
-sprite_change_offset("roll_backward", 28, 29);
+sprite_change_offset("roll_backward", 58, 69);
 sprite_change_offset("airdodge", 28, 39);
 sprite_change_offset("waveland", 58, 69);
 sprite_change_offset("tech", 58, 69);
@@ -49,7 +49,7 @@ sprite_change_offset("dstrong", 58, 69);
 sprite_change_offset("nspecial", 64, 94);
 sprite_change_offset("fspecial", 64, 94);
 sprite_change_offset("uspecial", 64, 94);
-sprite_change_offset("dspecial", 64, 94);
+sprite_change_offset("dspecial", 58, 69);
 sprite_change_offset("taunt", 28, 29);
 
 sprite_change_offset("plat", 64, 94);

@@ -1,14 +1,24 @@
 if attack == AT_DSPECIAL {
-    if barney_archarid_tethered_to_orb {
+    
+    // create the orb
+    if !barney_archarid_tethered_to_orb {
+        barney_archarid_current_orb = instance_create(x, y, "obj_article1");
         barney_archarid_current_orb.tethered_player = hit_player_obj
-        barney_archarid_tethered_to_orb = false
         with (hit_player_obj) {
             barney_archarid_tethered_to_orb = true
         }
+        sound_play(web_point_spawn_sound, false, false, 1, 2)
     }
+    // if barney_archarid_tethered_to_orb {
+    //     barney_archarid_current_orb.tethered_player = hit_player_obj
+    //     barney_archarid_tethered_to_orb = false
+    //     with (hit_player_obj) {
+    //         barney_archarid_tethered_to_orb = true
+    //     }
+    // }
 }
 
-// Barney's extended sound engine! Pitch shift sounds in realtime!
+// Barney's extended sound engine! Pitch shift hit sounds!
 
 if array_length_1d(hit_sound_grid[my_hitboxID.attack]) > 0 {
     var attack_sounds = hit_sound_grid[my_hitboxID.attack]
