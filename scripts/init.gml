@@ -109,7 +109,7 @@ wall_cling_sprite = sprite_get("walljump");
 wall_climb_sprite_up = sprite_get("wallclimb_up");
 wall_climb_sprite_down = sprite_get("wallclimb_down");
 
-wall_climb_speed_up = -1.2;
+wall_climb_speed_up = -2;
 wall_climb_speed_down = 3;
 
 walljump_start_anim_time = 8;

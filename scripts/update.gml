@@ -6,11 +6,19 @@ if state == PS_WALL_JUMP {
     }
 
     if clinging {
-        if up_down {
+
+        var check_wall_x = x + (-40 * spr_dir)
+        var check_wall_y_up = y - 60
+        var check_wall_y_down = y + 20
+
+        var available_up = collision_point(check_wall_x, check_wall_y_up, asset_get("par_block"), false, true) != noone
+        var available_down = collision_point(check_wall_x, check_wall_y_down, asset_get("par_block"), false, true) != noone
+
+        if up_down && available_up {
             vsp = wall_climb_speed_up;
             wall_climbing = -1;
         }
-        else if down_down {
+        else if down_down && available_down {
             vsp = wall_climb_speed_down;
             wall_climbing = 1;
         }
