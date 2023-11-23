@@ -2,6 +2,8 @@ var tether_len = 0
 var tether_dir = 0
 var tether_colour = c_white
 
+draw_sprite(back_sprite, min(2, floor(lifetime / 4)), x, y)
+
 if tether_type == 'player' {
     var tether_to_y = tethered_player.y - tethered_player.char_height / 2
 

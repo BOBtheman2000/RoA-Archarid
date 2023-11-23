@@ -1,11 +1,24 @@
 // I'm a web point! I lock players in place
 
-sprite_index = sprite_get("web_point")
+sprite_index = asset_get("empty_sprite")//sprite_get("web_point_idle")
+mask_index = sprite_get("web_point_idle")
+real_sprite_index = sprite_get("web_point_idle")
+back_sprite = sprite_get("web_point_back")
 web_line_sprite = sprite_get("web_line")
+
+real_image_index = 0
+
+lifetime = 0
 
 snap_sound = asset_get("sfx_may_whip1")
 
+// drawing relevant stuff
+    draw_x = 0
+    draw_y = 0
+    tether_list = []
+
 is_hittable = true
+disable_movement = true
 
 tether_type = 'player'
 can_be_hit[other.player] = 10

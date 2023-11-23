@@ -1,11 +1,18 @@
+lifetime++
+print(lifetime)
+
 if get_gameplay_time() % 4 == 0 {
-    image_index++
+    real_image_index = (real_image_index + 1) % 4
 }
+
+tether_list = []
 
 // Player tethering behaviour
 if tether_type == 'player' {
 
     if instance_exists(tethered_player) {
+
+        tether_list[0] = point_direction(x, y, tethered_player.x, tethered_player.y)
 
         // print(tension)
 
@@ -106,6 +113,9 @@ if tether_type == 'player' {
 }
 
 if tether_type == 'orb' {
+
+    tether_list[0] = point_direction(x, y, tethered_orb.x, tethered_orb.y)
+
     if jumping_state_timer <= 0 {
         jumping_player = noone
         with (oPlayer) {
