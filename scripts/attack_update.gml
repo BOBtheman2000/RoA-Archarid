@@ -121,19 +121,19 @@ if (attack == AT_FSPECIAL) {
 
 // Down special
 if (attack == AT_DSPECIAL) {
-    if window == 1 {
+    if window == 2 {
         if window_timer == 16 && (special_down && free) {
             window_timer--
         }
     }
-    if window == 2 {
+    if window == 3 {
         if window_timer == 0 && !free {
             // these need to be mocked because of window 8 behavior
-            hsp = get_window_value(AT_DSPECIAL, 2, AG_WINDOW_HSPEED) * spr_dir
-            vsp = get_window_value(AT_DSPECIAL, 2, AG_WINDOW_VSPEED)
+            hsp = get_window_value(AT_DSPECIAL, 3, AG_WINDOW_HSPEED) * spr_dir
+            vsp = get_window_value(AT_DSPECIAL, 3, AG_WINDOW_VSPEED)
         }
     }
-    if window == 3 {
+    if window == 4 {
         if window_timer == 1 && !hitstop && has_hit == false {
             if !barney_archarid_tethered_to_orb {
                 // spawn new orb, i'm now attached

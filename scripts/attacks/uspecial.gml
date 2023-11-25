@@ -47,7 +47,6 @@ set_window_value(AT_USPECIAL, 6, AG_WINDOW_TYPE, 7);
 set_window_value(AT_USPECIAL, 6, AG_WINDOW_LENGTH, 8);
 set_window_value(AT_USPECIAL, 6, AG_WINDOW_ANIM_FRAMES, 2);
 set_window_value(AT_USPECIAL, 6, AG_WINDOW_ANIM_FRAME_START, 10);
-set_window_value(AT_DSPECIAL, 3, AG_WINDOW_CUSTOM_GRAVITY, .1);
 
 
 set_num_hitboxes(AT_USPECIAL, 5);

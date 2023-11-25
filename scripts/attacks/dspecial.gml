@@ -1,6 +1,6 @@
 set_attack_value(AT_DSPECIAL, AG_CATEGORY, 2);
 set_attack_value(AT_DSPECIAL, AG_SPRITE, sprite_get("dspecial"));
-set_attack_value(AT_DSPECIAL, AG_NUM_WINDOWS, 3);
+set_attack_value(AT_DSPECIAL, AG_NUM_WINDOWS, 4);
 set_attack_value(AT_DSPECIAL, AG_HAS_LANDING_LAG, 4);
 set_attack_value(AT_DSPECIAL, AG_OFF_LEDGE, 1);
 set_attack_value(AT_DSPECIAL, AG_AIR_SPRITE, sprite_get("dspecial"));
@@ -21,9 +21,9 @@ attack_sound_grid[AT_DSPECIAL] = [{
     pitch_variation:0.2
 }]
 
-// Startup
-set_window_value(AT_DSPECIAL, 1, AG_WINDOW_TYPE, 8);
-set_window_value(AT_DSPECIAL, 1, AG_WINDOW_LENGTH, 18);
+// Initial startup (Allows for B reversals to flip momentum)
+set_window_value(AT_DSPECIAL, 1, AG_WINDOW_TYPE, 1);
+set_window_value(AT_DSPECIAL, 1, AG_WINDOW_LENGTH, 3);
 set_window_value(AT_DSPECIAL, 1, AG_WINDOW_ANIM_FRAMES, 1);
 set_window_value(AT_DSPECIAL, 1, AG_WINDOW_ANIM_FRAME_START, 1);
 set_window_value(AT_DSPECIAL, 1, AG_WINDOW_HSPEED, 10);
@@ -31,20 +31,30 @@ set_window_value(AT_DSPECIAL, 1, AG_WINDOW_HSPEED_TYPE, 2);
 set_window_value(AT_DSPECIAL, 1, AG_WINDOW_VSPEED, -4);
 set_window_value(AT_DSPECIAL, 1, AG_WINDOW_VSPEED_TYPE, 2);
 
-// Active
-set_window_value(AT_DSPECIAL, 2, AG_WINDOW_TYPE, 1);
-set_window_value(AT_DSPECIAL, 2, AG_WINDOW_LENGTH, 3);
+// Startup
+set_window_value(AT_DSPECIAL, 2, AG_WINDOW_TYPE, 8);
+set_window_value(AT_DSPECIAL, 2, AG_WINDOW_LENGTH, 15);
 set_window_value(AT_DSPECIAL, 2, AG_WINDOW_ANIM_FRAMES, 1);
-set_window_value(AT_DSPECIAL, 2, AG_WINDOW_ANIM_FRAME_START, 2);
-set_window_value(AT_DSPECIAL, 2, AG_WINDOW_HSPEED, -2);
+set_window_value(AT_DSPECIAL, 2, AG_WINDOW_ANIM_FRAME_START, 1);
+set_window_value(AT_DSPECIAL, 2, AG_WINDOW_HSPEED, 10);
 set_window_value(AT_DSPECIAL, 2, AG_WINDOW_HSPEED_TYPE, 2);
-set_window_value(AT_DSPECIAL, 2, AG_WINDOW_VSPEED, -12);
+set_window_value(AT_DSPECIAL, 2, AG_WINDOW_VSPEED, -4);
 set_window_value(AT_DSPECIAL, 2, AG_WINDOW_VSPEED_TYPE, 2);
 
-// Endlag
+// Active
 set_window_value(AT_DSPECIAL, 3, AG_WINDOW_TYPE, 1);
-set_window_value(AT_DSPECIAL, 3, AG_WINDOW_LENGTH, 8);
+set_window_value(AT_DSPECIAL, 3, AG_WINDOW_LENGTH, 3);
 set_window_value(AT_DSPECIAL, 3, AG_WINDOW_ANIM_FRAMES, 1);
+set_window_value(AT_DSPECIAL, 3, AG_WINDOW_ANIM_FRAME_START, 2);
+set_window_value(AT_DSPECIAL, 3, AG_WINDOW_HSPEED, -2);
+set_window_value(AT_DSPECIAL, 3, AG_WINDOW_HSPEED_TYPE, 2);
+set_window_value(AT_DSPECIAL, 3, AG_WINDOW_VSPEED, -12);
+set_window_value(AT_DSPECIAL, 3, AG_WINDOW_VSPEED_TYPE, 2);
+
+// Endlag
+set_window_value(AT_DSPECIAL, 4, AG_WINDOW_TYPE, 1);
+set_window_value(AT_DSPECIAL, 4, AG_WINDOW_LENGTH, 8);
+set_window_value(AT_DSPECIAL, 4, AG_WINDOW_ANIM_FRAMES, 1);
 
 set_num_hitboxes(AT_DSPECIAL, 1);
 
@@ -57,7 +67,7 @@ hit_sound_grid[AT_DSPECIAL] = [{
 
 set_hitbox_value(AT_DSPECIAL, 1, HG_PARENT_HITBOX, 1);
 set_hitbox_value(AT_DSPECIAL, 1, HG_HITBOX_TYPE, 1);
-set_hitbox_value(AT_DSPECIAL, 1, HG_WINDOW, 2);
+set_hitbox_value(AT_DSPECIAL, 1, HG_WINDOW, 3);
 set_hitbox_value(AT_DSPECIAL, 1, HG_LIFETIME, 3);
 set_hitbox_value(AT_DSPECIAL, 1, HG_HITBOX_X, 30);
 set_hitbox_value(AT_DSPECIAL, 1, HG_HITBOX_Y, -20);
