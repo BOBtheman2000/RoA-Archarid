@@ -76,4 +76,9 @@ can_be_hit[other.player] = 10
     jump_strength_base = 10
     jump_strength_mod = 30
 
+snap_delay_time = 6 // if a tethered orb snaps, how long should it be before this one does
+
 queue_snap = false
+awaiting_snap = 0
+awaiting_snap_x = 0
+awaiting_snap_y = 0

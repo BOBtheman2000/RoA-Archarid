@@ -28,6 +28,10 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
 
     var tethered_orb = orb_data.target
 
+    if !instance_exists(tethered_orb) {
+        continue
+    }
+
     if orb_data.jumping_state_timer <= 0 {
         tether_len = point_distance(x, y, tethered_orb.x, tethered_orb.y)
         tether_dir = point_direction(x, y, tethered_orb.x, tethered_orb.y)
@@ -42,4 +46,12 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
         tether_dir = point_direction(tethered_orb.x, tethered_orb.y, orb_data.jump_midpoint_x, orb_data.jump_midpoint_y) + 2
         draw_sprite_ext(web_line_sprite, 0, tethered_orb.x, tethered_orb.y, tether_len, 1, tether_dir, tether_colour, 1)
     }
+}
+
+if awaiting_snap > 0 {
+    tether_len = point_distance(x, y, awaiting_snap_x, awaiting_snap_y)
+    tether_dir = point_direction(x, y, awaiting_snap_x, awaiting_snap_y)
+
+    var length_mod = awaiting_snap / snap_delay_time
+    draw_sprite_ext(web_line_sprite, 0, x, y, lerp(0, tether_len, length_mod), 1, tether_dir, tether_colour, 1)
 }

@@ -83,7 +83,12 @@ if instance_exists(tethered_player) {
         // print(other.tension_thresh)
 
         if other.tension_thresh > 1 && !other.tether_snap_lockout {
-            other.queue_snap = true
+            other.awaiting_snap = other.snap_delay_time
+            other.awaiting_snap_x = x
+            other.awaiting_snap_y = y
+            other.tethered_player = noone
+            barney_archarid_tethered_to_orb = false
+            sound_play(other.snap_sound, false, noone, 1, 2)
             break
         }
         
@@ -223,15 +228,24 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
     }
 }
 
+if awaiting_snap > 0 {
+    awaiting_snap--
+    if awaiting_snap <= 0 {
+        queue_snap = true
+    }
+}
+
 if queue_snap {
-    sound_play(snap_sound, false, false, 1, 2)
+    sound_play(snap_sound, false, noone, 1, 2)
     if instance_exists(tethered_player) {
         tethered_player.barney_archarid_tethered_to_orb = false
     }
     for (i=0; i < array_length_1d(tethered_orbs); i++) {
         var tethered_orb = tethered_orbs[i].target
         if instance_exists(tethered_orb) {
-            tethered_orb.queue_snap = true
+            tethered_orb.awaiting_snap = snap_delay_time
+            tethered_orb.awaiting_snap_x = x
+            tethered_orb.awaiting_snap_y = y
         }
     }
     spawn_hit_fx(x + draw_x, y + draw_y, death_vfx)
