@@ -1,16 +1,45 @@
 if attack == AT_DSPECIAL {
     
-    // create the orb
-    if !barney_archarid_tethered_to_orb {
-        barney_archarid_current_orb = instance_create(x, y, "obj_article1");
-        sound_play(web_point_spawn_sound, false, false, 1, 2)
+    if !hit_player_obj.barney_archarid_tethered_to_orb {
+
+        if !barney_archarid_tethered_to_orb {
+            hit_player_obj.barney_archarid_current_orb = instance_create(x, y, "obj_article1");
+            sound_play(web_point_spawn_sound, false, noone, 1, 2)
+        } else {
+            barney_archarid_current_orb.tether_snap_lockout = true
+            hit_player_obj.barney_archarid_current_orb = barney_archarid_current_orb
+        }
+        barney_archarid_tethered_to_orb = false
+        with (hit_player_obj) {
+            barney_archarid_tethered_to_orb = true
+            barney_archarid_current_orb.tethered_player = id
+        }
+
     } else {
-        barney_archarid_current_orb.tether_snap_lockout = true
-    }
-    barney_archarid_tethered_to_orb = false
-    barney_archarid_current_orb.tethered_player = hit_player_obj
-    with (hit_player_obj) {
-        barney_archarid_tethered_to_orb = true
+
+        if !barney_archarid_tethered_to_orb {
+
+            barney_archarid_tethered_to_orb = true
+            barney_archarid_current_orb = hit_player_obj.barney_archarid_current_orb
+            sound_play(web_point_spawn_sound, false, noone, 1, 2)
+
+            with (hit_player_obj) {
+                barney_archarid_tethered_to_orb = false
+                barney_archarid_current_orb.tethered_player = other
+                barney_archarid_current_orb.tether_snap_lockout = true
+            }
+
+        } else {
+
+            barney_archarid_tethered_to_orb = false
+            hit_player_obj.barney_archarid_tethered_to_orb = false
+            array_push(barney_archarid_current_orb.tethered_orb_queue, hit_player_obj.barney_archarid_current_orb)
+
+            barney_archarid_current_orb.tethered_player = noone
+            hit_player_obj.barney_archarid_current_orb.tethered_player = noone
+
+        }
+
     }
 }
 

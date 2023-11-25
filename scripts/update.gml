@@ -1,3 +1,12 @@
+// instantiating other variables
+with (oPlayer) {
+    if "barney_archarid_yes" not in self {
+        barney_archarid_yes = false
+        barney_archarid_tethered_to_orb = false
+        barney_archarid_current_orb = 0
+    }
+}
+
 // Wallcling/Climbing behavior
 if state == PS_WALL_JUMP {
     if state_timer == walljump_start_anim_time + 2 && walljump_extended_time > 0 {

@@ -93,7 +93,7 @@ if (attack == AT_DSPECIAL){
         }
     }
     if window == 3 {
-        if window_timer == 1 && !hitstop && has_hit == false && has_hit_player = false {
+        if window_timer == 1 && !hitstop && has_hit == false {
             if !barney_archarid_tethered_to_orb {
                 // spawn new orb, i'm now attached
                 barney_archarid_tethered_to_orb = true

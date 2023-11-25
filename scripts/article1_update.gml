@@ -14,7 +14,7 @@ for (i=0; i < array_length_1d(tethered_orb_queue); i++) {
 
         jumping_hitstun: false,
 
-        jumping_lockout: 0,
+        jumping_lockout: 10,
 
         jumping_state_timer: 0,
         jumping_state_time_max: 0,
@@ -175,6 +175,13 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
         var potential_direction = 0
 
         with (oPlayer) {
+
+            if "barney_archarid_tethered_to_orb" in self {
+                if barney_archarid_tethered_to_orb {
+                    continue
+                }
+            }
+
             var player_collision = collision_line(other.x, other.y, tethered_orb.x, tethered_orb.y, id, true, false)
             if player_collision != noone {
                 if jump_pressed {
@@ -266,6 +273,10 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
             }
         }
     }
+}
+
+if array_length_1d(tethered_orbs) > 2 {
+    queue_snap = true
 }
 
 if awaiting_snap > 0 {

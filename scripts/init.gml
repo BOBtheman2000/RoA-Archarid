@@ -123,11 +123,6 @@ barney_archarid_current_orb = 0
 
 // always true if a character is archarid
 barney_archarid_yes = true
-with (oPlayer) {
-    if "barney_archarid_yes" not in self {
-        barney_archarid_yes = false
-    }
-}
 
 web_point_spawn_sound = asset_get("sfx_may_whip2")
 
