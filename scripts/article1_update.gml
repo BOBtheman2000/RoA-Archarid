@@ -257,6 +257,8 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
                 if shield_pressed {
                     if orb_data.jumping_hitstun {
                         set_state(PS_PRATFALL)
+                        other.queue_snap = true
+                        tethered_orb.queue_snap = true
                     } else {
                         set_state(PS_IDLE_AIR)
                         clear_button_buffer(PC_SHIELD_PRESSED)
