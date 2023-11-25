@@ -20,11 +20,10 @@ snap_sound = asset_get("sfx_may_whip1")
 is_hittable = true
 disable_movement = true
 
-tether_type = 'player'
 can_be_hit[other.player] = 10
 
 // player tether relevant stuff
-    tethered_player = other
+    tethered_player = noone
 
     tether_distance_max = 120
     tether_distance_max_archarid = 300
@@ -46,23 +45,34 @@ can_be_hit[other.player] = 10
     tension_thresh = 0
 
 // orb tether relevant stuff
-    tethered_orb = noone
+    tethered_orb_queue = [] // just a list of orbs to queue up
+    tethered_orbs = []
+    // orb tethers are tracked in objects like this:
+    /* {
+        target: (some orb),
+        parent: (bool), (if true, this orb is in charge of all the logic, otherwise, the target orb is in control)
 
-    jumping_player = noone
-    jumping_state_timer = 0
-    jumping_state_time_max = 10
-    jumping_state_time_max_mod = 13 //adjustable
-    jumping_player_offset = 0
-    jumping_player_offset_max = 10
-    jumping_player_direction = 0
+        jumping_state_timer: (int)
+        jumping_state_time_max: (int)
 
-    jump_strength = 14
+        jumping_player: (some player)
+        
+        jumping_player_offset: (int)
+        jumping_player_offset_max: (int)
+
+        jumping_player_direction: (int)
+
+        jump_strength: (int)
+
+        jump_pull_sound: (some sound)
+
+        jump_midpoint_x: (int)
+        jump_midpoint_y: (int)
+    } */
+
+    jumping_state_time_max_mod = 13
+
     jump_strength_base = 10
     jump_strength_mod = 30
-
-    jump_pull_sound = 0
-
-    jump_midpoint_x = 0
-    jump_midpoint_y = 0
 
 queue_snap = false

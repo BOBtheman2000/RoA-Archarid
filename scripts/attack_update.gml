@@ -98,15 +98,14 @@ if (attack == AT_DSPECIAL){
                 // spawn new orb, i'm now attached
                 barney_archarid_tethered_to_orb = true
                 barney_archarid_current_orb = instance_create(x, y, "obj_article1")
+                barney_archarid_current_orb.tethered_player = id
                 sound_play(web_point_spawn_sound, false, false, 1, 2)
             } else {
                 // reattach existing orb to new one
                 barney_archarid_tethered_to_orb = false
                 var new_orb = instance_create(x, y, "obj_article1")
-                barney_archarid_current_orb.tether_type = 'none'
-                barney_archarid_current_orb.tethered_orb = new_orb
-                new_orb.tether_type = 'orb'
-                new_orb.tethered_orb = barney_archarid_current_orb
+                barney_archarid_current_orb.tethered_player = noone
+                array_push(barney_archarid_current_orb.tethered_orb_queue, new_orb)
                 sound_play(web_point_spawn_sound, false, noone, 1, 2)
             }
         }
