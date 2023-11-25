@@ -1,7 +1,32 @@
 lifetime++
 
-if get_gameplay_time() % 4 == 0 {
-    real_image_index = (real_image_index + 1) % 4
+var spritesheet_length = 4
+var animation_time = 4
+var animation_timer = get_gameplay_time()
+
+if doing_blink {
+    blink_timer++
+    if blink_timer >= blink_animation_time {
+        blink_timer = 60 + random_func(19, 240, true)
+        doing_blink = false
+        real_sprite_index = sprite_idle
+        real_image_index = 0
+    } else {
+        animation_timer = blink_timer
+        animation_time = ceil(blink_animation_time / 6)
+        spritesheet_length = 6
+    }
+} else {
+    blink_timer--
+    if blink_timer <= 0 {
+        doing_blink = true
+        real_sprite_index = sprite_blink
+        real_image_index = 0
+    }
+}
+
+if animation_timer % animation_time == 0 {
+    real_image_index = (real_image_index + 1) % spritesheet_length
 }
 
 tether_list = []

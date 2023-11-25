@@ -1,10 +1,18 @@
 // I'm a web point! I lock players in place
 
-sprite_index = asset_get("empty_sprite")//sprite_get("web_point_idle")
-mask_index = sprite_get("web_point_idle")
-real_sprite_index = sprite_get("web_point_idle")
+sprite_idle = sprite_get("web_point_idle")
+sprite_blink = sprite_get("web_point_blink")
+sprite_hurt = sprite_get("web_point_hurt")
+
+sprite_index = asset_get("empty_sprite")
+mask_index = sprite_idle
+real_sprite_index = sprite_idle
 back_sprite = sprite_get("web_point_back")
 web_line_sprite = sprite_get("web_line")
+
+blink_timer = 60 + random_func(19, 120, true)
+doing_blink = false
+blink_animation_time = 30
 
 real_image_index = 0
 
