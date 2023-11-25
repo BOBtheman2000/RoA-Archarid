@@ -234,5 +234,6 @@ if queue_snap {
             tethered_orb.queue_snap = true
         }
     }
+    spawn_hit_fx(x + draw_x, y + draw_y, death_vfx)
     instance_destroy()
 }

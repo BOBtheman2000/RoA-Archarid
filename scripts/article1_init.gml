@@ -11,6 +11,7 @@ real_image_index = 0
 lifetime = 0
 
 snap_sound = asset_get("sfx_may_whip1")
+death_vfx = hit_fx_create(sprite_get("web_point_death"), 12)
 
 // drawing relevant stuff
     draw_x = 0
