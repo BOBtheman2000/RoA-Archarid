@@ -106,6 +106,9 @@ if (attack == AT_DSPECIAL){
                 var new_orb = instance_create(x, y, "obj_article1")
                 barney_archarid_current_orb.tethered_player = noone
 
+                // cooldown ONLY happens if we leave dspecial untethered
+                move_cooldown[AT_DSPECIAL] = 2
+
                 // we should always be assigning the parent role to the newest orb so draw order doesn't get muddled
                 array_push(new_orb.tethered_orb_queue, barney_archarid_current_orb)
                 sound_play(web_point_spawn_sound, false, noone, 1, 2)

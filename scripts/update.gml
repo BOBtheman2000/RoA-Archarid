@@ -7,6 +7,13 @@ with (oPlayer) {
     }
 }
 
+// dspecial cooldown behavior
+if !free {
+    move_cooldown[AT_DSPECIAL] = 0
+} else {
+    move_cooldown[AT_DSPECIAL] = move_cooldown[AT_DSPECIAL] + 1
+}
+
 // Wallcling/Climbing behavior
 if state == PS_WALL_JUMP {
     if state_timer == walljump_start_anim_time + 2 && walljump_extended_time > 0 {
