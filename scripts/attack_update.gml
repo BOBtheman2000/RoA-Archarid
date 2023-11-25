@@ -73,6 +73,8 @@ if (attack == AT_FSPECIAL) {
         fspecial_target_player = noone
     }
     if window == 2 {
+        move_cooldown[AT_FSPECIAL] = 30
+
         var fspec_hitbox = noone
         with (pHitBox) {
             if player_id == other && attack == AT_FSPECIAL {
@@ -95,6 +97,14 @@ if (attack == AT_FSPECIAL) {
                     create_hitbox(AT_FSPECIAL, 2, fspecial_target_player.x, fspecial_target_player.y)
                     window++
                     window_timer = 0
+                }
+            } else {
+                with (fspecial_target_player) {
+                    hsp = 0
+                    vsp = 0
+                    x = lerp(x, lerp(other.fspecial_target_x, other.x, 0.5), 0.6)
+                    y = lerp(x, lerp(other.fspecial_target_y, other.y, 0.5), 0.6)
+                    barney_archarid_current_orb.tether_snap_lockout = true
                 }
             }
         } else {

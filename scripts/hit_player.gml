@@ -1,6 +1,25 @@
 if attack == AT_FSPECIAL {
     fspecial_found_target = true
     fspecial_target_player = hit_player_obj
+
+    if barney_archarid_tethered_to_orb {
+        if !hit_player_obj.barney_archarid_tethered_to_orb {
+            barney_archarid_current_orb.tether_snap_lockout = true
+            hit_player_obj.barney_archarid_current_orb = barney_archarid_current_orb
+            barney_archarid_tethered_to_orb = false
+            with (hit_player_obj) {
+                barney_archarid_tethered_to_orb = true
+                barney_archarid_current_orb.tethered_player = id
+            }
+        } else {
+            barney_archarid_tethered_to_orb = false
+            hit_player_obj.barney_archarid_tethered_to_orb = false
+            array_push(barney_archarid_current_orb.tethered_orb_queue, hit_player_obj.barney_archarid_current_orb)
+
+            barney_archarid_current_orb.tethered_player = noone
+            hit_player_obj.barney_archarid_current_orb.tethered_player = noone
+        }
+    }
 }
 
 

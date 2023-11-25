@@ -14,7 +14,7 @@ if instance_exists(tethered_player) {
 
     tether_colour = make_colour_rgb(255, tension_colour, tension_colour)
 
-    draw_sprite_ext(web_line_sprite, 0, x, y, tether_len, 1, tether_dir, tether_colour, 1)
+    draw_sprite_ext(web_line_sprite, 1, x, y, tether_len, 1, tether_dir, tether_colour, 1)
 }
 
 for (i=0; i < array_length_1d(tethered_orbs); i++) {
@@ -36,15 +36,15 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
         tether_len = point_distance(x, y, tethered_orb.x, tethered_orb.y)
         tether_dir = point_direction(x, y, tethered_orb.x, tethered_orb.y)
 
-        draw_sprite_ext(web_line_sprite, 0, x, y, tether_len, 1, tether_dir, tether_colour, 1)
+        draw_sprite_ext(web_line_sprite, 1, x, y, tether_len, 1, tether_dir, tether_colour, 1)
     } else {
         tether_len = point_distance(x, y, orb_data.jump_midpoint_x, orb_data.jump_midpoint_y)
         tether_dir = point_direction(x, y, orb_data.jump_midpoint_x, orb_data.jump_midpoint_y) + 2
-        draw_sprite_ext(web_line_sprite, 0, x, y, tether_len, 1, tether_dir, tether_colour, 1)
+        draw_sprite_ext(web_line_sprite, 1, x, y, tether_len, 1, tether_dir, tether_colour, 1)
 
         tether_len = point_distance(tethered_orb.x, tethered_orb.y, orb_data.jump_midpoint_x, orb_data.jump_midpoint_y)
         tether_dir = point_direction(tethered_orb.x, tethered_orb.y, orb_data.jump_midpoint_x, orb_data.jump_midpoint_y) + 2
-        draw_sprite_ext(web_line_sprite, 0, tethered_orb.x, tethered_orb.y, tether_len, 1, tether_dir, tether_colour, 1)
+        draw_sprite_ext(web_line_sprite, 1, tethered_orb.x, tethered_orb.y, tether_len, 1, tether_dir, tether_colour, 1)
     }
 }
 
@@ -53,5 +53,5 @@ if awaiting_snap > 0 {
     tether_dir = point_direction(x, y, awaiting_snap_x, awaiting_snap_y)
 
     var length_mod = awaiting_snap / snap_delay_time
-    draw_sprite_ext(web_line_sprite, 0, x, y, lerp(0, tether_len, length_mod), 1, tether_dir, tether_colour, 1)
+    draw_sprite_ext(web_line_sprite, 1, x, y, lerp(0, tether_len, length_mod), 1, tether_dir, tether_colour, 1)
 }

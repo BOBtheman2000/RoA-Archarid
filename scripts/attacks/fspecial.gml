@@ -24,10 +24,12 @@ set_window_value(AT_FSPECIAL, 2, AG_WINDOW_HSPEED_TYPE, 1);
 set_window_value(AT_FSPECIAL, 2, AG_WINDOW_VSPEED_TYPE, 1);
 
 // endlag
-set_window_value(AT_FSPECIAL, 3, AG_WINDOW_TYPE, 1);
+set_window_value(AT_FSPECIAL, 3, AG_WINDOW_TYPE, 7);
 set_window_value(AT_FSPECIAL, 3, AG_WINDOW_LENGTH, 16);
 set_window_value(AT_FSPECIAL, 3, AG_WINDOW_ANIM_FRAMES, 1);
 set_window_value(AT_FSPECIAL, 3, AG_WINDOW_ANIM_FRAME_START, 1);
+set_window_value(AT_FSPECIAL, 3, AG_WINDOW_HSPEED_TYPE, 1);
+set_window_value(AT_FSPECIAL, 3, AG_WINDOW_VSPEED_TYPE, 1);
 
 // awaiting pull
 set_window_value(AT_FSPECIAL, 4, AG_WINDOW_TYPE, 1);
@@ -39,7 +41,7 @@ set_window_value(AT_FSPECIAL, 4, AG_WINDOW_VSPEED_TYPE, 1);
 
 // pulling back
 set_window_value(AT_FSPECIAL, 5, AG_WINDOW_TYPE, 1);
-set_window_value(AT_FSPECIAL, 5, AG_WINDOW_LENGTH, 4);
+set_window_value(AT_FSPECIAL, 5, AG_WINDOW_LENGTH, 8);
 set_window_value(AT_FSPECIAL, 5, AG_WINDOW_ANIM_FRAMES, 1);
 set_window_value(AT_FSPECIAL, 5, AG_WINDOW_ANIM_FRAME_START, 1);
 
@@ -74,6 +76,7 @@ set_hitbox_value(AT_FSPECIAL, 1, HG_KNOCKBACK_SCALING, 0);
 set_hitbox_value(AT_FSPECIAL, 1, HG_EFFECT, 6);
 set_hitbox_value(AT_FSPECIAL, 1, HG_BASE_HITPAUSE, 30);
 set_hitbox_value(AT_FSPECIAL, 1, HG_IGNORES_PROJECTILES, 1);
+set_hitbox_value(AT_FSPECIAL, 1, HG_EXTENDED_PARRY_STUN, true);
 
 set_hitbox_value(AT_FSPECIAL, 1, HG_PROJECTILE_SPRITE, asset_get("empty_sprite"));
 set_hitbox_value(AT_FSPECIAL, 1, HG_PROJECTILE_MASK, -1);
@@ -81,6 +84,8 @@ set_hitbox_value(AT_FSPECIAL, 1, HG_PROJECTILE_COLLISION_SPRITE, 0);
 set_hitbox_value(AT_FSPECIAL, 1, HG_PROJECTILE_HSPEED, 20);
 set_hitbox_value(AT_FSPECIAL, 1, HG_PROJECTILE_WALL_BEHAVIOR, 1);
 set_hitbox_value(AT_FSPECIAL, 1, HG_PROJECTILE_GROUND_BEHAVIOR, 1);
+set_hitbox_value(AT_FSPECIAL, 1, HG_PROJECTILE_PARRY_STUN, true);
+set_hitbox_value(AT_FSPECIAL, 1, HG_PROJECTILE_DOES_NOT_REFLECT, true);
 
 set_hitbox_value(AT_FSPECIAL, 2, HG_PARENT_HITBOX, 2);
 set_hitbox_value(AT_FSPECIAL, 2, HG_HITBOX_TYPE, 2);

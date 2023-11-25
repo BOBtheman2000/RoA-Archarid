@@ -21,67 +21,49 @@ if state == PS_WALL_TECH {
 }
 
 // fspecial lines
+
+var draw_hbox_lines = false
+
 with (pHitBox) {
     if player_id == other && attack == AT_FSPECIAL && hbox_num = 1 {
+        draw_hbox_lines = true
         for (i=-1; i <= 1; i++) {
             var y_offset = i * 12
             var draw_len = point_distance(other.x + x_pos, other.y + y_pos, x, y)
             var draw_rot = point_direction(other.x + x_pos, other.y + y_pos, x, y + y_offset)
-            draw_sprite_ext(player_id.web_line_sprite, 0, other.x + x_pos, other.y + y_pos, draw_len, 1, draw_rot, c_white, 1)
+            draw_sprite_ext(player_id.web_line_sprite, 1, other.x + x_pos, other.y + y_pos, draw_len, 1, draw_rot, c_white, 1)
         }
     }
 }
 
-if attack == AT_FSPECIAL {
+if (state == PS_ATTACK_GROUND || state == PS_ATTACK_AIR) && attack == AT_FSPECIAL {
+    if window > 1 && !draw_hbox_lines {
 
-    if window == 3 {
         var x_player_offset = get_hitbox_value(AT_FSPECIAL, 1, HG_HITBOX_X)
         var y_player_offset = get_hitbox_value(AT_FSPECIAL, 1, HG_HITBOX_Y)
+
+        var target_x = fspecial_target_x
+        var target_y = fspecial_target_y
+
+        if instance_exists(fspecial_target_player) {
+            target_x = fspecial_target_player.x
+            target_y = fspecial_target_player.y + y_player_offset
+        }
 
         var calc_x_pos = x + (x_player_offset * spr_dir)
 
         for (i=-1; i <= 1; i++) {
             var y_offset = i * 12
-            var draw_len = point_distance(calc_x_pos, y + y_player_offset, fspecial_target_x, fspecial_target_y)
-            var draw_rot = point_direction(calc_x_pos, y + y_player_offset, fspecial_target_x, fspecial_target_y + y_player_offset + y_offset)
+            var draw_len = point_distance(calc_x_pos, y + y_player_offset, target_x, target_y)
+            var draw_rot = point_direction(calc_x_pos, y + y_player_offset, target_x, target_y + y_offset)
 
-            draw_len *= 1 - (window_timer / get_window_value(AT_FSPECIAL, 3, AG_WINDOW_LENGTH))
-
-            draw_sprite_ext(web_line_sprite, 0, calc_x_pos, y + y_player_offset, draw_len, 1, draw_rot, c_white, 1)
-        }
-    } else if window >= 2 {
-
-        if instance_exists(fspecial_target_player) {
-            var x_player_offset = get_hitbox_value(AT_FSPECIAL, 1, HG_HITBOX_X)
-            var y_player_offset = get_hitbox_value(AT_FSPECIAL, 1, HG_HITBOX_Y)
-
-            var calc_x_pos = x + (x_player_offset * spr_dir)
-
-            for (i=-1; i <= 1; i++) {
-                var y_offset = i * 12
-                var draw_len = point_distance(calc_x_pos, y + y_player_offset, fspecial_target_player.x, fspecial_target_player.y)
-                var draw_rot = point_direction(calc_x_pos, y + y_player_offset, fspecial_target_player.x, fspecial_target_player.y + y_player_offset + y_offset)
-
-                if window == 5 {
-                    draw_len *= 1 - (window_timer / get_window_value(AT_FSPECIAL, 5, AG_WINDOW_LENGTH))
-                }
-
-                draw_sprite_ext(web_line_sprite, 0, calc_x_pos, y + y_player_offset, draw_len, 1, draw_rot, c_white, 1)
+            if window == 3 {
+                draw_len *= 1 - (window_timer / get_window_value(AT_FSPECIAL, 3, AG_WINDOW_LENGTH))
+            } else if window == 5 {
+                draw_len *= 1 - (window_timer / get_window_value(AT_FSPECIAL, 5, AG_WINDOW_LENGTH))
             }
-        } else if window == 4 {
-            var x_player_offset = get_hitbox_value(AT_FSPECIAL, 1, HG_HITBOX_X)
-            var y_player_offset = get_hitbox_value(AT_FSPECIAL, 1, HG_HITBOX_Y)
 
-            var calc_x_pos = x + (x_player_offset * spr_dir)
-
-            for (i=-1; i <= 1; i++) {
-                var y_offset = i * 12
-                var draw_len = point_distance(calc_x_pos, y + y_player_offset, fspecial_target_x, fspecial_target_y)
-                var draw_rot = point_direction(calc_x_pos, y + y_player_offset, fspecial_target_x, fspecial_target_y + y_player_offset + y_offset)
-
-                draw_sprite_ext(web_line_sprite, 0, calc_x_pos, y + y_player_offset, draw_len, 1, draw_rot, c_white, 1)
-            }
+            draw_sprite_ext(web_line_sprite, 1, calc_x_pos, y + y_player_offset, draw_len, 1, draw_rot, c_white, 1)
         }
-
     }
 }
