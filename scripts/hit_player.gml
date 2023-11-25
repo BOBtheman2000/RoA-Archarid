@@ -1,3 +1,9 @@
+if attack == AT_FSPECIAL {
+    fspecial_found_target = true
+    fspecial_target_player = hit_player_obj
+}
+
+
 if attack == AT_DSPECIAL {
     
     if !hit_player_obj.barney_archarid_tethered_to_orb {

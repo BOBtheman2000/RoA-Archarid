@@ -26,18 +26,6 @@ if (attack == AT_NSPECIAL){
 }
 
 // sandbert
-if (attack == AT_FSPECIAL){
-    if (window == 2){
-        if (special_pressed){
-            window = 3;
-            window_timer = 0;
-            destroy_hitboxes();
-        }
-    }
-    can_fast_fall = false;
-}
-
-// sandbert
 if (attack == AT_USPECIAL){
     if (window == 1 && window_timer == 1){
         times_through = 0;
@@ -78,8 +66,51 @@ if (attack == AT_USPECIAL){
     }
 }
 
+// Side special
+if (attack == AT_FSPECIAL) {
+    if window == 1 {
+        fspecial_found_target = false
+        fspecial_target_player = noone
+    }
+    if window == 2 {
+        var fspec_hitbox = noone
+        with (pHitBox) {
+            if player_id == other && attack == AT_FSPECIAL {
+                fspec_hitbox = id
+            }
+        }
+        if !instance_exists(fspec_hitbox) {
+            if fspecial_found_target {
+                window = 4
+            } else {
+                window++
+            }
+            window_timer = 0
+        }
+    }
+    if window == 4 {
+        if instance_exists(fspecial_target_player) {
+            if !fspecial_target_player.barney_archarid_tethered_to_orb {
+                if window_timer == get_window_value(AT_FSPECIAL, 4, AG_WINDOW_LENGTH) - 1 {
+                    create_hitbox(AT_FSPECIAL, 2, fspecial_target_player.x, fspecial_target_player.y)
+                    window++
+                    window_timer = 0
+                }
+            }
+        } else {
+            if window_timer == get_window_value(AT_FSPECIAL, 4, AG_WINDOW_LENGTH) - 1 {
+                hsp = sign(fspecial_target_x - x) * 12
+                vsp = -4
+                sound_play(web_line_snap_sound, false, noone, 1, 1.6)
+                attack_end()
+                set_state(PS_IDLE_AIR)
+            }
+        }
+    }
+}
+
 // Down special
-if (attack == AT_DSPECIAL){
+if (attack == AT_DSPECIAL) {
     if window == 1 {
         if window_timer == 16 && (special_down && free) {
             window_timer--

@@ -117,6 +117,14 @@ walljump_leave_time = 0;
 walljump_extended_time_default = 600;
 walljump_extended_time = walljump_extended_time_default;
 
+fspecial_found_target = false
+fspecial_target_player = noone
+fspecial_target_x = 0
+fspecial_target_y = 0
+
+web_line_sprite = sprite_get("web_line")
+web_line_snap_sound = asset_get("sfx_may_whip1")
+
 // it's like this so it remains consistent with other players
 barney_archarid_tethered_to_orb = false
 barney_archarid_current_orb = 0
