@@ -53,6 +53,10 @@ can_be_hit[other.player] = 10
         target: (some orb),
         parent: (bool), (if true, this orb is in charge of all the logic, otherwise, the target orb is in control)
 
+        jumping_hitstun: (bool)
+
+        jumping_lockout: (int)
+
         jumping_state_timer: (int)
         jumping_state_time_max: (int)
 

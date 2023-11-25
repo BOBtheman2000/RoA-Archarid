@@ -9,8 +9,12 @@ tether_list = []
 for (i=0; i < array_length_1d(tethered_orb_queue); i++) {
     var new_orb = tethered_orb_queue[i]
     array_push(tethered_orbs, {
-        target:new_orb,
-        parent:true,
+        target: new_orb,
+        parent: true,
+
+        jumping_hitstun: false,
+
+        jumping_lockout: 0,
 
         jumping_state_timer: 0,
         jumping_state_time_max: 0,
@@ -162,18 +166,42 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
 
     if orb_data.jumping_state_timer <= 0 {
         orb_data.jumping_player = noone
+
+        if orb_data.jumping_lockout > 0 {
+            orb_data.jumping_lockout--
+            continue
+        }
+
+        var potential_direction = 0
+
         with (oPlayer) {
             var player_collision = collision_line(other.x, other.y, tethered_orb.x, tethered_orb.y, id, true, false)
-            if player_collision != noone && jump_pressed {
-                if (state == PS_JUMPSQUAT || state == PS_FIRST_JUMP || state == PS_DOUBLE_JUMP || state == PS_WALL_JUMP || state == PS_IDLE_AIR) {
+            if player_collision != noone {
+                if jump_pressed {
+                    if (state == PS_JUMPSQUAT || state == PS_FIRST_JUMP || state == PS_DOUBLE_JUMP || state == PS_WALL_JUMP || state == PS_IDLE_AIR) {
+                        hsp = 0
+                        vsp = 0
+                        set_state(PS_IDLE_AIR)
+                        clear_button_buffer(PC_JUMP_PRESSED)
+                        orb_data.jumping_player = id
+                        orb_data.jumping_hitstun = false
+
+                        // bias towards up, unless we really wanna go downward
+                        potential_direction = 90
+                        if down_down {
+                            potential_direction = joy_dir
+                        }
+
+                        // you look sad. have your double jump back :)
+                        djumps = min(djumps, max_djumps - 1)
+                    }
+                }
+                if state == PS_HITSTUN {
+                    orb_data.jumping_player = id
+                    potential_direction = point_direction(0, 0, hsp, vsp) + 180
                     hsp = 0
                     vsp = 0
-                    set_state(PS_IDLE_AIR)
-                    clear_button_buffer(PC_JUMP_PRESSED)
-                    orb_data.jumping_player = id
-
-                    // you look sad. have your double jump back :)
-                    djumps = min(djumps, max_djumps - 1)
+                    orb_data.jumping_hitstun = true
                 }
             }
         }
@@ -184,12 +212,7 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
             orb_data.jump_midpoint_y = lerp(y, tethered_orb.y, 0.5)
 
             // calculate jump direction
-            var potential_direction = jumping_player.joy_dir
             var tether_direction = point_direction(x, y, tethered_orb.x, tethered_orb.y)
-            if jumping_player.joy_pad_idle {
-                // bias towards up
-                potential_direction = 90
-            }
             orb_data.jumping_player_direction = tether_direction - 90
             if abs(angle_difference(
                 potential_direction, tether_direction + 90
@@ -215,12 +238,29 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
         orb_data.jump_midpoint_x = lerp(x, tethered_orb.x, 0.5) + lengthdir_x(orb_data.jumping_player_offset, -orb_data.jumping_player_direction)
         orb_data.jump_midpoint_y = lerp(y, tethered_orb.y, 0.5) + lengthdir_y(orb_data.jumping_player_offset, -orb_data.jumping_player_direction)
         with (orb_data.jumping_player) {
+            if orb_data.jumping_hitstun {
+                hitstun = hitstun_full
+            }
             x = lerp(x, orb_data.jump_midpoint_x, 0.6)
             y = lerp(y, orb_data.jump_midpoint_y, 0.6)
             if orb_data.jumping_state_timer <= 0 || shield_pressed {
+                orb_data.jumping_lockout = 10
                 orb_data.jumping_state_timer = 0
-                hsp = lengthdir_x(orb_data.jump_strength, orb_data.jumping_player_direction)
-                vsp = lengthdir_y(orb_data.jump_strength, orb_data.jumping_player_direction)
+
+                if shield_pressed {
+                    if orb_data.jumping_hitstun {
+                        set_state(PS_PRATFALL)
+                    } else {
+                        set_state(PS_IDLE_AIR)
+                        clear_button_buffer(PC_SHIELD_PRESSED)
+                    }
+                    hsp = 0
+                    vsp = 0
+                } else {
+                    hsp = lengthdir_x(orb_data.jump_strength, orb_data.jumping_player_direction)
+                    vsp = lengthdir_y(orb_data.jump_strength, orb_data.jumping_player_direction)
+                }
+
                 sound_stop(orb_data.jump_pull_sound)
                 sound_play(asset_get("sfx_leafy_hit1"), false, noone, 1, 1.4)
             }
