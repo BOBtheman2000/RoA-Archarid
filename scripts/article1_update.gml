@@ -285,7 +285,7 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
                         other.queue_snap = true
                         tethered_orb.queue_snap = true
                     } else {
-                        set_state(PS_IDLE_AIR)
+                        set_state(PS_DOUBLE_JUMP)
                         clear_button_buffer(PC_SHIELD_PRESSED)
                     }
                     hsp = 0
