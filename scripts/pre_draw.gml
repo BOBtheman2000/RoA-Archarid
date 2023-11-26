@@ -1,3 +1,5 @@
+shader_start()
+
 if state == PS_WALL_JUMP {
     if clinging {
         if abs(wall_climbing) == 1 {
@@ -67,3 +69,5 @@ if (state == PS_ATTACK_GROUND || state == PS_ATTACK_AIR) && attack == AT_FSPECIA
         }
     }
 }
+
+shader_end()
