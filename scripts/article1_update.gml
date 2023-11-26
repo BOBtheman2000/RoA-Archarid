@@ -352,10 +352,6 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
 
                     spr_dir = sign(lengthdir_x(1, orb_data.jumping_player_direction))
 
-                    print(lengthdir_x(1, orb_data.jumping_player_direction))
-                    print(orb_data.jumping_player_direction)
-                    print(spr_dir)
-
                     draw_xscale = spr_dir
 
                     kb_angle = orb_data.jumping_player_direction
