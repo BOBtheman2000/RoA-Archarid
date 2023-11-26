@@ -294,8 +294,11 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
         orb_data.jump_pull_sound = sound_play(asset_get("sfx_may_wrap1"), false, noone, 1, 1.6 - (orb_data.jumping_state_timer / 10))
         orb_data.jumping_state_timer = max(orb_data.jumping_state_timer - 1, 0)
         orb_data.jumping_player_offset = lerp(orb_data.jumping_player_offset, orb_data.jumping_player_offset_max, 0.5)
-        orb_data.jump_midpoint_x = lerp(x, tethered_orb.x, 0.5) + lengthdir_x(orb_data.jumping_player_offset, -orb_data.jumping_player_direction)
-        orb_data.jump_midpoint_y = lerp(y, tethered_orb.y, 0.5) + lengthdir_y(orb_data.jumping_player_offset, -orb_data.jumping_player_direction)
+
+        var pull_direction = orb_data.jumping_player_direction - 180
+
+        orb_data.jump_midpoint_x = lerp(x, tethered_orb.x, 0.5) + lengthdir_x(orb_data.jumping_player_offset, pull_direction)
+        orb_data.jump_midpoint_y = lerp(y, tethered_orb.y, 0.5) + lengthdir_y(orb_data.jumping_player_offset, pull_direction)
 
         if orb_data.jumping_type == 'player' {
 
@@ -346,15 +349,27 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
 
                     hsp = lengthdir_x(player_id.nspecial_speed_fast, orb_data.jumping_player_direction)
                     vsp = lengthdir_y(player_id.nspecial_speed_fast, orb_data.jumping_player_direction)
-                    
+
+                    spr_dir = sign(lengthdir_x(1, orb_data.jumping_player_direction))
+
+                    print(lengthdir_x(1, orb_data.jumping_player_direction))
+                    print(orb_data.jumping_player_direction)
+                    print(spr_dir)
+
+                    draw_xscale = spr_dir
+
                     kb_angle = orb_data.jumping_player_direction
 
+                    damage = player_id.nspecial_damage_fast
                     kb_value = player_id.nspecial_kb_fast
                     kb_scale = player_id.nspecial_kb_scaling_fast
                     hitpause = player_id.nspecial_hitpause_fast
                     hitpause_growth = player_id.nspecial_hitpause_scaling_fast
 
                     proj_angle = orb_data.jumping_player_direction
+                    if spr_dir = -1 && orb_data.jumping_player_direction > 90 {
+                        proj_angle = proj_angle - 180
+                    }
 
                     sound_stop(orb_data.jump_pull_sound)
                     sound_play(asset_get("sfx_leafy_hit1"), false, noone, 1, 1.4)

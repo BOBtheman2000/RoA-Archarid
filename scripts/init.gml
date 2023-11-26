@@ -122,7 +122,7 @@ walljump_extended_time = walljump_extended_time_default;
 
 nspecial_sprite_fast = sprite_get("nspecial_proj_fast")
 nspecial_speed_fast = 40
-nspecial_damage_fast = 40
+nspecial_damage_fast = 6
 nspecial_kb_fast = 6
 nspecial_kb_scaling_fast = 0.8
 nspecial_hitpause_fast = 8
