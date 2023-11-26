@@ -79,6 +79,11 @@ if instance_exists(tethered_player) {
 
     with(tethered_player) {
 
+        if (state == PS_DEAD || state == PS_RESPAWN) {
+            other.queue_snap = true
+            break
+        }
+
         var tether_max = other.tether_distance_max
 
         if barney_archarid_yes && (state == PS_ATTACK_AIR || state == PS_ATTACK_GROUND) && attack == AT_DSPECIAL {
