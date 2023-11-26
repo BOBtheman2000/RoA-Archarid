@@ -102,6 +102,7 @@ set_hitbox_value(AT_FSPECIAL, 2, HG_ANGLE_FLIPPER, 7);
 set_hitbox_value(AT_FSPECIAL, 2, HG_BASE_KNOCKBACK, 8);
 set_hitbox_value(AT_FSPECIAL, 2, HG_KNOCKBACK_SCALING, 0);
 set_hitbox_value(AT_FSPECIAL, 2, HG_EFFECT, 6);
+set_hitbox_value(AT_FSPECIAL, 2, HG_VISUAL_EFFECT, web_hit_vfx_small);
 set_hitbox_value(AT_FSPECIAL, 2, HG_BASE_HITPAUSE, 5);
 set_hitbox_value(AT_FSPECIAL, 2, HG_IGNORES_PROJECTILES, 1);
 

@@ -104,6 +104,7 @@ set_hitbox_value(AT_USTRONG, 1, HG_BASE_KNOCKBACK, 8);
 set_hitbox_value(AT_USTRONG, 1, HG_KNOCKBACK_SCALING, 0);
 set_hitbox_value(AT_USTRONG, 1, HG_BASE_HITPAUSE, 8);
 set_hitbox_value(AT_USTRONG, 1, HG_HITPAUSE_SCALING, 0);
+set_hitbox_value(AT_USTRONG, 1, HG_VISUAL_EFFECT, web_hit_vfx_small);
 set_hitbox_value(AT_USTRONG, 1, HG_VISUAL_EFFECT_Y_OFFSET, 0);
 
 // propup (low)
@@ -123,6 +124,7 @@ set_hitbox_value(AT_USTRONG, 2, HG_BASE_KNOCKBACK, 9);
 set_hitbox_value(AT_USTRONG, 2, HG_KNOCKBACK_SCALING, 0);
 set_hitbox_value(AT_USTRONG, 2, HG_BASE_HITPAUSE, 8);
 set_hitbox_value(AT_USTRONG, 2, HG_HITPAUSE_SCALING, 0);
+set_hitbox_value(AT_USTRONG, 2, HG_VISUAL_EFFECT, web_hit_vfx_small);
 set_hitbox_value(AT_USTRONG, 2, HG_VISUAL_EFFECT_Y_OFFSET, 0);
 
 // sour
@@ -142,6 +144,7 @@ set_hitbox_value(AT_USTRONG, 3, HG_BASE_KNOCKBACK, 8);
 set_hitbox_value(AT_USTRONG, 3, HG_KNOCKBACK_SCALING, 0.9);
 set_hitbox_value(AT_USTRONG, 3, HG_BASE_HITPAUSE, 8);
 set_hitbox_value(AT_USTRONG, 3, HG_HITPAUSE_SCALING, 0);
+set_hitbox_value(AT_USTRONG, 3, HG_VISUAL_EFFECT, web_hit_vfx_small);
 set_hitbox_value(AT_USTRONG, 3, HG_VISUAL_EFFECT_Y_OFFSET, 0);
 
 // sweet
