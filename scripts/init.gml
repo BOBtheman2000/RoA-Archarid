@@ -120,6 +120,7 @@ walljump_leave_time = 0;
 walljump_extended_time_default = 600;
 walljump_extended_time = walljump_extended_time_default;
 
+nspecial_sprite = sprite_get("nspecial_proj")
 nspecial_sprite_fast = sprite_get("nspecial_proj_fast")
 nspecial_speed_fast = 40
 nspecial_damage_fast = 6

@@ -244,13 +244,13 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
 
         with (pHitBox) {
             if "barney_archarid_yes" not in player_id {
-                break
+                continue
             }
             if !player_id.barney_archarid_yes {
-                break
+                continue
             }
             if attack != AT_NSPECIAL {
-                break
+                continue
             }
 
             var proj_collision = collision_line(other.x, other.y, tethered_orb.x, tethered_orb.y, id, true, false)
@@ -260,6 +260,7 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
                 hsp = 0
                 vsp = 0
                 orb_data.jumping_type = 'proj'
+                sprite_index = player_id.nspecial_sprite
             }
         }
 
