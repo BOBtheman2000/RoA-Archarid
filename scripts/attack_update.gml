@@ -104,14 +104,14 @@ if (attack == AT_FSPECIAL) {
                     hsp = 0
                     vsp = 0
                     x = lerp(x, lerp(other.fspecial_target_x, other.x, 0.5), 0.6)
-                    y = lerp(x, lerp(other.fspecial_target_y, other.y, 0.5), 0.6)
+                    y = lerp(y, lerp(other.fspecial_target_y, other.y, 0.5), 0.6)
                     barney_archarid_current_orb.tether_snap_lockout = true
                 }
             }
         } else {
             if window_timer == get_window_value(AT_FSPECIAL, 4, AG_WINDOW_LENGTH) - 1 {
                 hsp = sign(fspecial_target_x - x) * 12
-                vsp = -4
+                vsp = -6
                 sound_play(web_line_snap_sound, false, noone, 1, 1.6)
                 attack_end()
                 set_state(PS_IDLE_AIR)

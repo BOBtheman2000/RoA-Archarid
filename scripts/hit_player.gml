@@ -2,6 +2,9 @@ if attack == AT_FSPECIAL {
     fspecial_found_target = true
     fspecial_target_player = hit_player_obj
 
+    fspecial_target_x = hit_player_obj.x
+    fspecial_target_y = hit_player_obj.y
+
     if barney_archarid_tethered_to_orb {
         if !hit_player_obj.barney_archarid_tethered_to_orb {
             barney_archarid_current_orb.tether_snap_lockout = true
