@@ -15,6 +15,12 @@ if (attack == AT_JAB) {
     }
 }
 
+if (attack == AT_BAIR) {
+    if (window == 3) {
+        prep_flip = true
+    }
+}
+
 // sandbert
 if (attack == AT_NSPECIAL){
     if (window == 3){

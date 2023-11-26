@@ -100,6 +100,9 @@ air_dodge_sound = asset_get("sfx_quick_dodge");
 bubble_x = -4;
 bubble_y = -2;
 
+// variable for flipping out of bair
+prep_flip = false
+
 // ehehehe
 can_wall_cling = true;
 

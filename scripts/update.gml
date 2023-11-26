@@ -7,6 +7,22 @@ with (oPlayer) {
     }
 }
 
+// bair flip behaviour
+if prep_flip && ((attack != AT_BAIR || (state != PS_ATTACK_AIR && state != PS_ATTACK_GROUND)) || (window < 3)) {
+    spr_dir = -spr_dir
+    // correcting the position cause my animation was bad whoopsie!!!
+    x += 16 * spr_dir
+    prep_flip = false
+
+    if (state == PS_ATTACK_AIR || state == PS_ATTACK_GROUND) {
+        if attack == AT_FAIR {
+            set_attack(AT_BAIR)
+        } else if attack == AT_BAIR {
+            set_attack(AT_FAIR)
+        }
+    }
+}
+
 // dspecial cooldown behavior
 if !free {
     move_cooldown[AT_DSPECIAL] = 0
