@@ -71,6 +71,7 @@ if (attack == AT_FSPECIAL) {
     if window == 1 {
         fspecial_found_target = false
         fspecial_target_player = noone
+        fspecial_draw_angle_override = false
     }
     if window == 2 {
         move_cooldown[AT_FSPECIAL] = 30

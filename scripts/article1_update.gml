@@ -249,6 +249,19 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
             if !player_id.barney_archarid_yes {
                 continue
             }
+            if attack == AT_FSPECIAL && hbox_num == 1 {
+                var proj_collision = collision_line(other.x, other.y, tethered_orb.x, tethered_orb.y, id, true, false)
+                if proj_collision != noone {
+                    var line_dir = point_direction(other.x, other.y, tethered_orb.x, tethered_orb.y)
+                    var spread = 12
+                    barney_archarid_orb_hit = true
+                    barney_archarid_tether_top_x = lengthdir_x(-spread, line_dir)
+                    barney_archarid_tether_top_y = lengthdir_y(-spread, line_dir)
+                    barney_archarid_tether_bottom_x = lengthdir_x(spread, line_dir)
+                    barney_archarid_tether_bottom_y = lengthdir_y(spread, line_dir)
+                }
+                continue
+            }
             if attack != AT_NSPECIAL {
                 continue
             }

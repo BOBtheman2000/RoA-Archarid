@@ -134,6 +134,12 @@ fspecial_target_player = noone
 fspecial_target_x = 0
 fspecial_target_y = 0
 
+fspecial_draw_angle_override = false
+fspecial_top_draw_override_x = 0
+fspecial_top_draw_override_y = 0
+fspecial_bottom_draw_override_x = 0
+fspecial_bottom_draw_override_y = 0
+
 web_line_sprite = sprite_get("web_line")
 web_line_snap_sound = asset_get("sfx_may_whip1")
 

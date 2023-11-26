@@ -55,9 +55,22 @@ if (state == PS_ATTACK_GROUND || state == PS_ATTACK_AIR) && attack == AT_FSPECIA
         var calc_x_pos = x + (x_player_offset * spr_dir)
 
         for (i=-1; i <= 1; i++) {
+            var x_offset = 0
             var y_offset = i * 12
-            var draw_len = point_distance(calc_x_pos, y + y_player_offset, target_x, target_y)
-            var draw_rot = point_direction(calc_x_pos, y + y_player_offset, target_x, target_y + y_offset)
+
+            if fspecial_draw_angle_override {
+                if i < 0 {
+                    x_offset = fspecial_bottom_draw_override_x
+                    y_offset = fspecial_bottom_draw_override_y
+                }
+                if i > 0 {
+                    x_offset = fspecial_top_draw_override_x
+                    y_offset = fspecial_top_draw_override_y
+                }
+            }
+
+            var draw_len = point_distance(calc_x_pos, y + y_player_offset, target_x + x_offset, target_y + y_offset)
+            var draw_rot = point_direction(calc_x_pos, y + y_player_offset, target_x + x_offset, target_y + y_offset)
 
             if window == 3 {
                 draw_len *= 1 - (window_timer / get_window_value(AT_FSPECIAL, 3, AG_WINDOW_LENGTH))

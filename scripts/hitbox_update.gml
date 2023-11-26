@@ -24,11 +24,20 @@ if attack == AT_FSPECIAL && hbox_num == 1 {
         }
     }
 
-    if place_meeting(x - hsp, y - vsp, asset_get("par_block")) {
+    if place_meeting(x - hsp, y - vsp, asset_get("par_block")) || ("barney_archarid_orb_hit" in self) {
         player_id.fspecial_found_target = true
         player_id.fspecial_target_player = noone
         queue_free = true
         sound_play(player_id.web_line_snap_sound, false, noone, 1, 2.2)
+
+        if "barney_archarid_orb_hit" in self {
+            player_id.fspecial_draw_angle_override = true
+            player_id.fspecial_top_draw_override_x = barney_archarid_tether_top_x
+            player_id.fspecial_top_draw_override_y = barney_archarid_tether_top_y
+            player_id.fspecial_bottom_draw_override_x = barney_archarid_tether_bottom_x
+            player_id.fspecial_bottom_draw_override_y = barney_archarid_tether_bottom_y
+        }
+
     }
 
     if queue_free {

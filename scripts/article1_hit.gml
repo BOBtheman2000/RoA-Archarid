@@ -45,6 +45,14 @@ if instance_exists(tethered_player) {
             sound_play(snap_sound, false, noone, 1, 2)
         } else if attack == AT_NSPECIAL {
             // do nothing
+        } else if attack == AT_FSPECIAL {
+            with (enemy_hitboxID) {
+                barney_archarid_orb_hit = true
+                barney_archarid_tether_top_x = 0
+                barney_archarid_tether_top_y = -6
+                barney_archarid_tether_bottom_x = 0
+                barney_archarid_tether_bottom_y = 6
+            }
         } else {
             queue_snap = true
         }
