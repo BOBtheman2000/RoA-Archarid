@@ -122,7 +122,7 @@ if (attack == AT_FSPECIAL) {
 // Down special
 if (attack == AT_DSPECIAL) {
     if window == 2 {
-        if window_timer == 16 && (special_down && free) {
+        if window_timer == get_window_value(AT_DSPECIAL, 3, AG_WINDOW_LENGTH) && (special_down && free) {
             window_timer--
         }
     }
