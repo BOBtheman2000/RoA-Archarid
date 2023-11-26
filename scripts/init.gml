@@ -120,6 +120,14 @@ walljump_leave_time = 0;
 walljump_extended_time_default = 600;
 walljump_extended_time = walljump_extended_time_default;
 
+nspecial_sprite_fast = sprite_get("nspecial_proj_fast")
+nspecial_speed_fast = 40
+nspecial_damage_fast = 40
+nspecial_kb_fast = 6
+nspecial_kb_scaling_fast = 0.8
+nspecial_hitpause_fast = 8
+nspecial_hitpause_scaling_fast = 1.1
+
 fspecial_found_target = false
 fspecial_target_player = noone
 fspecial_target_x = 0

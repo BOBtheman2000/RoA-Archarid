@@ -37,6 +37,8 @@ for (i=0; i < array_length_1d(tethered_orb_queue); i++) {
         target: new_orb,
         parent: true,
 
+        jumping_type: 'player',
+
         jumping_hitstun: false,
 
         jumping_lockout: 10,
@@ -217,6 +219,7 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
                         clear_button_buffer(PC_JUMP_PRESSED)
                         orb_data.jumping_player = id
                         orb_data.jumping_hitstun = false
+                        orb_data.jumping_type = 'player'
 
                         // bias towards up, unless we really wanna go downward
                         potential_direction = 90
@@ -230,6 +233,7 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
                 }
                 if state == PS_HITSTUN {
                     orb_data.jumping_player = id
+                    orb_data.jumping_type = 'player'
                     potential_direction = point_direction(0, 0, hsp, vsp) + 180
                     hsp = 0
                     vsp = 0
@@ -237,6 +241,29 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
                 }
             }
         }
+
+        with (pHitBox) {
+            if "barney_archarid_yes" not in player_id {
+                break
+            }
+            if !player_id.barney_archarid_yes {
+                break
+            }
+            if attack != AT_NSPECIAL {
+                break
+            }
+
+            var proj_collision = collision_line(other.x, other.y, tethered_orb.x, tethered_orb.y, id, true, false)
+            if proj_collision != noone {
+                orb_data.jumping_player = id
+                potential_direction = point_direction(0, 0, hsp, vsp) + 180
+                hsp = 0
+                vsp = 0
+                orb_data.jumping_type = 'proj'
+            }
+        }
+
+
         if instance_exists(orb_data.jumping_player) {
             var jumping_player = orb_data.jumping_player
             orb_data.jumping_player_offset = 0
@@ -269,35 +296,71 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
         orb_data.jumping_player_offset = lerp(orb_data.jumping_player_offset, orb_data.jumping_player_offset_max, 0.5)
         orb_data.jump_midpoint_x = lerp(x, tethered_orb.x, 0.5) + lengthdir_x(orb_data.jumping_player_offset, -orb_data.jumping_player_direction)
         orb_data.jump_midpoint_y = lerp(y, tethered_orb.y, 0.5) + lengthdir_y(orb_data.jumping_player_offset, -orb_data.jumping_player_direction)
-        with (orb_data.jumping_player) {
-            if orb_data.jumping_hitstun {
-                hitstun = hitstun_full
-            }
-            x = lerp(x, orb_data.jump_midpoint_x, 0.6)
-            y = lerp(y, orb_data.jump_midpoint_y, 0.6)
-            if orb_data.jumping_state_timer <= 0 || shield_pressed {
-                orb_data.jumping_lockout = 10
-                orb_data.jumping_state_timer = 0
 
-                if shield_pressed {
-                    if orb_data.jumping_hitstun {
-                        set_state(PS_PRATFALL)
-                        other.queue_snap = true
-                        tethered_orb.queue_snap = true
-                    } else {
-                        set_state(PS_DOUBLE_JUMP)
-                        clear_button_buffer(PC_SHIELD_PRESSED)
-                    }
-                    hsp = 0
-                    vsp = 0
-                } else {
-                    hsp = lengthdir_x(orb_data.jump_strength, orb_data.jumping_player_direction)
-                    vsp = lengthdir_y(orb_data.jump_strength, orb_data.jumping_player_direction)
+        if orb_data.jumping_type == 'player' {
+
+            with (orb_data.jumping_player) {
+                if orb_data.jumping_hitstun {
+                    hitstun = hitstun_full
                 }
+                x = lerp(x, orb_data.jump_midpoint_x, 0.6)
+                y = lerp(y, orb_data.jump_midpoint_y, 0.6)
+                if orb_data.jumping_state_timer <= 0 || shield_pressed {
+                    orb_data.jumping_lockout = 10
+                    orb_data.jumping_state_timer = 0
 
-                sound_stop(orb_data.jump_pull_sound)
-                sound_play(asset_get("sfx_leafy_hit1"), false, noone, 1, 1.4)
+                    if shield_pressed {
+                        if orb_data.jumping_hitstun {
+                            set_state(PS_PRATFALL)
+                            other.queue_snap = true
+                            tethered_orb.queue_snap = true
+                        } else {
+                            set_state(PS_DOUBLE_JUMP)
+                            clear_button_buffer(PC_SHIELD_PRESSED)
+                        }
+                        hsp = 0
+                        vsp = 0
+                    } else {
+                        hsp = lengthdir_x(orb_data.jump_strength, orb_data.jumping_player_direction)
+                        vsp = lengthdir_y(orb_data.jump_strength, orb_data.jumping_player_direction)
+                    }
+
+                    sound_stop(orb_data.jump_pull_sound)
+                    sound_play(asset_get("sfx_leafy_hit1"), false, noone, 1, 1.4)
+                }
             }
+        
+        }
+
+        if orb_data.jumping_type == 'proj' {
+
+            with (orb_data.jumping_player) {
+                x = lerp(x, orb_data.jump_midpoint_x, 0.6)
+                y = lerp(y, orb_data.jump_midpoint_y, 0.6)
+                hitbox_timer = 0
+                if orb_data.jumping_state_timer <= 0 {
+                    orb_data.jumping_lockout = 10
+                    orb_data.jumping_state_timer = 0
+
+                    sprite_index = player_id.nspecial_sprite_fast
+
+                    hsp = lengthdir_x(player_id.nspecial_speed_fast, orb_data.jumping_player_direction)
+                    vsp = lengthdir_y(player_id.nspecial_speed_fast, orb_data.jumping_player_direction)
+                    
+                    kb_angle = orb_data.jumping_player_direction
+
+                    kb_value = player_id.nspecial_kb_fast
+                    kb_scale = player_id.nspecial_kb_scaling_fast
+                    hitpause = player_id.nspecial_hitpause_fast
+                    hitpause_growth = player_id.nspecial_hitpause_scaling_fast
+
+                    proj_angle = orb_data.jumping_player_direction
+
+                    sound_stop(orb_data.jump_pull_sound)
+                    sound_play(asset_get("sfx_leafy_hit1"), false, noone, 1, 1.4)
+                }
+            }
+
         }
     }
 }

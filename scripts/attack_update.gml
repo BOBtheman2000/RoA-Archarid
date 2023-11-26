@@ -21,14 +21,8 @@ if (attack == AT_BAIR) {
     }
 }
 
-// sandbert
-if (attack == AT_NSPECIAL){
-    if (window == 3){
-        if (special_pressed){
-            window = 1;
-            window_timer = 0;
-        }
-    }
+if (attack == AT_NSPECIAL) {
+    move_cooldown[AT_NSPECIAL] = 40
 }
 
 // sandbert

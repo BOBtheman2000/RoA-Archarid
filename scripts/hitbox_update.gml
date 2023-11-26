@@ -1,3 +1,8 @@
+if attack == AT_NSPECIAL && hbox_num == 1 {
+    if place_meeting(x, y, asset_get("par_block")) {
+        destroyed = true
+    }
+}
 
 if attack == AT_FSPECIAL && hbox_num == 1 {
 

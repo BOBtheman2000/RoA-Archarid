@@ -62,7 +62,8 @@ sprite_change_offset("web_point_death", 36, 36);
 
 sprite_change_offset("web_line_sprite", 0, 3);
 
-sprite_change_offset("nspecial_proj", 64, 94);
+sprite_change_offset("nspecial_proj", 19, 9);
+sprite_change_offset("nspecial_proj_fast", 30, 9);
 
 sprite_change_offset("hit_vfx_web", 220, 220);
 
