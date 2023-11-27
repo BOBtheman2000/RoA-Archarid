@@ -50,6 +50,49 @@ set_window_value(AT_NAIR, 3, AG_WINDOW_CUSTOM_GRAVITY, 1);
 
 set_num_hitboxes(AT_NAIR, 3);
 
+hit_sound_grid[AT_NAIR] = [{
+    hitbox:1,
+    sound:asset_get("sfx_blow_weak2"),
+    pitch:1.0,
+    pitch_variation:0.1,
+    volume: 1.5
+},
+{
+    hitbox:1,
+    sound:asset_get("sfx_may_whip2"),
+    pitch:3.0,
+    pitch_variation:0.2,
+    volume:0.6
+},
+{
+    hitbox:2,
+    sound:asset_get("sfx_blow_weak2"),
+    pitch:1.0,
+    pitch_variation:0.1,
+    volume: 1.5
+},
+{
+    hitbox:2,
+    sound:asset_get("sfx_may_whip2"),
+    pitch:2.6,
+    pitch_variation:0.2,
+    volume:0.6
+},
+{
+    hitbox:3,
+    sound:asset_get("sfx_blow_medium2"),
+    pitch:1.0,
+    pitch_variation:0.1,
+    volume: 1.5
+},
+{
+    hitbox:3,
+    sound:asset_get("sfx_may_whip2"),
+    pitch:2.2,
+    pitch_variation:0.2,
+    volume:0.6
+}]
+
 set_hitbox_value(AT_NAIR, 1, HG_PARENT_HITBOX, 1);
 set_hitbox_value(AT_NAIR, 1, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_NAIR, 1, HG_WINDOW, 2);
@@ -66,7 +109,6 @@ set_hitbox_value(AT_NAIR, 1, HG_BASE_KNOCKBACK, 9);
 set_hitbox_value(AT_NAIR, 1, HG_KNOCKBACK_SCALING, 0);
 set_hitbox_value(AT_NAIR, 1, HG_BASE_HITPAUSE, 5);
 set_hitbox_value(AT_NAIR, 1, HG_VISUAL_EFFECT, web_hit_vfx_small);
-set_hitbox_value(AT_NAIR, 1, HG_HIT_SFX, asset_get("sfx_blow_weak2"));
 
 set_hitbox_value(AT_NAIR, 2, HG_PARENT_HITBOX, 2);
 set_hitbox_value(AT_NAIR, 2, HG_HITBOX_TYPE, 1);
@@ -86,7 +128,6 @@ set_hitbox_value(AT_NAIR, 2, HG_KNOCKBACK_SCALING, 0);
 set_hitbox_value(AT_NAIR, 2, HG_TECHABLE, 2);
 set_hitbox_value(AT_NAIR, 2, HG_BASE_HITPAUSE, 5);
 set_hitbox_value(AT_NAIR, 2, HG_VISUAL_EFFECT, web_hit_vfx_small);
-set_hitbox_value(AT_NAIR, 2, HG_HIT_SFX, asset_get("sfx_blow_weak2"));
 set_hitbox_value(AT_NAIR, 2, HG_HITBOX_GROUP, 1);
 
 set_hitbox_value(AT_NAIR, 3, HG_PARENT_HITBOX, 3);
@@ -108,5 +149,4 @@ set_hitbox_value(AT_NAIR, 3, HG_HITPAUSE_SCALING, .7);
 set_hitbox_value(AT_NAIR, 3, HG_VISUAL_EFFECT, web_hit_vfx_small);
 set_hitbox_value(AT_NAIR, 3, HG_VISUAL_EFFECT_X_OFFSET, 20);
 set_hitbox_value(AT_NAIR, 3, HG_VISUAL_EFFECT_Y_OFFSET, -20);
-set_hitbox_value(AT_NAIR, 3, HG_HIT_SFX, asset_get("sfx_blow_medium2"));
 set_hitbox_value(AT_NAIR, 3, HG_HITBOX_GROUP, 2);
