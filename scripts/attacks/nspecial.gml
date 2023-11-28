@@ -41,7 +41,7 @@ hit_sound_grid[AT_NSPECIAL] = [{
 set_hitbox_value(AT_NSPECIAL, 1, HG_PARENT_HITBOX, 1);
 set_hitbox_value(AT_NSPECIAL, 1, HG_HITBOX_TYPE, 2);
 set_hitbox_value(AT_NSPECIAL, 1, HG_WINDOW, 2);
-set_hitbox_value(AT_NSPECIAL, 1, HG_LIFETIME, 30);
+set_hitbox_value(AT_NSPECIAL, 1, HG_LIFETIME, 120);
 set_hitbox_value(AT_NSPECIAL, 1, HG_HITBOX_X, 32);
 set_hitbox_value(AT_NSPECIAL, 1, HG_HITBOX_Y, -30);
 set_hitbox_value(AT_NSPECIAL, 1, HG_WIDTH, 90);
