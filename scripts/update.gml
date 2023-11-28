@@ -23,6 +23,10 @@ if prep_flip && ((attack != AT_BAIR || (state != PS_ATTACK_AIR && state != PS_AT
     }
 }
 
+if barney_archarid_tethered_to_orb && ((state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR) || attack != AT_USPECIAL) {
+    barney_archarid_current_orb.override_all = false
+}
+
 // dspecial cooldown behavior
 if !free {
     move_cooldown[AT_DSPECIAL] = 0

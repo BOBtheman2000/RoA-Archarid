@@ -27,42 +27,48 @@ if (attack == AT_NSPECIAL) {
 
 // sandbert
 if (attack == AT_USPECIAL){
-    if (window == 1 && window_timer == 1){
-        times_through = 0;
-    }
-    if (window == 2){
-        if (window_timer == get_window_value(attack, 2, AG_WINDOW_LENGTH)){
-            if (times_through < 10){
-                times_through++;
-                window_timer = 0;
-            }
-        }
-        if (!joy_pad_idle){
-            hsp += lengthdir_x(1, joy_dir);
-            vsp += lengthdir_y(1, joy_dir);
+    if window == 1 {
+        if barney_archarid_tethered_to_orb {
+            uspecial_do_pratfall = false
+            window = 4
+            window_timer = 0
+            move_cooldown[AT_DSPECIAL] = 2
         } else {
-            hsp *= .6;
-            vsp *= .6;
-        }
-        var fly_dir = point_direction(0,0,hsp,vsp);
-        var fly_dist = point_distance(0,0,hsp,vsp);
-        var max_speed = 12;
-        if (fly_dist > max_speed){
-            hsp = lengthdir_x(max_speed, fly_dir);
-            vsp = lengthdir_y(max_speed, fly_dir);
-        }
-        if (special_pressed && times_through > 0){
-            window = 4;
-            window_timer = 0;
-        }
-        if (shield_pressed){
-            window = 3;
-            window_timer = 0;
+            uspecial_do_pratfall = free
         }
     }
-    if (window > 3 && window < 6 && window_timer == get_window_value(attack, window, AG_WINDOW_LENGTH)){
-        window++;
-        window_timer = 0;
+    if window == 2 {
+        if window_timer == get_window_value(AT_USPECIAL, 2, AG_WINDOW_LENGTH) {
+            // create a new orb
+            barney_archarid_tethered_to_orb = true
+            barney_archarid_current_orb = instance_create(x + (uspecial_orb_x * spr_dir), y + uspecial_orb_y, "obj_article1")
+            barney_archarid_current_orb.tethered_player = id
+            barney_archarid_current_orb.tension_snap_lockout = true
+            barney_archarid_current_orb.override_all = true
+            sound_play(web_point_spawn_sound, false, false, 1, 2)
+        }
+    }
+    if (window == 3 || window == 4) && !barney_archarid_tethered_to_orb {
+        // accounts for orb being broken early
+        destroy_hitboxes()
+        attack_end()
+        set_state(PS_PRATFALL)
+    }
+    if window == 5 && window_timer == 1 {
+        if instance_exists (barney_archarid_current_orb) {
+            var orb_dir = point_direction(x, y, barney_archarid_current_orb.x, barney_archarid_current_orb.y)
+            hsp = lengthdir_x(uspecial_boost_speed_x, orb_dir)
+            vsp = lengthdir_y(uspecial_boost_speed_y, orb_dir)
+        } else {
+            destroy_hitboxes()
+            attack_end()
+            set_state(PS_PRATFALL)
+        }
+    }
+    if window == 6 && window_timer == get_window_value(AT_USPECIAL, 6, AG_WINDOW_LENGTH) && uspecial_do_pratfall {
+        destroy_hitboxes()
+        attack_end()
+        set_state(PS_PRATFALL)
     }
 }
 

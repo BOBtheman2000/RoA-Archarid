@@ -143,9 +143,17 @@ fspecial_bottom_draw_override_y = 0
 web_line_sprite = sprite_get("web_line")
 web_line_snap_sound = asset_get("sfx_may_whip1")
 
+uspecial_do_pratfall = false
+uspecial_orb_x = 30
+uspecial_orb_y = -130
+uspecial_boost_speed_x = 14
+uspecial_boost_speed_y = 18
+
 // it's like this so it remains consistent with other players
-barney_archarid_tethered_to_orb = false
-barney_archarid_current_orb = 0
+with (oPlayer) {
+    barney_archarid_tethered_to_orb = false
+    barney_archarid_current_orb = 0
+}
 
 // always true if a character is archarid
 barney_archarid_yes = true

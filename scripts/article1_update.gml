@@ -71,7 +71,7 @@ for (i=0; i < array_length_1d(tethered_orb_queue); i++) {
 tethered_orb_queue = []
 
 // Player tethering behaviour
-if instance_exists(tethered_player) {
+if instance_exists(tethered_player) && !override_all {
 
     array_push(tether_list, point_direction(x, y, tethered_player.x, tethered_player.y))
 

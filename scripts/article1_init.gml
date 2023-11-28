@@ -18,6 +18,10 @@ real_image_index = 0
 
 lifetime = 0
 
+// used for up special, stops the physics from happening while we're doing up b
+// ALWAYS SET TO FALSE IF WE'RE NOT DOING ANYTHING ELSE!!!
+override_all = false
+
 snap_sound = asset_get("sfx_may_whip1")
 death_vfx = hit_fx_create(sprite_get("web_point_death"), 12)
 
