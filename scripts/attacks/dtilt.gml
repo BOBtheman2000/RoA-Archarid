@@ -31,6 +31,12 @@ set_num_hitboxes(AT_DTILT, 1);
 hit_sound_grid[AT_DTILT] = [{
     hitbox:1,
     sound:asset_get("sfx_blow_medium2"),
+    pitch:1.2,
+    pitch_variation:0.1
+},
+{
+    hitbox:1,
+    sound:asset_get("sfx_blow_medium1"),
     pitch:1.0,
     pitch_variation:0.1
 }]

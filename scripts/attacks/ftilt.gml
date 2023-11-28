@@ -6,8 +6,8 @@ attack_sound_grid[AT_FTILT] = [{
     window:1,
     frame:4,
     sound:asset_get("sfx_swipe_medium2"),
-    pitch:0.7,
-    pitch_variation:0.1
+    pitch:0.8,
+    pitch_variation:0.2
 }]
 
 // Startup
@@ -33,7 +33,13 @@ set_num_hitboxes(AT_FTILT,1);
 hit_sound_grid[AT_FTILT] = [{
     hitbox:1,
     sound:asset_get("sfx_may_whip1"),
-    pitch:1.6,
+    pitch:1.8,
+    pitch_variation:0.2
+},
+{
+    hitbox:1,
+    sound:asset_get("sfx_blow_medium1"),
+    pitch:1.1,
     pitch_variation:0.1
 }]
 
