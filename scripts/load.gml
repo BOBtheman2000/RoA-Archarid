@@ -41,7 +41,7 @@ sprite_change_offset("nair_hurt", 58*2, 69*2);
 sprite_change_offset("fair", 58, 69);
 sprite_change_offset("fair_hurt", 58*2, 69*2);
 sprite_change_offset("bair", 64, 94);
-sprite_change_offset("uair", 64, 94);
+sprite_change_offset("uair", 58, 89);
 sprite_change_offset("dair", 64, 94);
 sprite_change_offset("fstrong", 58, 69);
 sprite_change_offset("ustrong", 58, 89);
