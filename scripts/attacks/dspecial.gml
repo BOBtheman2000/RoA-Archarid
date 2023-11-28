@@ -31,11 +31,11 @@ set_window_value(AT_DSPECIAL, 1, AG_WINDOW_HSPEED_TYPE, 2);
 set_window_value(AT_DSPECIAL, 1, AG_WINDOW_VSPEED, -4);
 set_window_value(AT_DSPECIAL, 1, AG_WINDOW_VSPEED_TYPE, 2);
 
-// Startup
+// Airborne
 set_window_value(AT_DSPECIAL, 2, AG_WINDOW_TYPE, 8);
 set_window_value(AT_DSPECIAL, 2, AG_WINDOW_LENGTH, 15);
 set_window_value(AT_DSPECIAL, 2, AG_WINDOW_ANIM_FRAMES, 1);
-set_window_value(AT_DSPECIAL, 2, AG_WINDOW_ANIM_FRAME_START, 1);
+set_window_value(AT_DSPECIAL, 2, AG_WINDOW_ANIM_FRAME_START, 2);
 set_window_value(AT_DSPECIAL, 2, AG_WINDOW_HSPEED, 10);
 set_window_value(AT_DSPECIAL, 2, AG_WINDOW_HSPEED_TYPE, 2);
 set_window_value(AT_DSPECIAL, 2, AG_WINDOW_VSPEED, -4);
@@ -44,8 +44,8 @@ set_window_value(AT_DSPECIAL, 2, AG_WINDOW_VSPEED_TYPE, 2);
 // Active
 set_window_value(AT_DSPECIAL, 3, AG_WINDOW_TYPE, 1);
 set_window_value(AT_DSPECIAL, 3, AG_WINDOW_LENGTH, 3);
-set_window_value(AT_DSPECIAL, 3, AG_WINDOW_ANIM_FRAMES, 1);
-set_window_value(AT_DSPECIAL, 3, AG_WINDOW_ANIM_FRAME_START, 2);
+set_window_value(AT_DSPECIAL, 3, AG_WINDOW_ANIM_FRAMES, 2);
+set_window_value(AT_DSPECIAL, 3, AG_WINDOW_ANIM_FRAME_START, 3);
 set_window_value(AT_DSPECIAL, 3, AG_WINDOW_HSPEED, -2);
 set_window_value(AT_DSPECIAL, 3, AG_WINDOW_HSPEED_TYPE, 2);
 set_window_value(AT_DSPECIAL, 3, AG_WINDOW_VSPEED, -12);
@@ -55,6 +55,7 @@ set_window_value(AT_DSPECIAL, 3, AG_WINDOW_VSPEED_TYPE, 2);
 set_window_value(AT_DSPECIAL, 4, AG_WINDOW_TYPE, 1);
 set_window_value(AT_DSPECIAL, 4, AG_WINDOW_LENGTH, 8);
 set_window_value(AT_DSPECIAL, 4, AG_WINDOW_ANIM_FRAMES, 1);
+set_window_value(AT_DSPECIAL, 4, AG_WINDOW_ANIM_FRAME_START, 5);
 
 set_num_hitboxes(AT_DSPECIAL, 1);
 
