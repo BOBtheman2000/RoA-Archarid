@@ -46,9 +46,9 @@ set_window_value(AT_DSPECIAL, 3, AG_WINDOW_TYPE, 1);
 set_window_value(AT_DSPECIAL, 3, AG_WINDOW_LENGTH, 3);
 set_window_value(AT_DSPECIAL, 3, AG_WINDOW_ANIM_FRAMES, 2);
 set_window_value(AT_DSPECIAL, 3, AG_WINDOW_ANIM_FRAME_START, 3);
-set_window_value(AT_DSPECIAL, 3, AG_WINDOW_HSPEED, -2);
+set_window_value(AT_DSPECIAL, 3, AG_WINDOW_HSPEED, -3);
 set_window_value(AT_DSPECIAL, 3, AG_WINDOW_HSPEED_TYPE, 2);
-set_window_value(AT_DSPECIAL, 3, AG_WINDOW_VSPEED, -12);
+set_window_value(AT_DSPECIAL, 3, AG_WINDOW_VSPEED, -10);
 set_window_value(AT_DSPECIAL, 3, AG_WINDOW_VSPEED_TYPE, 2);
 
 // Endlag
