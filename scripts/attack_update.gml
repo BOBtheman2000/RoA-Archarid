@@ -178,9 +178,13 @@ if (attack == AT_EXTRA_1) && window == 2 {
 
     var available_up = collision_point(check_wall_x, check_wall_y_up, asset_get("par_block"), false, true) != noone
 
-    if !available_up {
+    if !available_up || jump_pressed {
         set_state(PS_FIRST_JUMP)
         spr_dir = -spr_dir
+        if jump_pressed {
+            hsp = -walljump_hsp * spr_dir
+            vsp = -walljump_vsp
+        }
         vsp = -jump_speed
         djumps = 0
         has_airdodge = true
