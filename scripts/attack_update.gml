@@ -22,6 +22,7 @@ if (attack == AT_BAIR) {
 }
 
 if (attack == AT_NSPECIAL) {
+    can_fast_fall = true
     move_cooldown[AT_NSPECIAL] = 40
 }
 
