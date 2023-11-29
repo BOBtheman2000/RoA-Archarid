@@ -73,9 +73,9 @@ if (state == PS_ATTACK_GROUND || state == PS_ATTACK_AIR) && attack == AT_FSPECIA
             var draw_rot = point_direction(calc_x_pos, y + y_player_offset, target_x + x_offset, target_y + y_offset)
 
             if window == 3 {
-                draw_len *= 1 - (window_timer / get_window_value(AT_FSPECIAL, 3, AG_WINDOW_LENGTH))
+                draw_len *= 1 - ease_expoIn(0, 1, window_timer, get_window_value(AT_FSPECIAL, 3, AG_WINDOW_LENGTH))
             } else if window == 5 {
-                draw_len *= 1 - (window_timer / get_window_value(AT_FSPECIAL, 5, AG_WINDOW_LENGTH))
+                draw_len *= 1 - ease_expoIn(0, 1, window_timer, get_window_value(AT_FSPECIAL, 5, AG_WINDOW_LENGTH))
             }
 
             draw_sprite_ext(web_line_sprite, 1, calc_x_pos, y + y_player_offset, draw_len, 1, draw_rot, c_white, 1)

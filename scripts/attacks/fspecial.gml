@@ -31,7 +31,7 @@ attack_sound_grid[AT_FSPECIAL] = [{
 
 // startup
 set_window_value(AT_FSPECIAL, 1, AG_WINDOW_TYPE, 1);
-set_window_value(AT_FSPECIAL, 1, AG_WINDOW_LENGTH, 10);
+set_window_value(AT_FSPECIAL, 1, AG_WINDOW_LENGTH, 16);
 set_window_value(AT_FSPECIAL, 1, AG_WINDOW_ANIM_FRAMES, 1);
 set_window_value(AT_FSPECIAL, 1, AG_WINDOW_HSPEED_TYPE, 0);
 set_window_value(AT_FSPECIAL, 1, AG_WINDOW_VSPEED_TYPE, 0);
@@ -46,7 +46,7 @@ set_window_value(AT_FSPECIAL, 2, AG_WINDOW_VSPEED_TYPE, 1);
 
 // endlag
 set_window_value(AT_FSPECIAL, 3, AG_WINDOW_TYPE, 7);
-set_window_value(AT_FSPECIAL, 3, AG_WINDOW_LENGTH, 16);
+set_window_value(AT_FSPECIAL, 3, AG_WINDOW_LENGTH, 50);
 set_window_value(AT_FSPECIAL, 3, AG_WINDOW_ANIM_FRAMES, 1);
 set_window_value(AT_FSPECIAL, 3, AG_WINDOW_ANIM_FRAME_START, 1);
 set_window_value(AT_FSPECIAL, 3, AG_WINDOW_HSPEED_TYPE, 1);
