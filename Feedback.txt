@@ -1,0 +1,23 @@
+- Nair is fast AND big, pick a struggle
+- Dash attack feels interesting, burning is expecting the landing to have a hitbox
+- Bair might be a bit strong, a lot of moves feel very workshoppy powerful
+- Maybe don't reward double jump off trampolines
+- There's some odd behavior with tethered cpus but I don't think that's an issue
+- OH MY GOD ADD TURNAROUND :(
+- Neutral B feels weird bc of how shorthopping it feels
+- You can't tap rapid jab to keep it going
+- Too much endlag on dair maybe
+- Jab combos into jab (oh no)
+- Infinite wall climb would be a bit much, maybe turn down the extended wall climb time
+- You can dangle near the bottom of the stage! It is unpunishable! FIX THIS!!!!
+- Fstrong sweetspot might need an angle lift, maybe sakurai angle?
+- You can fastfall up special (This is cool, actually)
+- Wavedash speed is slower than running (Unsure on this one)
+- A lot of people don't seem to be reading the opponent teching on the trampoline, maybe play the sound effect when teching or add a visual
+
+- From burnign: fstrong is too brutal, i think the projectile if you are going to have it do 1% should force flinch not enter hitstun and increase the damage of the projectile, side special forces tech and dstrong covers 2 options so it might be a bit over tuned
+- Side special hitbox shouldn't work when returning after being hit
+- Down strong is REALLY fuckin good, both players seem to use it a lot near the ledge, the strat against it seems to be avoiding it rather than aiming to punish it
+- Fspecial seems to struggle at pulling people in, it slides them along the ground, which can force a tech
+- Up tilt hitbox is jank (I agree!!!)
+- More cooldown on Fspecial
