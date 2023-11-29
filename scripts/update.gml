@@ -62,8 +62,14 @@ if state == PS_WALL_JUMP {
             wall_climbing = 0;
         }
 
+        // wspecial
         if special_pressed {
             set_attack(AT_EXTRA_1)
+        }
+
+        // wair
+        if attack_pressed {
+            set_attack(AT_EXTRA_2)
         }
 
     }

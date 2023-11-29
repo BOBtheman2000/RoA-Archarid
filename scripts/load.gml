@@ -44,6 +44,7 @@ sprite_change_offset("fair_hurt", 58*2, 69*2);
 sprite_change_offset("bair", 64, 94);
 sprite_change_offset("uair", 58, 89);
 sprite_change_offset("dair", 64, 94);
+sprite_change_offset("wair", 57, 89);
 sprite_change_offset("fstrong", 58, 69);
 sprite_change_offset("ustrong", 58, 89);
 sprite_change_offset("dstrong", 58, 69);
@@ -51,8 +52,8 @@ sprite_change_offset("nspecial", 58, 89);
 sprite_change_offset("fspecial", 58, 69);
 sprite_change_offset("uspecial", 58, 89);
 sprite_change_offset("dspecial", 58, 89);
-sprite_change_offset("wspecial", 58, 89);
-sprite_change_offset("wspecial_hurt", 58*2, 89*2);
+sprite_change_offset("wspecial", 57, 89);
+sprite_change_offset("wspecial_hurt", 57*2, 89*2);
 sprite_change_offset("taunt", 28, 29);
 
 sprite_change_offset("plat", 64, 94);

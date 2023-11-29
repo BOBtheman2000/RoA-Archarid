@@ -187,6 +187,13 @@ if (attack == AT_EXTRA_1) && window == 2 {
     }
 }
 
+if (attack == AT_EXTRA_2) {
+    if window == 3 && window_timer == get_window_value(AT_EXTRA_2, 3, AG_WINDOW_LENGTH) && jump_down{
+        set_state(PS_WALL_JUMP)
+        clinging = true
+    }
+}
+
 // Barney's extended sound engine! Pitch shift attack sounds!
 
 if array_length_1d(attack_sound_grid[attack]) > 0 {
