@@ -380,6 +380,7 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
                     kb_scale = player_id.nspecial_kb_scaling_fast
                     hitpause = player_id.nspecial_hitpause_fast
                     hitpause_growth = player_id.nspecial_hitpause_scaling_fast
+                    force_flinch = 0
 
                     proj_angle = orb_data.jumping_player_direction
                     if spr_dir = -1 && orb_data.jumping_player_direction > 90 {
