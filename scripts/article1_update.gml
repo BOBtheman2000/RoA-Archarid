@@ -336,6 +336,9 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
                             set_state(PS_PRATFALL)
                             other.queue_snap = true
                             tethered_orb.queue_snap = true
+
+                            sound_play(asset_get("sfx_tech"), false, noone, 1, 1)
+                            white_flash_timer = 20
                         } else {
                             set_state(PS_DOUBLE_JUMP)
                             clear_button_buffer(PC_SHIELD_PRESSED)
