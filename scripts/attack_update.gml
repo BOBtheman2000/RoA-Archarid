@@ -35,7 +35,7 @@ if (attack == AT_USPECIAL){
             window_timer = 0
             move_cooldown[AT_DSPECIAL] = 2
         } else {
-            uspecial_do_pratfall = free
+            uspecial_do_pratfall = true
         }
     }
     if window == 2 {
