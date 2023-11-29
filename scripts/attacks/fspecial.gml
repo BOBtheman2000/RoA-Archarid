@@ -5,15 +5,36 @@ set_attack_value(AT_FSPECIAL, AG_HAS_LANDING_LAG, 4);
 set_attack_value(AT_FSPECIAL, AG_AIR_SPRITE, sprite_get("fspecial"));
 set_attack_value(AT_FSPECIAL, AG_HURTBOX_SPRITE, sprite_get("fspecial_hurt"));
 
+attack_sound_grid[AT_FSPECIAL] = [{
+    window:2,
+    frame:1,
+    sound:asset_get("sfx_swipe_heavy1"),
+    pitch:1.2,
+    volume:1.4,
+    pitch_variation:0
+},
+{
+    window:2,
+    frame:1,
+    sound:asset_get("sfx_syl_nspecial"),
+    pitch:1.6,
+    volume:1.1,
+    pitch_variation:0.2
+},
+{
+    window:2,
+    frame:1,
+    sound:asset_get("sfx_syl_nspecial_plantgrowth"),
+    pitch:1.4,
+    pitch_variation:0.2
+}]
+
 // startup
 set_window_value(AT_FSPECIAL, 1, AG_WINDOW_TYPE, 1);
 set_window_value(AT_FSPECIAL, 1, AG_WINDOW_LENGTH, 10);
 set_window_value(AT_FSPECIAL, 1, AG_WINDOW_ANIM_FRAMES, 1);
 set_window_value(AT_FSPECIAL, 1, AG_WINDOW_HSPEED_TYPE, 0);
 set_window_value(AT_FSPECIAL, 1, AG_WINDOW_VSPEED_TYPE, 0);
-set_window_value(AT_FSPECIAL, 1, AG_WINDOW_HAS_SFX, 1);
-set_window_value(AT_FSPECIAL, 1, AG_WINDOW_SFX, asset_get("sfx_may_arc_cointoss"));
-set_window_value(AT_FSPECIAL, 1, AG_WINDOW_SFX_FRAME, 8);
 
 // active
 set_window_value(AT_FSPECIAL, 2, AG_WINDOW_TYPE, 1);
