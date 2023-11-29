@@ -172,6 +172,21 @@ if (attack == AT_DSPECIAL) {
     can_move = false
 }
 
+if (attack == AT_EXTRA_1) && window == 2 {
+    var check_wall_x = x + (-40 * spr_dir)
+    var check_wall_y_up = y - 30
+
+    var available_up = collision_point(check_wall_x, check_wall_y_up, asset_get("par_block"), false, true) != noone
+
+    if !available_up {
+        set_state(PS_FIRST_JUMP)
+        spr_dir = -spr_dir
+        vsp = -jump_speed
+        djumps = 0
+        has_airdodge = true
+    }
+}
+
 // Barney's extended sound engine! Pitch shift attack sounds!
 
 if array_length_1d(attack_sound_grid[attack]) > 0 {

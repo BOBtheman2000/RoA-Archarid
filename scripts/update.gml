@@ -61,6 +61,11 @@ if state == PS_WALL_JUMP {
         else {
             wall_climbing = 0;
         }
+
+        if special_pressed {
+            set_attack(AT_EXTRA_1)
+        }
+
     }
 
     if !clinging && walljump_leave_time == 0 {
