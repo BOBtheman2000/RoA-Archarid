@@ -28,10 +28,10 @@ set_window_value(AT_FAIR, 2, AG_WINDOW_ANIM_FRAME_START, 2);
 
 // Endlag
 set_window_value(AT_FAIR, 3, AG_WINDOW_TYPE, 1);
-set_window_value(AT_FAIR, 3, AG_WINDOW_LENGTH, 3);
+set_window_value(AT_FAIR, 3, AG_WINDOW_LENGTH, 5);
 set_window_value(AT_FAIR, 3, AG_WINDOW_ANIM_FRAMES, 2);
 set_window_value(AT_FAIR, 3, AG_WINDOW_ANIM_FRAME_START, 4);
-set_window_value(AT_FAIR, 3, AG_WINDOW_HAS_WHIFFLAG, 5);
+set_window_value(AT_FAIR, 3, AG_WINDOW_HAS_WHIFFLAG, true);
 
 set_num_hitboxes(AT_FAIR, 1);
 
