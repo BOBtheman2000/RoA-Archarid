@@ -11,7 +11,7 @@ if attack == AT_FSPECIAL && hbox_num == 1 {
     player_id.fspecial_target_x = x
     player_id.fspecial_target_y = y
 
-    hsp -= 1 * spr_dir
+    hsp -= 2 * spr_dir
     if sign(hsp) != spr_dir {
         if place_meeting(x, y, player_id) {
             queue_free = true
