@@ -4,7 +4,7 @@ set_attack_value(AT_FTILT, AG_HURTBOX_SPRITE, sprite_get("ftilt_hurt"));
 
 attack_sound_grid[AT_FTILT] = [{
     window:1,
-    frame:4,
+    frame:6,
     sound:asset_get("sfx_swipe_medium2"),
     pitch:0.8,
     pitch_variation:0.2
@@ -13,20 +13,20 @@ attack_sound_grid[AT_FTILT] = [{
 // Startup
 set_window_value(AT_FTILT, 1, AG_WINDOW_TYPE, 1);
 set_window_value(AT_FTILT, 1, AG_WINDOW_LENGTH, 6);
-set_window_value(AT_FTILT, 1, AG_WINDOW_ANIM_FRAMES, 3);
+set_window_value(AT_FTILT, 1, AG_WINDOW_ANIM_FRAMES, 2);
 
 // Active
 set_window_value(AT_FTILT, 2, AG_WINDOW_TYPE, 1);
 set_window_value(AT_FTILT, 2, AG_WINDOW_LENGTH, 6);
 set_window_value(AT_FTILT, 2, AG_WINDOW_ANIM_FRAMES, 2);
-set_window_value(AT_FTILT, 2, AG_WINDOW_ANIM_FRAME_START, 3);
+set_window_value(AT_FTILT, 2, AG_WINDOW_ANIM_FRAME_START, 2);
 set_window_value(AT_FTILT, 2, AG_WINDOW_HSPEED, 3);
 
 // Endlag
 set_window_value(AT_FTILT, 3, AG_WINDOW_TYPE, 1);
 set_window_value(AT_FTILT, 3, AG_WINDOW_LENGTH, 12);
 set_window_value(AT_FTILT, 3, AG_WINDOW_ANIM_FRAMES, 3);
-set_window_value(AT_FTILT, 3, AG_WINDOW_ANIM_FRAME_START, 4);
+set_window_value(AT_FTILT, 3, AG_WINDOW_ANIM_FRAME_START, 3);
 
 set_num_hitboxes(AT_FTILT,1);
 
