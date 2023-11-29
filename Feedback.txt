@@ -21,3 +21,10 @@
 - Fspecial seems to struggle at pulling people in, it slides them along the ground, which can force a tech
 - Up tilt hitbox is jank (I agree!!!)
 - More cooldown on Fspecial
+
+- Up tilt scoop is pretty good
+- Fstrong killed kragg at like, 60 with weird DI
+- More whifflag might be needed on nair, fair
+- Landing a parry should untether you (QOL)
+
+- Up special has some sick tech when you hitfall the orb
