@@ -8,7 +8,7 @@ set_attack_value(AT_NAIR, AG_HURTBOX_SPRITE, sprite_get("nair_hurt"));
 
 attack_sound_grid[AT_NAIR] = [{
     window:1,
-    frame:6,
+    frame:8,
     sound:asset_get("sfx_swipe_medium2"),
     pitch:2.2,
     pitch_variation:0
@@ -28,7 +28,7 @@ attack_sound_grid[AT_NAIR] = [{
 
 // Startup
 set_window_value(AT_NAIR, 1, AG_WINDOW_TYPE, 1);
-set_window_value(AT_NAIR, 1, AG_WINDOW_LENGTH, 6);
+set_window_value(AT_NAIR, 1, AG_WINDOW_LENGTH, 8);
 set_window_value(AT_NAIR, 1, AG_WINDOW_ANIM_FRAMES, 2);
 set_window_value(AT_NAIR, 1, AG_WINDOW_ANIM_FRAME_START, 1);
 set_window_value(AT_NAIR, 1, AG_WINDOW_CUSTOM_GRAVITY, 1);
@@ -45,7 +45,7 @@ set_window_value(AT_NAIR, 3, AG_WINDOW_TYPE, 1);
 set_window_value(AT_NAIR, 3, AG_WINDOW_LENGTH, 7);
 set_window_value(AT_NAIR, 3, AG_WINDOW_ANIM_FRAMES, 1);
 set_window_value(AT_NAIR, 3, AG_WINDOW_ANIM_FRAME_START, 8);
-set_window_value(AT_NAIR, 3, AG_WINDOW_HAS_WHIFFLAG, 4);
+set_window_value(AT_NAIR, 3, AG_WINDOW_HAS_WHIFFLAG, true);
 set_window_value(AT_NAIR, 3, AG_WINDOW_CUSTOM_GRAVITY, 1);
 
 set_num_hitboxes(AT_NAIR, 3);
