@@ -15,12 +15,6 @@ if (attack == AT_JAB) {
     }
 }
 
-if (attack == AT_BAIR) {
-    if (window == 3) {
-        prep_flip = true
-    }
-}
-
 if (attack == AT_NSPECIAL) {
     can_fast_fall = true
     move_cooldown[AT_NSPECIAL] = 40
