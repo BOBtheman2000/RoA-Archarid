@@ -375,6 +375,25 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
 
         if orb_data.jumping_type == 'proj' {
 
+            var influenced_direction = orb_data.jumping_player_direction
+            var min_influence = 9999
+
+            with (oPlayer) {
+                if id == orb_data.jumping_player.last_player_id {
+                    continue
+                }
+                var jp = orb_data.jumping_player
+                var my_dir = point_direction(jp.x + jp.hsp, jp.y + jp.vsp + 16, x, y)
+                var angle_diff = angle_difference(orb_data.jumping_player_direction, my_dir)
+                if abs(angle_diff) < abs(min_influence) {
+                    min_influence = angle_diff
+                }
+            }
+
+            if abs(min_influence) < 20 {
+                influenced_direction -= min_influence
+            }
+
             with (orb_data.jumping_player) {
                 x = lerp(x, orb_data.jump_midpoint_x, 0.6)
                 y = lerp(y, orb_data.jump_midpoint_y, 0.6)
@@ -385,14 +404,17 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
 
                     sprite_index = player_id.nspecial_sprite_fast
 
-                    hsp = lengthdir_x(player_id.nspecial_speed_fast, orb_data.jumping_player_direction)
-                    vsp = lengthdir_y(player_id.nspecial_speed_fast, orb_data.jumping_player_direction)
+                    hsp = lengthdir_x(player_id.nspecial_speed_fast, influenced_direction)
+                    vsp = lengthdir_y(player_id.nspecial_speed_fast, influenced_direction)
 
-                    spr_dir = sign(lengthdir_x(1, orb_data.jumping_player_direction))
+                    spr_dir = sign(lengthdir_x(1, influenced_direction))
 
                     draw_xscale = spr_dir
 
-                    kb_angle = orb_data.jumping_player_direction
+                    kb_angle = influenced_direction
+                    if spr_dir = -1 && influenced_direction > 90 {
+                        kb_angle = kb_angle - 180
+                    }
 
                     damage = player_id.nspecial_damage_fast
                     kb_value = player_id.nspecial_kb_fast
@@ -401,8 +423,8 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
                     hitpause_growth = player_id.nspecial_hitpause_scaling_fast
                     force_flinch = 0
 
-                    proj_angle = orb_data.jumping_player_direction
-                    if spr_dir = -1 && orb_data.jumping_player_direction > 90 {
+                    proj_angle = influenced_direction
+                    if spr_dir = -1 && influenced_direction > 90 {
                         proj_angle = proj_angle - 180
                     }
 
