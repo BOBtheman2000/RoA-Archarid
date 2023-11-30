@@ -117,7 +117,7 @@ wall_climb_speed_down = 3;
 
 walljump_start_anim_time = 8;
 walljump_leave_time = 0;
-walljump_extended_time_default = 600;
+walljump_extended_time_default =  60;
 walljump_extended_time = walljump_extended_time_default;
 
 nspecial_sprite = sprite_get("nspecial_proj")

@@ -1,5 +1,6 @@
 shader_start()
 
+// this should probably be in animation whoOPS
 if state == PS_WALL_JUMP {
     if clinging {
         if abs(wall_climbing) == 1 {
