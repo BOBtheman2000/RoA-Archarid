@@ -55,6 +55,10 @@ can_be_hit[other.player] = 10
     // refuse to snap until inbounds
     tether_snap_lockout = false
 
+    tether_airtime = 0
+    tether_airtime_warning = 270
+    tether_airtime_max = 360
+
     tension_thresh = 0
 
 // orb tether relevant stuff

@@ -2,7 +2,10 @@ var tether_len = 0
 var tether_dir = 0
 var tether_colour = c_white
 
-draw_sprite(back_sprite, min(2, floor(lifetime / 4)), x, y)
+var back_warning_time = 1 - (max(0, tether_airtime - tether_airtime_warning) / (tether_airtime_max - tether_airtime_warning))
+var back_colour = make_color_rgb(255, 255 * back_warning_time, 255 * back_warning_time)
+
+draw_sprite_ext(back_sprite, min(2, floor(lifetime / 4)), x, y, 1, 1, 0, back_colour, 1)
 
 if instance_exists(tethered_player) {
     var tether_to_y = tethered_player.y - tethered_player.char_height / 2
@@ -16,6 +19,8 @@ if instance_exists(tethered_player) {
 
     draw_sprite_ext(web_line_sprite, 1, x, y, tether_len, 1, tether_dir, tether_colour, 1)
 }
+
+tether_colour = c_white
 
 for (i=0; i < array_length_1d(tethered_orbs); i++) {
     if !tethered_orbs[i].parent {

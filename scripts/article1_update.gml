@@ -84,6 +84,17 @@ if instance_exists(tethered_player) && !override_all {
             break
         }
 
+        if free {
+            other.tether_airtime++
+            if other.tether_airtime > other.tether_airtime_max {
+                set_state(PS_PRATFALL)
+                other.queue_snap = true
+                break
+            }
+        } else {
+            other.tether_airtime = 0
+        }
+
         var tether_max = other.tether_distance_max
 
         if barney_archarid_yes && (state == PS_ATTACK_AIR || state == PS_ATTACK_GROUND) && attack == AT_DSPECIAL {
@@ -128,8 +139,11 @@ if instance_exists(tethered_player) && !override_all {
             break
         }
         
-        if state == PS_HITSTUN && shield_pressed {
-            set_state(PS_WALL_TECH)
+        if state == PS_HITSTUN {
+            other.tether_airtime = 0
+            if shield_pressed {
+                set_state(PS_WALL_TECH)
+            }
         }
 
         var looseness = other.tether_looseness
@@ -178,6 +192,8 @@ if instance_exists(tethered_player) && !override_all {
         // print("t: " + string(other.tension))
 
     }
+} else {
+    tether_airtime = 0
 }
 
 for (i=0; i < array_length_1d(tethered_orbs); i++) {
