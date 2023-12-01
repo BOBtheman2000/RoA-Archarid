@@ -132,7 +132,7 @@ set_color_profile_slot( 13, 3, 151, 255, 219 ); //Abdomen Pattern
 set_color_profile_slot( 13, 4, 255, 255, 255 ); //Tooth
 set_color_profile_slot( 13, 5, 188, 254, 248 ); //Eyes & web string
 
-// Do my own thing
+// Friendly Neighbourhood
 set_color_profile_slot( 14, 0, 23, 23, 23 ); //Body
 set_color_profile_slot( 14, 1, 56, 56, 56 ); //Accent
 set_color_profile_slot( 14, 2, 255, 61, 61 ); //Bands
