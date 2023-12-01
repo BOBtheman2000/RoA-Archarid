@@ -79,6 +79,8 @@ sprite_change_offset("nspecial_proj_fast", 30, 9);
 
 sprite_change_offset("hit_vfx_web", 220, 220);
 sprite_change_offset("hit_vfx_web_small", 60, 60);
+sprite_change_offset("hit_vfx_tiny", 32, 32);
 
 web_hit_vfx = hit_fx_create(sprite_get("hit_vfx_web"), 16)
 web_hit_vfx_small = hit_fx_create(sprite_get("hit_vfx_web_small"), 16)
+tiny_hit_vfx = hit_fx_create(sprite_get("hit_vfx_tiny"), 16)
