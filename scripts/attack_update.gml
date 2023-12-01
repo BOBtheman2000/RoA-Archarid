@@ -199,7 +199,7 @@ if array_length_1d(attack_sound_grid[attack]) > 0 {
     var attack_sounds = attack_sound_grid[attack]
     for (i = 0; i < array_length_1d(attack_sounds); i++) {
         var sound = attack_sounds[i]
-        if sound.window == window && sound.frame == window_timer && !hitstop {
+        if sound.window == window && sound.frame == window_timer && !hitpause {
 
             var sound_pitch = 1
             var sound_pitch_variation = 0
