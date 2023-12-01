@@ -62,7 +62,7 @@ hit_sound_grid[AT_UAIR] = [{
 {
     hitbox:2,
     sound:asset_get("mfx_star"),
-    pitch:2.0,
+    pitch:1.2,
     pitch_variation:0.2
 }]
 
