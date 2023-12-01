@@ -17,21 +17,20 @@ attack_sound_grid[AT_UAIR] = [{
 set_window_value(AT_UAIR, 1, AG_WINDOW_TYPE, 1);
 set_window_value(AT_UAIR, 1, AG_WINDOW_LENGTH, 14);
 set_window_value(AT_UAIR, 1, AG_WINDOW_ANIM_FRAMES, 3);
-set_window_value(AT_UAIR, 1, AG_WINDOW_ANIM_FRAME_START, 1);
 set_window_value(AT_UAIR, 1, AG_WINDOW_CUSTOM_GRAVITY, 1.0);
 
 // active
 set_window_value(AT_UAIR, 2, AG_WINDOW_TYPE, 1);
 set_window_value(AT_UAIR, 2, AG_WINDOW_LENGTH, 3);
 set_window_value(AT_UAIR, 2, AG_WINDOW_ANIM_FRAMES, 1);
-set_window_value(AT_UAIR, 2, AG_WINDOW_ANIM_FRAME_START, 4);
+set_window_value(AT_UAIR, 2, AG_WINDOW_ANIM_FRAME_START, 3);
 set_window_value(AT_UAIR, 2, AG_WINDOW_VSPEED, -4);
 
 // endlag
 set_window_value(AT_UAIR, 3, AG_WINDOW_TYPE, 1);
 set_window_value(AT_UAIR, 3, AG_WINDOW_LENGTH, 16);
 set_window_value(AT_UAIR, 3, AG_WINDOW_ANIM_FRAMES, 3);
-set_window_value(AT_UAIR, 3, AG_WINDOW_ANIM_FRAME_START, 5);
+set_window_value(AT_UAIR, 3, AG_WINDOW_ANIM_FRAME_START, 4);
 set_window_value(AT_UAIR, 3, AG_WINDOW_HAS_WHIFFLAG, 4);
 
 set_num_hitboxes(AT_UAIR, 2);
@@ -72,9 +71,9 @@ set_hitbox_value(AT_UAIR, 1, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_UAIR, 1, HG_WINDOW, 2);
 set_hitbox_value(AT_UAIR, 1, HG_LIFETIME, 3);
 set_hitbox_value(AT_UAIR, 1, HG_HITBOX_X, -10);
-set_hitbox_value(AT_UAIR, 1, HG_HITBOX_Y, -40);
+set_hitbox_value(AT_UAIR, 1, HG_HITBOX_Y, -30);
 set_hitbox_value(AT_UAIR, 1, HG_WIDTH, 100);
-set_hitbox_value(AT_UAIR, 1, HG_HEIGHT, 65);
+set_hitbox_value(AT_UAIR, 1, HG_HEIGHT, 70);
 set_hitbox_value(AT_UAIR, 1, HG_PRIORITY, 1);
 set_hitbox_value(AT_UAIR, 1, HG_DAMAGE, 4);
 set_hitbox_value(AT_UAIR, 1, HG_ANGLE, 110);
