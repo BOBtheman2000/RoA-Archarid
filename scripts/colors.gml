@@ -93,12 +93,12 @@ set_color_profile_slot( 8, 4, 217, 43, 43 ); //Tooth
 set_color_profile_slot( 8, 5, 255, 255, 255 ); //Eyes & web string
 
 // Bad Guy
-set_color_profile_slot( 9, 0, 110, 58, 22 ); //Body
-set_color_profile_slot( 9, 1, 212, 124, 59 ); //Accent
-set_color_profile_slot( 9, 2, 92, 23, 49 ); //Bands
-set_color_profile_slot( 9, 3, 143, 37, 77 ); //Abdomen Pattern
-set_color_profile_slot( 9, 4, 89, 23, 47 ); //Tooth
-set_color_profile_slot( 9, 5, 255, 255, 255 ); //Eyes & web string
+set_color_profile_slot( 9, 0, 196, 109, 45 ); //Body
+set_color_profile_slot( 9, 1, 33, 18, 7 ); //Accent
+set_color_profile_slot( 9, 2, 39, 156, 76 ); //Bands
+set_color_profile_slot( 9, 3, 25, 115, 27 ); //Abdomen Pattern
+set_color_profile_slot( 9, 4, 54, 204, 110 ); //Tooth
+set_color_profile_slot( 9, 5, 128, 255, 134 ); //Eyes & web string
 
 // Aussie
 set_color_profile_slot( 10, 0, 59, 25, 25 ); //Body
