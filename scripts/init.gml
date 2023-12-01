@@ -41,8 +41,8 @@ double_jump_time = 32; //the number of frames to play the djump animation. Can't
 walljump_hsp = 5;
 walljump_vsp = 12;
 walljump_time = 32;
-max_fall = 16; //maximum fall speed without fastfalling
-fast_fall = 22; //fast fall speed
+max_fall = 14; //maximum fall speed without fastfalling
+fast_fall = 18; //fast fall speed
 gravity_speed = .75;
 hitstun_grav = .5;
 knockback_adj = 1.15; //the multiplier to KB dealt to you. 1 = default, >1 = lighter, <1 = heavier
