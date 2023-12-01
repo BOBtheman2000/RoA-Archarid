@@ -4,7 +4,7 @@ set_attack_value(AT_DTILT, AG_HURTBOX_SPRITE, sprite_get("dtilt_hurt"));
 
 attack_sound_grid[AT_DTILT] = [{
     window:1,
-    frame:2,
+    frame:6,
     sound:asset_get("sfx_swipe_weak1"),
     pitch:1.6,
     pitch_variation:0.2

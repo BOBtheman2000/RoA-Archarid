@@ -18,7 +18,7 @@ attack_sound_grid[AT_JAB] = [{
 },
 {
     window:7,
-    frame:2,
+    frame:1,
     sound:asset_get("sfx_swipe_weak1"),
     pitch:1.3,
     pitch_variation:0.1
