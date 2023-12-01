@@ -113,7 +113,7 @@ set_hitbox_value(AT_NAIR, 1, HG_VISUAL_EFFECT, web_hit_vfx_small);
 set_hitbox_value(AT_NAIR, 2, HG_PARENT_HITBOX, 2);
 set_hitbox_value(AT_NAIR, 2, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_NAIR, 2, HG_WINDOW, 2);
-set_hitbox_value(AT_NAIR, 2, HG_WINDOW_CREATION_FRAME, 7);
+set_hitbox_value(AT_NAIR, 2, HG_WINDOW_CREATION_FRAME, 6);
 set_hitbox_value(AT_NAIR, 2, HG_LIFETIME, 3);
 set_hitbox_value(AT_NAIR, 2, HG_HITBOX_X, -34);
 set_hitbox_value(AT_NAIR, 2, HG_HITBOX_Y, -52);
