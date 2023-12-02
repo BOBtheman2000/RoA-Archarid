@@ -19,11 +19,13 @@ for (i=0; i < skin_count; i++) {
     draw_sprite_part_ext(tab_sprite, 0, 0, 0, 3, y_offset/-2, hud_x + x_offset, hud_y + y_offset, 2, 2, c_white, hud_alpha)
 }
 
+draw_set_halign(fa_center)
+
 draw_set_font(asset_get('fName'))
 
 var bg_font_col = c_black
 
-var text_x_off = 0
+var text_x_off = pip_width / 2
 var text_y_off = -14
 
 var text_shade = make_color_rgb(
