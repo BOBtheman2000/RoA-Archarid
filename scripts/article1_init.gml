@@ -9,6 +9,7 @@ mask_index = sprite_idle
 real_sprite_index = sprite_idle
 back_sprite = sprite_get("web_point_back")
 web_line_sprite = sprite_get("web_line")
+offscreen_sprite = sprite_get("web_point_offscreen")
 
 blink_timer = 60 + random_func(19, 120, true)
 doing_blink = false
