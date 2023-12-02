@@ -16,9 +16,11 @@ if attack == AT_FSPECIAL && hbox_num == 1 {
         if place_meeting(x, y, player_id) {
             queue_free = true
         } else {
-            if player_id.window == 2 {
+            if player_id.window == 2 && player_id.attack == AT_FSPECIAL {
                 player_id.window++
                 player_id.window_timer = 0
+                queue_free = true
+            } else {
                 queue_free = true
             }
         }
