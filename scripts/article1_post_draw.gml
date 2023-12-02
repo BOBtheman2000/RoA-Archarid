@@ -38,16 +38,20 @@ if y < view_get_yview() {
     offscreen_pos_y = view_get_yview() + offscreen_offset
     if offscreen_rot == -1 {
         offscreen_rot = 270
+    } else if offscreen_rot == 0 {
+        offscreen_rot = -45
     } else {
-        offscreen_rot = lerp(offscreen_rot, 270, 0.5)
+        offscreen_rot = 225
     }
 } else if y > view_get_yview() + view_get_hview() {
     draw_v = 1
     offscreen_pos_y = view_get_yview() + view_get_hview() - offscreen_offset
     if offscreen_rot == -1 {
         offscreen_rot = 90
+    } else if offscreen_rot == 0 {
+        offscreen_rot = 45
     } else {
-        offscreen_rot = lerp(offscreen_rot, 90, 0.5)
+        offscreen_rot = 135
     }
 }
 
