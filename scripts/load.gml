@@ -41,7 +41,7 @@ sprite_change_offset("utilt", 58, 89);
 sprite_change_offset("utilt_hurt", 58*2, 89*2);
 sprite_change_offset("nair", 58, 69);
 sprite_change_offset("nair_hurt", 58*2, 69*2);
-sprite_change_offset("fair", 58, 69);
+sprite_change_offset("fair", 58, 89);
 sprite_change_offset("fair_hurt", 58*2, 69*2);
 sprite_change_offset("bair", 58, 89);
 sprite_change_offset("bair_hurt", 58*2, 89*2);
