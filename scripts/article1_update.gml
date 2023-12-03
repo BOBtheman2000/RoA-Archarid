@@ -41,9 +41,6 @@ if animation_timer % animation_time == 0 {
     real_image_index = (real_image_index + 1) % spritesheet_length
 }
 
-print(hurt_animation_timer)
-print(real_image_index)
-
 tether_list = []
 
 for (i=0; i < array_length_1d(tethered_orb_queue); i++) {
