@@ -10,10 +10,15 @@ real_sprite_index = sprite_idle
 back_sprite = sprite_get("web_point_back")
 web_line_sprite = sprite_get("web_line")
 offscreen_sprite = sprite_get("web_point_offscreen")
+flash_sprite = sprite_get("web_point_flash")
 
 blink_timer = 60 + random_func(19, 120, true)
 doing_blink = false
 blink_animation_time = 30
+
+doing_hurt_animation = false
+hurt_animation_timer = 0
+hurt_animation_time = 30
 
 real_image_index = 0
 

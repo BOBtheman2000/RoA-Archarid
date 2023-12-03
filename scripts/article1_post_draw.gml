@@ -13,6 +13,9 @@ draw_x = lerp(draw_x, target_draw_x, 0.6)
 draw_y = lerp(draw_y, target_draw_y, 0.6)
 
 draw_sprite(real_sprite_index, real_image_index, x + draw_x, y + draw_y)
+if doing_hurt_animation {
+    draw_sprite_ext(flash_sprite, 0, x + draw_x, y + draw_y, 1, 1, 0, c_white, (1/1.5) - ((hurt_animation_timer / hurt_animation_time)/1.5))
+}
 
 var offscreen_pos_x = x
 var offscreen_pos_y = y

@@ -4,7 +4,19 @@ var spritesheet_length = 4
 var animation_time = 4
 var animation_timer = get_gameplay_time()
 
-if doing_blink {
+if doing_hurt_animation {
+    hurt_animation_timer++
+    if hurt_animation_timer > hurt_animation_time {
+        hurt_animation_timer = 0
+        doing_hurt_animation = false
+        real_sprite_index = doing_blink ? sprite_blink : sprite_idle
+        real_image_index = 0
+    } else {
+        animation_timer = hurt_animation_timer
+        animation_time = ceil(hurt_animation_time / 4)
+        spritesheet_length = 4
+    }
+} else if doing_blink {
     blink_timer++
     if blink_timer >= blink_animation_time {
         blink_timer = 60 + random_func(19, 240, true)
@@ -28,6 +40,9 @@ if doing_blink {
 if animation_timer % animation_time == 0 {
     real_image_index = (real_image_index + 1) % spritesheet_length
 }
+
+print(hurt_animation_timer)
+print(real_image_index)
 
 tether_list = []
 
@@ -142,7 +157,12 @@ if instance_exists(tethered_player) && !override_all {
         if state == PS_HITSTUN {
             other.tether_airtime = 0
             if shield_pressed {
+                // play the hurt animation when we tech the wall
                 set_state(PS_WALL_TECH)
+                other.doing_hurt_animation = true
+                other.hurt_animation_timer = 0
+                other.real_sprite_index = other.sprite_hurt
+                other.real_image_index = 0
             }
         }
 
