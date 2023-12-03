@@ -167,6 +167,7 @@ if (attack == AT_DSPECIAL) {
     can_move = false
 }
 
+// wspecial
 if (attack == AT_EXTRA_1) && window == 2 {
     var check_wall_x = x + (-40 * spr_dir)
     var check_wall_y_up = y - 30
@@ -186,7 +187,14 @@ if (attack == AT_EXTRA_1) && window == 2 {
     }
 }
 
+// wair
 if (attack == AT_EXTRA_2) {
+    walljump_extended_time = max(walljump_extended_time - 1, 0)
+    if walljump_extended_time == 0 {
+        vsp = wall_climb_speed_down
+    } else {
+        vsp = 0
+    }
     if window == 3 && window_timer == get_window_value(AT_EXTRA_2, 3, AG_WINDOW_LENGTH) && jump_down{
         set_state(PS_WALL_JUMP)
         clinging = true
