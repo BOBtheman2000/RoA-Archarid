@@ -28,6 +28,8 @@ var bg_font_col = c_black
 var text_x_off = pip_width / 2
 var text_y_off = -14
 
+if curr_skin == 20 text_y_off -= 42
+
 var text_shade = make_color_rgb(
     get_color_profile_slot_r(curr_skin, 0),
     get_color_profile_slot_g(curr_skin, 0),

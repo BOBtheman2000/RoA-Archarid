@@ -34,7 +34,9 @@ skin_titles = [
     'Justicar',
     'Forest Gremlin',
     'Nut Bush Haver',
-    "Neon Genesis Evangelion or something I haven't seen the show",
+    "Neon Genesis Evangelion
+or something I haven't
+seen the show",
     'Blackpink',
     'Electric Feel'
 ]
