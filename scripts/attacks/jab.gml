@@ -98,6 +98,31 @@ set_window_value(AT_JAB, 9, AG_WINDOW_HAS_WHIFFLAG, 1);
 
 set_num_hitboxes(AT_JAB, 4);
 
+hit_sound_grid[AT_JAB] = [{
+    hitbox:1,
+    sound:asset_get("sfx_blow_weak1"),
+    pitch:1.2,
+    pitch_variation:0.1
+},
+{
+    hitbox:2,
+    sound:asset_get("sfx_blow_weak1"),
+    pitch:1.2,
+    pitch_variation:0.1
+},
+{
+    hitbox:3,
+    sound:asset_get("sfx_blow_weak2"),
+    pitch:1.1,
+    pitch_variation:0.1
+},
+{
+    hitbox:4,
+    sound:asset_get("sfx_blow_weak1"),
+    pitch:1.4,
+    pitch_variation:0.4
+}]
+
 set_hitbox_value(AT_JAB, 1, HG_PARENT_HITBOX, 1);
 set_hitbox_value(AT_JAB, 1, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_JAB, 1, HG_WINDOW, 2);
@@ -112,7 +137,6 @@ set_hitbox_value(AT_JAB, 1, HG_ANGLE, 60);
 set_hitbox_value(AT_JAB, 1, HG_BASE_KNOCKBACK, 4);
 set_hitbox_value(AT_JAB, 1, HG_BASE_HITPAUSE, 6);
 set_hitbox_value(AT_JAB, 1, HG_VISUAL_EFFECT, tiny_hit_vfx);
-set_hitbox_value(AT_JAB, 1, HG_HIT_SFX, asset_get("sfx_blow_weak1"));
 set_hitbox_value(AT_JAB, 1, HG_ANGLE_FLIPPER, 3);
 set_hitbox_value(AT_JAB, 1, HG_HITBOX_GROUP, 1);
 
@@ -139,7 +163,6 @@ set_hitbox_value(AT_JAB, 3, HG_ANGLE, 60);
 set_hitbox_value(AT_JAB, 3, HG_BASE_KNOCKBACK, 6);
 set_hitbox_value(AT_JAB, 3, HG_BASE_HITPAUSE, 7);
 set_hitbox_value(AT_JAB, 3, HG_VISUAL_EFFECT, tiny_hit_vfx);
-set_hitbox_value(AT_JAB, 3, HG_HIT_SFX, asset_get("sfx_blow_weak2"));
 set_hitbox_value(AT_JAB, 3, HG_ANGLE_FLIPPER, 3);
 set_hitbox_value(AT_JAB, 3, HG_HITBOX_GROUP, 3);
 
@@ -157,6 +180,5 @@ set_hitbox_value(AT_JAB, 4, HG_ANGLE, 60);
 set_hitbox_value(AT_JAB, 4, HG_BASE_KNOCKBACK, 3);
 set_hitbox_value(AT_JAB, 4, HG_BASE_HITPAUSE, 4);
 set_hitbox_value(AT_JAB, 4, HG_VISUAL_EFFECT, tiny_hit_vfx);
-set_hitbox_value(AT_JAB, 4, HG_HIT_SFX, asset_get("sfx_blow_weak1"));
 set_hitbox_value(AT_JAB, 4, HG_ANGLE_FLIPPER, 3);
 set_hitbox_value(AT_JAB, 4, HG_HITBOX_GROUP, -1);
