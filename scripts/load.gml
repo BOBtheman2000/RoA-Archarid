@@ -64,7 +64,7 @@ sprite_change_offset("wspecial", 57, 89);
 sprite_change_offset("wspecial_hurt", 57*2, 89*2);
 sprite_change_offset("taunt", 28, 29);
 
-sprite_change_offset("plat", 64, 94);
+sprite_change_offset("plat", 32, 47);
 
 sprite_change_offset("web_point_idle", 18, 18);
 sprite_change_offset("web_point_blink", 18, 18);
