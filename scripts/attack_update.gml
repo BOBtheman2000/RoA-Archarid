@@ -175,6 +175,7 @@ if (attack == AT_EXTRA_1) && window == 2 {
     var available_up = collision_point(check_wall_x, check_wall_y_up, asset_get("par_block"), false, true) != noone
 
     if !available_up || jump_pressed {
+        clear_button_buffer(PC_JUMP_PRESSED)
         set_state(PS_FIRST_JUMP)
         spr_dir = -spr_dir
         if jump_pressed {
@@ -184,6 +185,7 @@ if (attack == AT_EXTRA_1) && window == 2 {
         vsp = -jump_speed
         djumps = 0
         has_airdodge = true
+        has_walljump = false
     }
 }
 
