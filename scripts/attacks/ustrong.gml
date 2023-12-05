@@ -23,30 +23,31 @@ attack_sound_grid[AT_USTRONG] = [{
 set_window_value(AT_USTRONG, 1, AG_WINDOW_TYPE, 1);
 set_window_value(AT_USTRONG, 1, AG_WINDOW_LENGTH, 6);
 set_window_value(AT_USTRONG, 1, AG_WINDOW_ANIM_FRAMES, 2);
+set_window_value(AT_USTRONG, 1, AG_WINDOW_ANIM_FRAME_START, 1);
 
 // startup
 set_window_value(AT_USTRONG, 2, AG_WINDOW_TYPE, 1);
 set_window_value(AT_USTRONG, 2, AG_WINDOW_LENGTH, 3);
 set_window_value(AT_USTRONG, 2, AG_WINDOW_ANIM_FRAMES, 1);
-set_window_value(AT_USTRONG, 2, AG_WINDOW_ANIM_FRAME_START, 1);
+set_window_value(AT_USTRONG, 2, AG_WINDOW_ANIM_FRAME_START, 2);
 
 // active A
 set_window_value(AT_USTRONG, 3, AG_WINDOW_TYPE, 1);
 set_window_value(AT_USTRONG, 3, AG_WINDOW_LENGTH, 4);
 set_window_value(AT_USTRONG, 3, AG_WINDOW_ANIM_FRAMES, 1);
-set_window_value(AT_USTRONG, 3, AG_WINDOW_ANIM_FRAME_START, 2);
+set_window_value(AT_USTRONG, 3, AG_WINDOW_ANIM_FRAME_START, 3);
 
 // active B
 set_window_value(AT_USTRONG, 4, AG_WINDOW_TYPE, 1);
 set_window_value(AT_USTRONG, 4, AG_WINDOW_LENGTH, 3);
 set_window_value(AT_USTRONG, 4, AG_WINDOW_ANIM_FRAMES, 1);
-set_window_value(AT_USTRONG, 4, AG_WINDOW_ANIM_FRAME_START, 3);
+set_window_value(AT_USTRONG, 4, AG_WINDOW_ANIM_FRAME_START, 4);
 
 // endlag
 set_window_value(AT_USTRONG, 5, AG_WINDOW_TYPE, 1);
 set_window_value(AT_USTRONG, 5, AG_WINDOW_LENGTH, 16);
-set_window_value(AT_USTRONG, 5, AG_WINDOW_ANIM_FRAMES, 1);
-set_window_value(AT_USTRONG, 5, AG_WINDOW_ANIM_FRAME_START, 4);
+set_window_value(AT_USTRONG, 5, AG_WINDOW_ANIM_FRAMES, 3);
+set_window_value(AT_USTRONG, 5, AG_WINDOW_ANIM_FRAME_START, 5);
 set_window_value(AT_USTRONG, 5, AG_WINDOW_HAS_WHIFFLAG, 12);
 
 set_num_hitboxes(AT_USTRONG, 4);
