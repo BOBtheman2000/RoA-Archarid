@@ -193,6 +193,9 @@ if instance_exists(tethered_player) && !override_all {
         // just in case this new vsp is bouncy, let's restore a jump
         if vsp > 0 && target_vsp < 0 {
             djumps = min(djumps, max_djumps - 1)
+            if barney_archarid_yes {
+                other.prime_dspecial_cooldown = true
+            }
             if state == PS_PRATFALL {
                 set_state(PS_IDLE_AIR)
             }
@@ -211,6 +214,9 @@ if instance_exists(tethered_player) && !override_all {
     }
 } else {
     tether_airtime = 0
+    if !queue_snap {
+        prime_dspecial_cooldown = false
+    }
 }
 
 for (i=0; i < array_length_1d(tethered_orbs); i++) {
@@ -469,6 +475,11 @@ if queue_snap {
     sound_play(snap_sound, false, noone, 1, 2)
     if instance_exists(tethered_player) {
         tethered_player.barney_archarid_tethered_to_orb = false
+        if prime_dspecial_cooldown && ("barney_archarid_yes" in tethered_player) {
+            if tethered_player.barney_archarid_yes {
+                tethered_player.move_cooldown[AT_DSPECIAL] = 2
+            }
+        }
     }
     for (i=0; i < array_length_1d(tethered_orbs); i++) {
         var tethered_orb = tethered_orbs[i].target

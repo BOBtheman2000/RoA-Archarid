@@ -67,6 +67,8 @@ can_be_hit[other.player] = 10
 
     tension_thresh = 0
 
+    prime_dspecial_cooldown = false
+
 // orb tether relevant stuff
     tethered_orb_queue = [] // just a list of orbs to queue up
     tethered_orbs = []
