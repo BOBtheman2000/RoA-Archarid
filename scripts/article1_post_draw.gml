@@ -66,3 +66,7 @@ if abs(draw_h) == 1 || abs(draw_v) == 1 {
     draw_sprite_ext(asset_get('offscreen_cloud_bg_spr'), 0, offscreen_pos_x, offscreen_pos_y, 1, 1, offscreen_rot, get_player_hud_color(player_id.player), 1)
     draw_sprite_ext(offscreen_sprite, 0, offscreen_pos_x - draw_h, offscreen_pos_y - draw_v, 1, 1, 0, c_white, 1)
 }
+
+if get_match_setting(SET_HITBOX_VIS) {
+    draw_sprite_ext(mask_index, 0, x, y, 1, 1, 0, c_white, 0.5)
+}

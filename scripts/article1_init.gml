@@ -5,7 +5,7 @@ sprite_blink = sprite_get("web_point_blink")
 sprite_hurt = sprite_get("web_point_hurt")
 
 sprite_index = asset_get("empty_sprite")
-mask_index = sprite_idle
+mask_index = sprite_get("web_point_hurtbox")
 real_sprite_index = sprite_idle
 back_sprite = sprite_get("web_point_back")
 web_line_sprite = sprite_get("web_line")
