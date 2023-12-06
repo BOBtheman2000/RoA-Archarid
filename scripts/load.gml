@@ -55,7 +55,7 @@ sprite_change_offset("fstrong_hurt", 58*2, 89*2);
 sprite_change_offset("ustrong", 58, 89);
 sprite_change_offset("ustrong_hurt", 58*2, 89*2);
 sprite_change_offset("dstrong", 58, 89);
-sprite_change_offset("dstrong_hurt", 58*2, 69*2);
+sprite_change_offset("dstrong_hurt", 58*2, 89*2);
 sprite_change_offset("nspecial", 58, 89);
 sprite_change_offset("fspecial", 58, 69);
 sprite_change_offset("uspecial", 58, 89);
