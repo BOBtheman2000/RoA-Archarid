@@ -4,13 +4,15 @@ hit_player_obj.has_hit = true
 
 var attack = enemy_hitboxID.attack
 
+var been_hit = false
+
 if instance_exists(tethered_player) {
     if hit_player_obj == tethered_player {
-        queue_snap = true
+        been_hit = true
     } else {
         if hit_player_obj.barney_archarid_yes {
             if (attack == AT_DSTRONG || attack == AT_USTRONG || attack == AT_FSTRONG) {
-                queue_snap = true
+                been_hit = true
             }
             if (attack == AT_DSPECIAL) {
                 if hit_player_obj.barney_archarid_tethered_to_orb {
@@ -24,7 +26,7 @@ if instance_exists(tethered_player) {
                     sound_play(snap_sound, false, noone, 1, 2)
 
                 } else {
-                    queue_snap = true
+                    been_hit = true
                 }
             }
         }
@@ -54,9 +56,23 @@ if instance_exists(tethered_player) {
                 barney_archarid_tether_bottom_y = 6
             }
         } else {
-            queue_snap = true
+            been_hit = true
         }
     } else {
-        queue_snap = true
+        been_hit = true
     }
+}
+
+if been_hit {
+    enemy_hitboxID.has_hit = true
+    queue_snap = true
+    spawn_hit_fx(x + enemy_hitboxID.hit_effect_x, y + enemy_hitboxID.hit_effect_y, enemy_hitboxID.hit_effect)
+    sound_play(enemy_hitboxID.sound_effect)
+}
+
+// setup like this in case something else was also hit this frame
+// doesn't properly account for everything but should suffice for making things not look weird
+if !enemy_hitboxID.has_hit && !been_hit {
+    hitstop = 0
+    hit_player_obj.hitstop = 0
 }
