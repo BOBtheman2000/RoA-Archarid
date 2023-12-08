@@ -9,7 +9,7 @@ if (attack == AT_JAB) {
         clear_button_buffer(PC_ATTACK_PRESSED)
     }
     if (window == 8 and window_timer >= 4) {
-        if (!attack_down) {
+        if (!attack_down && rapid_jab_timer <= 0) {
             window++;
         }
     }

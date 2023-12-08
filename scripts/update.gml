@@ -7,6 +7,14 @@ with (oPlayer) {
     }
 }
 
+if rapid_jab_timer > 0 {
+    rapid_jab_timer--
+}
+
+if attack_pressed {
+    rapid_jab_timer = 16
+}
+
 // undo uspecial override
 if barney_archarid_tethered_to_orb && ((state != PS_ATTACK_GROUND && state != PS_ATTACK_AIR) || attack != AT_USPECIAL) {
     barney_archarid_current_orb.override_all = false
