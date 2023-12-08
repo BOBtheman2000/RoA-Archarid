@@ -97,6 +97,12 @@ if (attack == AT_FSPECIAL) {
             window_timer = 0
         }
     }
+    if window == 3 && window_timer == get_window_value(AT_FSPECIAL, 3, AG_WINDOW_LENGTH) {
+        if free { 
+            attack_end()
+            set_state(PS_PRATFALL)
+        }
+    }
     if window == 4 {
         if instance_exists(fspecial_target_player) {
             if !fspecial_target_player.barney_archarid_tethered_to_orb {
