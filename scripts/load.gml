@@ -60,7 +60,7 @@ sprite_change_offset("nspecial", 58, 89);
 sprite_change_offset("nspecial_hurt", 58*2, 89*2);
 sprite_change_offset("nspecial_air", 58, 89);
 sprite_change_offset("nspecial_hurt_air", 58*2, 89*2);
-sprite_change_offset("fspecial", 58, 69);
+sprite_change_offset("fspecial", 58, 89);
 sprite_change_offset("uspecial", 58, 89);
 sprite_change_offset("dspecial", 58, 89);
 sprite_change_offset("dspecial_hurt", 58*2, 89*2);
