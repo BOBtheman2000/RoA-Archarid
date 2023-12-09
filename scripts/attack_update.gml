@@ -62,9 +62,6 @@ if (attack == AT_USPECIAL){
         }
     }
     if window == 6 {
-        if barney_archarid_tethered_to_orb {
-            barney_archarid_current_orb.queue_snap = true
-        }
         if window_timer == get_window_value(AT_USPECIAL, 6, AG_WINDOW_LENGTH) && uspecial_do_pratfall {
             destroy_hitboxes()
             attack_end()
