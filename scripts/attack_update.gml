@@ -107,7 +107,7 @@ if (attack == AT_FSPECIAL) {
         if instance_exists(fspecial_target_player) {
             if !fspecial_target_player.barney_archarid_tethered_to_orb {
                 if window_timer == get_window_value(AT_FSPECIAL, 4, AG_WINDOW_LENGTH) - 1 {
-                    create_hitbox(AT_FSPECIAL, 2, fspecial_target_player.x, fspecial_target_player.y)
+                    create_hitbox(AT_FSPECIAL, 2, floor(fspecial_target_player.x), floor(fspecial_target_player.y))
                     window++
                     window_timer = 0
                 }
