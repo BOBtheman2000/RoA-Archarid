@@ -15,6 +15,15 @@ if (attack == AT_JAB) {
     }
 }
 
+if (attack == AT_DATTACK) {
+    if window == 3 && window_timer == 1 {
+        var dust = spawn_dust_fx(round(x), round(y), asset_get("empty_sprite"), 24)
+        dust.dust_fx = 0
+        dust.fg_sprite = 2620
+        dust.dust_color = 0
+    }
+}
+
 // neutral special
 if (attack == AT_NSPECIAL) {
     can_fast_fall = true

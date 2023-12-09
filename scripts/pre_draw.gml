@@ -5,10 +5,22 @@ if state == PS_WALL_JUMP {
     if clinging {
         if abs(wall_climbing) == 1 {
             sprite_index = wall_climb_sprite_down;
-            if wall_climbing = -1 {
+            if wall_climbing == -1 {
                 sprite_index = wall_climb_sprite_up;
             }
             image_index = floor(((state_timer - walljump_extended_time) / 4) % (4 - wall_climbing * 2));
+
+            if wall_climbing == 1 && image_index = 0 {
+                // All info on dust spawning is confined to the discord
+                // And every conversation about it gets interrupted by bar telling people to just use the code from tester
+                // So this just steals stuff from supersonic
+                var dust = spawn_dust_fx(round(x - 6 * spr_dir), round(y - 50), asset_get("empty_sprite"), 12)
+                dust.dust_fx = 5
+                dust.fg_sprite = 2624
+                dust.dust_color = 0
+                dust.draw_angle = spr_dir * 90
+            }
+
         } else {
             sprite_index = wall_cling_sprite;
             image_index = state_timer < walljump_start_anim_time;
