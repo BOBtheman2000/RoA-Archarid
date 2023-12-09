@@ -15,12 +15,13 @@ if (attack == AT_JAB) {
     }
 }
 
+// neutral special
 if (attack == AT_NSPECIAL) {
     can_fast_fall = true
     move_cooldown[AT_NSPECIAL] = 40
 }
 
-// sandbert
+// up special
 if (attack == AT_USPECIAL){
     if window == 1 {
         if barney_archarid_tethered_to_orb {

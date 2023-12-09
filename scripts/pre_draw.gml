@@ -39,47 +39,69 @@ with (pHitBox) {
     }
 }
 
-if (state == PS_ATTACK_GROUND || state == PS_ATTACK_AIR) && attack == AT_FSPECIAL {
-    if window > 1 && !draw_hbox_lines {
+if (state == PS_ATTACK_GROUND || state == PS_ATTACK_AIR) {
 
-        var x_player_offset = get_hitbox_value(AT_FSPECIAL, 1, HG_HITBOX_X)
-        var y_player_offset = get_hitbox_value(AT_FSPECIAL, 1, HG_HITBOX_Y)
+    if attack == AT_USPECIAL {
+        if window == 2 && !barney_archarid_tethered_to_orb {
 
-        var target_x = fspecial_target_x
-        var target_y = fspecial_target_y
+            var dist_from_end = ease_backOut(0, 1, window_timer, get_window_value(AT_USPECIAL, 2, AG_WINDOW_LENGTH), 2)
 
-        if instance_exists(fspecial_target_player) {
-            target_x = fspecial_target_player.x
-            target_y = fspecial_target_player.y + y_player_offset
+            var orb_sprite = real((window_timer / get_window_value(AT_USPECIAL, 2, AG_WINDOW_LENGTH)) > 0.7)
+
+            var orb_x = x + (uspecial_orb_x * dist_from_end) * spr_dir
+            var orb_y = y + uspecial_orb_y * dist_from_end
+
+            var dist_to_orb = point_distance(x, y, orb_x, orb_y)
+            var dir_to_orb = point_direction(x, y, orb_x, orb_y)
+
+            draw_sprite_ext(web_line_sprite, 1, x - 4, y, dist_to_orb, 1, dir_to_orb, c_white, 1)
+            draw_sprite(uspecial_orb_spawn_sprite, orb_sprite, orb_x, orb_y)
+
         }
+    }
 
-        var calc_x_pos = x + (x_player_offset * spr_dir)
+    if attack == AT_FSPECIAL {
+        if window > 1 && !draw_hbox_lines {
 
-        for (i=-1; i <= 1; i++) {
-            var x_offset = 0
-            var y_offset = i * 12
+            var x_player_offset = get_hitbox_value(AT_FSPECIAL, 1, HG_HITBOX_X)
+            var y_player_offset = get_hitbox_value(AT_FSPECIAL, 1, HG_HITBOX_Y)
 
-            if fspecial_draw_angle_override {
-                if i < 0 {
-                    x_offset = fspecial_bottom_draw_override_x
-                    y_offset = fspecial_bottom_draw_override_y
-                }
-                if i > 0 {
-                    x_offset = fspecial_top_draw_override_x
-                    y_offset = fspecial_top_draw_override_y
-                }
+            var target_x = fspecial_target_x
+            var target_y = fspecial_target_y
+
+            if instance_exists(fspecial_target_player) {
+                target_x = fspecial_target_player.x
+                target_y = fspecial_target_player.y + y_player_offset
             }
 
-            var draw_len = point_distance(calc_x_pos, y + y_player_offset, target_x + x_offset, target_y + y_offset)
-            var draw_rot = point_direction(calc_x_pos, y + y_player_offset, target_x + x_offset, target_y + y_offset)
+            var calc_x_pos = x + (x_player_offset * spr_dir)
 
-            if window == 3 {
-                draw_len *= max(0, 1 - ease_expoIn(0, 1, window_timer, floor(get_window_value(AT_FSPECIAL, 3, AG_WINDOW_LENGTH) / 3)))
-            } else if window == 5 {
-                draw_len *= max(0, 1 - ease_expoIn(0, 1, window_timer, floor(get_window_value(AT_FSPECIAL, 5, AG_WINDOW_LENGTH) / 3)))
+            for (i=-1; i <= 1; i++) {
+                var x_offset = 0
+                var y_offset = i * 12
+
+                if fspecial_draw_angle_override {
+                    if i < 0 {
+                        x_offset = fspecial_bottom_draw_override_x
+                        y_offset = fspecial_bottom_draw_override_y
+                    }
+                    if i > 0 {
+                        x_offset = fspecial_top_draw_override_x
+                        y_offset = fspecial_top_draw_override_y
+                    }
+                }
+
+                var draw_len = point_distance(calc_x_pos, y + y_player_offset, target_x + x_offset, target_y + y_offset)
+                var draw_rot = point_direction(calc_x_pos, y + y_player_offset, target_x + x_offset, target_y + y_offset)
+
+                if window == 3 {
+                    draw_len *= max(0, 1 - ease_expoIn(0, 1, window_timer, floor(get_window_value(AT_FSPECIAL, 3, AG_WINDOW_LENGTH) / 3)))
+                } else if window == 5 {
+                    draw_len *= max(0, 1 - ease_expoIn(0, 1, window_timer, floor(get_window_value(AT_FSPECIAL, 5, AG_WINDOW_LENGTH) / 3)))
+                }
+
+                draw_sprite_ext(web_line_sprite, 1, calc_x_pos, y + y_player_offset, draw_len, 1, draw_rot, c_white, 1)
             }
-
-            draw_sprite_ext(web_line_sprite, 1, calc_x_pos, y + y_player_offset, draw_len, 1, draw_rot, c_white, 1)
         }
     }
 }

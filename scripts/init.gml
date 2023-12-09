@@ -149,6 +149,8 @@ uspecial_orb_y = -130
 uspecial_boost_speed_x = 14
 uspecial_boost_speed_y = 18
 
+uspecial_orb_spawn_sprite = sprite_get("web_point_spawn")
+
 // it's like this so it remains consistent with other players
 with (oPlayer) {
     barney_archarid_tethered_to_orb = false
