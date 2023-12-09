@@ -44,9 +44,10 @@ with (pHitBox) {
         draw_hbox_lines = true
         for (i=-1; i <= 1; i++) {
             var y_offset = i * 12
-            var draw_len = point_distance(other.x + x_pos, other.y + y_pos, x, y)
-            var draw_rot = point_direction(other.x + x_pos, other.y + y_pos, x, y + y_offset)
-            draw_sprite_ext(player_id.web_line_sprite, 1, other.x + x_pos, other.y + y_pos, draw_len, 1, draw_rot, c_white, 1)
+            var y_start_diff = 4 - 4 * spr_dir
+            var draw_len = point_distance(other.x + x_pos, other.y + y_pos + y_start_diff, x, y)
+            var draw_rot = point_direction(other.x + x_pos, other.y + y_pos + y_start_diff, x, y + y_offset)
+            draw_sprite_ext(player_id.web_line_sprite, 1, other.x + x_pos, other.y + y_pos + y_start_diff, draw_len, 1, draw_rot, c_white, 1)
         }
     }
 }
@@ -78,6 +79,8 @@ if (state == PS_ATTACK_GROUND || state == PS_ATTACK_AIR) {
             var x_player_offset = get_hitbox_value(AT_FSPECIAL, 1, HG_HITBOX_X)
             var y_player_offset = get_hitbox_value(AT_FSPECIAL, 1, HG_HITBOX_Y)
 
+            var y_start_diff = 4 - 4 * spr_dir
+
             var target_x = fspecial_target_x
             var target_y = fspecial_target_y
 
@@ -103,8 +106,8 @@ if (state == PS_ATTACK_GROUND || state == PS_ATTACK_AIR) {
                     }
                 }
 
-                var draw_len = point_distance(calc_x_pos, y + y_player_offset, target_x + x_offset, target_y + y_offset)
-                var draw_rot = point_direction(calc_x_pos, y + y_player_offset, target_x + x_offset, target_y + y_offset)
+                var draw_len = point_distance(calc_x_pos, y + y_player_offset + y_start_diff, target_x + x_offset, target_y + y_offset)
+                var draw_rot = point_direction(calc_x_pos, y + y_player_offset + y_start_diff, target_x + x_offset, target_y + y_offset)
 
                 if window == 3 {
                     draw_len *= max(0, 1 - ease_expoIn(0, 1, window_timer, floor(get_window_value(AT_FSPECIAL, 3, AG_WINDOW_LENGTH) / 3)))
@@ -112,7 +115,7 @@ if (state == PS_ATTACK_GROUND || state == PS_ATTACK_AIR) {
                     draw_len *= max(0, 1 - ease_expoIn(0, 1, window_timer, floor(get_window_value(AT_FSPECIAL, 5, AG_WINDOW_LENGTH) / 3)))
                 }
 
-                draw_sprite_ext(web_line_sprite, 1, calc_x_pos, y + y_player_offset, draw_len, 1, draw_rot, c_white, 1)
+                draw_sprite_ext(web_line_sprite, 1, calc_x_pos, y + y_player_offset + y_start_diff, draw_len, 1, draw_rot, c_white, 1)
             }
         }
     }
