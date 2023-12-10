@@ -40,7 +40,7 @@ sprite_change_offset("fair_hurt", 58*2, 69*2);
 sprite_change_offset("bair", 58, 89, true);
 sprite_change_offset("uair", 58, 89, true);
 sprite_change_offset("dair", 58, 89, true);
-sprite_change_offset("wair", 57, 89);
+sprite_change_offset("wair", 57, 89, true);
 sprite_change_offset("fstrong", 58, 89, true);
 sprite_change_offset("ustrong", 58, 89, true);
 sprite_change_offset("dstrong", 58, 89, true);
