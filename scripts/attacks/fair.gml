@@ -54,6 +54,7 @@ hit_sound_grid[AT_FAIR] = [{
     pitch_variation:0.1
 }]
 
+// sour
 set_hitbox_value(AT_FAIR, 1, HG_PARENT_HITBOX, 1);
 set_hitbox_value(AT_FAIR, 1, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_FAIR, 1, HG_WINDOW, 2);
@@ -73,6 +74,7 @@ set_hitbox_value(AT_FAIR, 1, HG_VISUAL_EFFECT_X_OFFSET, 32);
 set_hitbox_value(AT_FAIR, 1, HG_VISUAL_EFFECT_Y_OFFSET, -10);
 set_hitbox_value(AT_FAIR, 1, HG_ANGLE_FLIPPER, 6);
 
+// sweet
 set_hitbox_value(AT_FAIR, 2, HG_PARENT_HITBOX, 2);
 set_hitbox_value(AT_FAIR, 2, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_FAIR, 2, HG_WINDOW, 2);
@@ -88,4 +90,4 @@ set_hitbox_value(AT_FAIR, 2, HG_BASE_KNOCKBACK, 7);
 set_hitbox_value(AT_FAIR, 2, HG_KNOCKBACK_SCALING, .8);
 set_hitbox_value(AT_FAIR, 2, HG_BASE_HITPAUSE, 12);
 set_hitbox_value(AT_FAIR, 2, HG_HITPAUSE_SCALING, .8);
-set_hitbox_value(AT_FAIR, 2, HG_VISUAL_EFFECT, HFX_GEN_SWEET);
+set_hitbox_value(AT_FAIR, 2, HG_VISUAL_EFFECT, space_hit_vfx);
