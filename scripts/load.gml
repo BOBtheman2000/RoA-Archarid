@@ -21,6 +21,8 @@ sprite_change_offset("landinglag", 58, 69);
 sprite_change_offset("hurt", 28, 39);
 sprite_change_offset("bighurt", 28, 39);
 sprite_change_offset("hurtground", 28, 39);
+sprite_change_offset("spinhurt", 58, 89);
+sprite_change_offset("downhurt", 58, 89);
 
 sprite_change_offset("parry", 28, 39);
 sprite_change_offset("roll_forward", 58, 89);
