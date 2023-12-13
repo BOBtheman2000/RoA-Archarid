@@ -472,6 +472,9 @@ if awaiting_snap > 0 {
 }
 
 if queue_snap {
+    if "jump_pull_sound" in orb_data {
+        sound_stop(orb_data.jump_pull_sound)
+    }
     sound_play(snap_sound, false, noone, 1, 2)
     if instance_exists(tethered_player) {
         tethered_player.barney_archarid_tethered_to_orb = false
