@@ -472,9 +472,6 @@ if awaiting_snap > 0 {
 }
 
 if queue_snap {
-    if "jump_pull_sound" in orb_data {
-        sound_stop(orb_data.jump_pull_sound)
-    }
     sound_play(snap_sound, false, noone, 1, 2)
     if instance_exists(tethered_player) {
         tethered_player.barney_archarid_tethered_to_orb = false
@@ -485,6 +482,16 @@ if queue_snap {
         }
     }
     for (i=0; i < array_length_1d(tethered_orbs); i++) {
+        var orb_data = tethered_orbs[i]
+        
+        if "jump_pull_sound" in orb_data {
+            sound_stop(orb_data.jump_pull_sound)
+        }
+        if "jumping_type" in orb_data {
+            if orb_data.jumping_type == 'proj' && instance_exists(orb_data.jumping_player) {
+                orb_data.jumping_player.destroyed_next = true
+            }
+        }
         var tethered_orb = tethered_orbs[i].target
         if instance_exists(tethered_orb) {
             tethered_orb.awaiting_snap = snap_delay_time
