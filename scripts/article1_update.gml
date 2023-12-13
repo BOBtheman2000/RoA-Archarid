@@ -391,6 +391,7 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
 
                     sound_stop(orb_data.jump_pull_sound)
                     sound_play(asset_get("sfx_leafy_hit1"), false, noone, 1, 1.4)
+                    spawn_hit_fx(lerp(other.x, tethered_orb.x, 0.5), lerp(other.y, tethered_orb.y, 0.5), HFX_GEN_SWEET)
                 }
             }
         
@@ -453,6 +454,7 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
 
                     sound_stop(orb_data.jump_pull_sound)
                     sound_play(asset_get("sfx_leafy_hit1"), false, noone, 1, 1.4)
+                    spawn_hit_fx(lerp(other.x, tethered_orb.x, 0.5), lerp(other.y, tethered_orb.y, 0.5), HFX_ORI_BASH_START)
                 }
             }
 
