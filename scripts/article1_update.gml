@@ -148,6 +148,7 @@ if instance_exists(tethered_player) && !override_all {
             other.tethered_player = noone
             barney_archarid_tethered_to_orb = false
             sound_play(other.snap_sound, false, noone, 1, 2)
+            spawn_hit_fx(x, y, HFX_GEN_SWEET)
             break
         }
         
