@@ -216,6 +216,16 @@ if (attack == AT_EXTRA_2) {
     }
 }
 
+// taunt cancel
+if (attack == AT_TAUNT) {
+    if window == 3 {
+        if !taunt_down && window_timer == get_window_value(AT_TAUNT, 2, AG_WINDOW_LENGTH) {
+            window++
+            window_timer = 0
+        }
+    }
+}
+
 // Barney's extended sound engine! Pitch shift attack sounds!
 
 if array_length_1d(attack_sound_grid[attack]) > 0 {

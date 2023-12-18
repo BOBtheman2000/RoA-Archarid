@@ -55,7 +55,7 @@ sprite_change_offset("fspecial_hurt_air", 58*2, 89*2);
 sprite_change_offset("uspecial", 58, 89, true);
 sprite_change_offset("dspecial", 58, 89, true);
 sprite_change_offset("wspecial", 57, 89, true);
-sprite_change_offset("taunt", 28, 29);
+sprite_change_offset("taunt", 58, 89);
 
 sprite_change_offset("plat", 32, 47);
 
