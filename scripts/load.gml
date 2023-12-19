@@ -84,3 +84,5 @@ web_hit_vfx = hit_fx_create(sprite_get("hit_vfx_web"), 16)
 web_hit_vfx_small = hit_fx_create(sprite_get("hit_vfx_web_small"), 16)
 tiny_hit_vfx = hit_fx_create(sprite_get("hit_vfx_tiny"), 16)
 space_hit_vfx = hit_fx_create(sprite_get("space_hit_vfx"), 24)
+
+set_victory_theme(sound_get("victory"))
