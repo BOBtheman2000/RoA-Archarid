@@ -80,6 +80,9 @@ sprite_change_offset("hit_vfx_web_small", 60, 60);
 sprite_change_offset("hit_vfx_tiny", 32, 32);
 sprite_change_offset("space_hit_vfx", 64, 64);
 
+// compat
+sprite_change_offset("bhadra_slide", 58, 89);
+
 web_hit_vfx = hit_fx_create(sprite_get("hit_vfx_web"), 16)
 web_hit_vfx_small = hit_fx_create(sprite_get("hit_vfx_web_small"), 16)
 tiny_hit_vfx = hit_fx_create(sprite_get("hit_vfx_tiny"), 16)

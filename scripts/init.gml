@@ -184,3 +184,12 @@ hit_sound_grid = array_create(50, [])
 //     pitch:1.2
 //     pitch_variation:0.2
 // }]
+
+// compat
+bd_has_custom_rail_grind_sprite = true
+bd_rail_grind_startup_frames = 0
+bd_rail_grind_active_frames = 2
+bd_rail_grind_endlag_frames = 0
+bd_rail_grind_anim_speed = 1
+bd_rail_grind_forward_spr = sprite_get("bhadra_slide")
+bd_rail_grind_backwards_spr = bd_rail_grind_forward_spr
