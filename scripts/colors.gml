@@ -1,3 +1,7 @@
+// Big thanks to hyuponia for her colour generator!
+// https://cl-9a.github.io/RoAColorsGmlHelper/
+// Helped a ton with getting other people to help out with alts :)
+
 // DEFAULT COLOR
 
 // Body
@@ -26,7 +30,7 @@ set_color_profile_slot_range( 5, 1, 1, 31 );
 
 
 // ALTERNATE COLORS
-set_num_palettes( 23 );
+set_num_palettes( 26 );
 
 // ROACCO Blue
 set_color_profile_slot( 1, 0, 89, 145, 255 ); //Body
@@ -188,25 +192,42 @@ set_color_profile_slot( 20, 3, 0, 121, 145 ); //Abdomen Pattern
 set_color_profile_slot( 20, 4, 255, 248, 240 ); //Tooth
 set_color_profile_slot( 20, 5, 255, 248, 240 ); //Eyes & web string
 
+// Enigma (Hoodwink)
+set_color_profile_slot( 21, 0, 4, 12, 36 ); //Body
+set_color_profile_slot( 21, 1, 35, 158, 196 ); //Accent
+set_color_profile_slot( 21, 2, 205, 18, 77 ); //Bands
+set_color_profile_slot( 21, 3, 205, 18, 77 ); //Abdomen Pattern
+set_color_profile_slot( 21, 4, 255, 255, 255 ); //Tooth
+set_color_profile_slot( 21, 5, 255, 255, 255 ); //Eyes
+
+// Cookies & Cream (Hoodwink)
+set_color_profile_slot( 22, 0, 79, 49, 48 ); //Body
+set_color_profile_slot( 22, 1, 255, 224, 178 ); //Accent
+set_color_profile_slot( 22, 2, 224, 141, 121 ); //Bands
+set_color_profile_slot( 22, 3, 224, 141, 121 ); //Abdomen Pattern
+set_color_profile_slot( 22, 4, 255, 255, 255 ); //Tooth
+set_color_profile_slot( 22, 5, 255, 255, 255 ); //Eyes
+
+// Cream & Cookies (Hoodwink)
+set_color_profile_slot( 23, 0, 255, 224, 178 ); //Body
+set_color_profile_slot( 23, 1, 79, 49, 48 ); //Accent
+set_color_profile_slot( 23, 2, 224, 141, 121 ); //Bands
+set_color_profile_slot( 23, 3, 224, 141, 121 ); //Abdomen Pattern
+set_color_profile_slot( 23, 4, 255, 255, 255 ); //Tooth
+set_color_profile_slot( 23, 5, 255, 255, 255 ); //Eyes
+
 // Blackpink (Yukidraco)
-set_color_profile_slot( 21, 0, 242, 111, 204 ); //Body
-set_color_profile_slot( 21, 1, 56, 0, 40 ); //Accent
-set_color_profile_slot( 21, 2, 97, 0, 87 ); //Bands
-set_color_profile_slot( 21, 3, 255, 255, 255 ); //Abdomen Pattern
-set_color_profile_slot( 21, 4, 150, 0, 113 ); //Tooth
-set_color_profile_slot( 21, 5, 255, 255, 255 ); //Eyes & web string
+set_color_profile_slot( 24, 0, 242, 111, 204 ); //Body
+set_color_profile_slot( 24, 1, 56, 0, 40 ); //Accent
+set_color_profile_slot( 24, 2, 97, 0, 87 ); //Bands
+set_color_profile_slot( 24, 3, 255, 255, 255 ); //Abdomen Pattern
+set_color_profile_slot( 24, 4, 150, 0, 113 ); //Tooth
+set_color_profile_slot( 24, 5, 255, 255, 255 ); //Eyes & web string
 
 // Electric Feel (Yukidraco)
-set_color_profile_slot( 22, 0, 227, 209, 45 ); //Body
-set_color_profile_slot( 22, 1, 254, 255, 219 ); //Accent
-set_color_profile_slot( 22, 2, 0, 103, 237 ); //Bands
-set_color_profile_slot( 22, 3, 0, 103, 237 ); //Abdomen Pattern
-set_color_profile_slot( 22, 4, 0, 103, 237 ); //Tooth
-set_color_profile_slot( 22, 5, 237, 237, 237 ); //Eyes & web string
-
-
-/* This is a comment used by that one RoA colors.gml generator tool to store palette data. You can safely keep it in your colors.gml if you plan to re-use the tool later, or safely remove it if you don't.
-=== BEGIN JSON PALETTE ===
-{"formatversion":1,"data":[{"name":"Body","colors":[{"r":29,"g":61,"b":33},{"r":40,"g":66,"b":42},{"r":49,"g":71,"b":49,"main":true}]},{"name":"Accent","colors":[{"r":87,"g":107,"b":87,"main":true},{"r":71,"g":96,"b":73},{"r":52,"g":83,"b":56}]},{"name":"Bands","colors":[{"r":219,"g":194,"b":0,"main":true},{"r":131,"g":135,"b":4}]},{"name":"Abdomen Pattern","colors":[{"r":0,"g":219,"b":188,"main":true},{"r":0,"g":150,"b":116}]},{"name":"Tooth","colors":[{"r":113,"g":143,"b":113,"main":true}]},{"name":"Eyes & web string","colors":[{"r":255,"g":255,"b":255,"main":true},{"r":178,"g":178,"b":178}]}]}
-=== END JSON PALETTE ===
-*/
+set_color_profile_slot( 25, 0, 227, 209, 45 ); //Body
+set_color_profile_slot( 25, 1, 254, 255, 219 ); //Accent
+set_color_profile_slot( 25, 2, 0, 103, 237 ); //Bands
+set_color_profile_slot( 25, 3, 0, 103, 237 ); //Abdomen Pattern
+set_color_profile_slot( 25, 4, 0, 103, 237 ); //Tooth
+set_color_profile_slot( 25, 5, 237, 237, 237 ); //Eyes & web string

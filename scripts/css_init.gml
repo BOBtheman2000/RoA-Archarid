@@ -12,7 +12,7 @@ pip_width = 148
 
 tab_sprite = sprite_get('css_pip')
 
-skin_count = 23
+skin_count = 26
 skin_titles = [
     'Default',
     'Blue',
@@ -37,6 +37,9 @@ skin_titles = [
     "Neon Genesis Evangelion
 or something I haven't
 seen the show",
+    "Enigma",
+    "Cookies & Cream",
+    "Cream & Cookies",
     'Blackpink',
     'Electric Feel'
 ]
