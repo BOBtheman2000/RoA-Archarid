@@ -26,7 +26,7 @@ if my_hitboxID.attack == AT_FSPECIAL {
 }
 
 
-if my_hitboxID.attack == AT_DSPECIAL {
+if my_hitboxID.attack == AT_DSPECIAL && my_hitboxID.hbox_num != 3 {
     
     if !hit_player_obj.barney_archarid_tethered_to_orb {
 

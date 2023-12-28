@@ -503,5 +503,12 @@ if queue_snap {
         }
     }
     spawn_hit_fx(x + draw_x, y + draw_y, death_vfx)
+
+    if has_rune("B") {
+        spawn_hit_fx(x + draw_x, y + draw_y, HFX_ELL_FSPEC_HIT)
+        sound_play(asset_get("sfx_ell_strong_attack_explosion"), false, noone, 1, 1)
+        create_hitbox(AT_DSPECIAL, 3, floor(x + draw_x), floor(y + draw_y))
+    }
+
     instance_destroy()
 }

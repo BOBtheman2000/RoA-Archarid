@@ -66,6 +66,7 @@ hit_sound_grid[AT_DSPECIAL] = [{
     pitch_variation:0.1
 }]
 
+// normal hitbox for players
 set_hitbox_value(AT_DSPECIAL, 1, HG_PARENT_HITBOX, 1);
 set_hitbox_value(AT_DSPECIAL, 1, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_DSPECIAL, 1, HG_WINDOW, 3);
@@ -84,6 +85,7 @@ set_hitbox_value(AT_DSPECIAL, 1, HG_VISUAL_EFFECT, web_hit_vfx_small);
 set_hitbox_value(AT_DSPECIAL, 1, HG_ANGLE_FLIPPER, 6);
 set_hitbox_value(AT_DSPECIAL, 1, HG_TECHABLE, 1);
 
+// detection hitbox for web points
 set_hitbox_value(AT_DSPECIAL, 2, HG_PARENT_HITBOX, 2);
 set_hitbox_value(AT_DSPECIAL, 2, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_DSPECIAL, 2, HG_WINDOW, 3);
@@ -99,3 +101,26 @@ set_hitbox_value(AT_DSPECIAL, 2, HG_KNOCKBACK_SCALING, .0);
 set_hitbox_value(AT_DSPECIAL, 2, HG_ANGLE, 361);
 set_hitbox_value(AT_DSPECIAL, 2, HG_BASE_HITPAUSE, 0);
 set_hitbox_value(AT_DSPECIAL, 2, HG_TECHABLE, 1);
+
+// rune hitbox
+set_hitbox_value(AT_DSPECIAL, 3, HG_PARENT_HITBOX, 3);
+set_hitbox_value(AT_DSPECIAL, 3, HG_HITBOX_TYPE, 2);
+set_hitbox_value(AT_DSPECIAL, 3, HG_WINDOW, 0);
+set_hitbox_value(AT_DSPECIAL, 3, HG_LIFETIME, 4);
+set_hitbox_value(AT_DSPECIAL, 3, HG_HITBOX_X, 0);
+set_hitbox_value(AT_DSPECIAL, 3, HG_HITBOX_Y, 0);
+set_hitbox_value(AT_DSPECIAL, 3, HG_WIDTH, 50);
+set_hitbox_value(AT_DSPECIAL, 3, HG_HEIGHT, 50);
+set_hitbox_value(AT_DSPECIAL, 3, HG_PRIORITY, 2);
+set_hitbox_value(AT_DSPECIAL, 3, HG_DAMAGE, 5);
+set_hitbox_value(AT_DSPECIAL, 3, HG_BASE_KNOCKBACK, 8);
+set_hitbox_value(AT_DSPECIAL, 3, HG_KNOCKBACK_SCALING, .8);
+set_hitbox_value(AT_DSPECIAL, 3, HG_BASE_HITPAUSE, 8);
+set_hitbox_value(AT_DSPECIAL, 3, HG_VISUAL_EFFECT, HFX_ELL_BOOM_BIG);
+set_hitbox_value(AT_DSPECIAL, 3, HG_ANGLE_FLIPPER, 8);
+
+set_hitbox_value(AT_DSPECIAL, 3, HG_PROJECTILE_SPRITE, asset_get("empty_sprite"));
+set_hitbox_value(AT_DSPECIAL, 3, HG_PROJECTILE_MASK, -1);
+set_hitbox_value(AT_DSPECIAL, 3, HG_PROJECTILE_WALL_BEHAVIOR, 1);
+set_hitbox_value(AT_DSPECIAL, 3, HG_PROJECTILE_GROUND_BEHAVIOR, 1);
+set_hitbox_value(AT_DSPECIAL, 3, HG_PROJECTILE_ENEMY_BEHAVIOR, 1);
