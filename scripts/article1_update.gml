@@ -113,6 +113,15 @@ if instance_exists(tethered_player) && !override_all {
             tether_max = other.tether_distance_max_archarid
         }
 
+        if barney_archarid_yes && has_rune("E") {
+            if other.lifetime % 60 == 0 {
+                sound_play(asset_get("mfx_xp"), false, noone, 1, 2)
+                outline_color[1] = 200
+                init_shader()
+                take_damage(player, -1, -1)
+            }
+        }
+
         // print("x: " + string(x) + " y: " + string(y) + " hsp: " + string(hsp) + " vsp: " + string(vsp))
 
         var tether_distance = point_distance(other.x, other.y, x, y)

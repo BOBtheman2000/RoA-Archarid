@@ -80,3 +80,8 @@ if state == PS_WALL_JUMP {
         walljump_extended_time = walljump_extended_time_default;
     }
 }
+
+if has_rune("E") {
+    outline_color[1] = max(outline_color[1] - 10, 0)
+    init_shader()
+}
