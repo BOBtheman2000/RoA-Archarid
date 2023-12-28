@@ -35,4 +35,31 @@ set_window_value(AT_EXTRA_1, 2, AG_WINDOW_VSPEED, -12);
 set_window_value(AT_EXTRA_1, 2, AG_WINDOW_HSPEED_TYPE, 1);
 set_window_value(AT_EXTRA_1, 2, AG_WINDOW_VSPEED_TYPE, 1);
 
-set_num_hitboxes(AT_EXTRA_1, 0);
+set_num_hitboxes(AT_EXTRA_1, has_rune("A") ? 1 : 0);
+
+// rune
+
+hit_sound_grid[AT_EXTRA_1] = [{
+    hitbox:1,
+    sound:asset_get("sfx_blow_heavy2"),
+    pitch:1.2,
+    pitch_variation:0.1
+}]
+
+set_hitbox_value(AT_EXTRA_1, 1, HG_PARENT_HITBOX, 1);
+set_hitbox_value(AT_EXTRA_1, 1, HG_HITBOX_TYPE, 1);
+set_hitbox_value(AT_EXTRA_1, 1, HG_WINDOW, 2);
+set_hitbox_value(AT_EXTRA_1, 1, HG_LIFETIME, 7);
+set_hitbox_value(AT_EXTRA_1, 1, HG_HITBOX_X, 0);
+set_hitbox_value(AT_EXTRA_1, 1, HG_HITBOX_Y, -40);
+set_hitbox_value(AT_EXTRA_1, 1, HG_WIDTH, 40);
+set_hitbox_value(AT_EXTRA_1, 1, HG_HEIGHT, 40);
+set_hitbox_value(AT_EXTRA_1, 1, HG_SHAPE, 1);
+set_hitbox_value(AT_EXTRA_1, 1, HG_PRIORITY, 2);
+set_hitbox_value(AT_EXTRA_1, 1, HG_DAMAGE, 6);
+set_hitbox_value(AT_EXTRA_1, 1, HG_ANGLE, 80);
+set_hitbox_value(AT_EXTRA_1, 1, HG_BASE_KNOCKBACK, 7);
+set_hitbox_value(AT_EXTRA_1, 1, HG_KNOCKBACK_SCALING, .8);
+set_hitbox_value(AT_EXTRA_1, 1, HG_BASE_HITPAUSE, 12);
+set_hitbox_value(AT_EXTRA_1, 1, HG_HITPAUSE_SCALING, .8);
+set_hitbox_value(AT_EXTRA_1, 1, HG_VISUAL_EFFECT, space_hit_vfx);
