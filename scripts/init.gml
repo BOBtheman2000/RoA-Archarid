@@ -144,10 +144,13 @@ web_line_sprite = sprite_get("web_line")
 web_line_snap_sound = asset_get("sfx_may_whip1")
 
 uspecial_do_pratfall = false
-uspecial_orb_x = 30
+uspecial_orb_x = 40
 uspecial_orb_y = -130
 uspecial_boost_speed_x = 14
 uspecial_boost_speed_y = 18
+
+uspecial_orb_target_x = 0
+uspecial_orb_target_y = 0
 
 uspecial_orb_spawn_sprite = sprite_get("web_point_spawn")
 

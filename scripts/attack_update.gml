@@ -40,13 +40,15 @@ if (attack == AT_USPECIAL){
             move_cooldown[AT_DSPECIAL] = 2
         } else {
             uspecial_do_pratfall = true
+            uspecial_orb_target_x = x + (uspecial_orb_x * spr_dir)
+            uspecial_orb_target_y = y + uspecial_orb_y
         }
     }
     if window == 2 {
         if window_timer == get_window_value(AT_USPECIAL, 2, AG_WINDOW_LENGTH) {
             // create a new orb
             barney_archarid_tethered_to_orb = true
-            barney_archarid_current_orb = instance_create(x + (uspecial_orb_x * spr_dir), y + uspecial_orb_y, "obj_article1")
+            barney_archarid_current_orb = instance_create(uspecial_orb_target_x, uspecial_orb_target_y, "obj_article1")
             barney_archarid_current_orb.tethered_player = id
             barney_archarid_current_orb.tension_snap_lockout = true
             barney_archarid_current_orb.override_all = true

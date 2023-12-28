@@ -61,8 +61,13 @@ if (state == PS_ATTACK_GROUND || state == PS_ATTACK_AIR) {
 
             var orb_sprite = real((window_timer / get_window_value(AT_USPECIAL, 2, AG_WINDOW_LENGTH)) > 0.7)
 
-            var orb_x = x + (uspecial_orb_x * dist_from_end) * spr_dir
-            var orb_y = y + uspecial_orb_y * dist_from_end
+            var player_y = y - char_height/2
+
+            var orb_off_x = uspecial_orb_target_x - x
+            var orb_off_y = uspecial_orb_target_y - player_y
+
+            var orb_x = x + (orb_off_x * dist_from_end)
+            var orb_y = player_y + orb_off_y * dist_from_end
 
             var dist_to_orb = point_distance(x, y, orb_x, orb_y)
             var dir_to_orb = point_direction(x, y, orb_x, orb_y)
