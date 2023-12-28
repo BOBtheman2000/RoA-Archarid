@@ -159,7 +159,7 @@ if (attack == AT_DSPECIAL) {
         set_state(PS_IDLE_AIR)
     }
     if window == 2 {
-        if window_timer == get_window_value(AT_DSPECIAL, 3, AG_WINDOW_LENGTH) && (special_down && free) {
+        if window_timer == get_window_value(AT_DSPECIAL, 2, AG_WINDOW_LENGTH) && (special_down && free) {
             window_timer--
         }
     }
