@@ -20,7 +20,7 @@ set_window_value(AT_FAIR, 1, AG_WINDOW_ANIM_FRAMES, 2);
 
 // Active
 set_window_value(AT_FAIR, 2, AG_WINDOW_TYPE, 1);
-set_window_value(AT_FAIR, 2, AG_WINDOW_LENGTH, 4);
+set_window_value(AT_FAIR, 2, AG_WINDOW_LENGTH, 6);
 set_window_value(AT_FAIR, 2, AG_WINDOW_HSPEED, 2);
 set_window_value(AT_FAIR, 2, AG_WINDOW_VSPEED, -1);
 set_window_value(AT_FAIR, 2, AG_WINDOW_ANIM_FRAMES, 1);
@@ -58,7 +58,7 @@ hit_sound_grid[AT_FAIR] = [{
 set_hitbox_value(AT_FAIR, 1, HG_PARENT_HITBOX, 1);
 set_hitbox_value(AT_FAIR, 1, HG_HITBOX_TYPE, 1);
 set_hitbox_value(AT_FAIR, 1, HG_WINDOW, 2);
-set_hitbox_value(AT_FAIR, 1, HG_LIFETIME, 4);
+set_hitbox_value(AT_FAIR, 1, HG_LIFETIME, 6);
 set_hitbox_value(AT_FAIR, 1, HG_HITBOX_X, 10);
 set_hitbox_value(AT_FAIR, 1, HG_HITBOX_Y, -15);
 set_hitbox_value(AT_FAIR, 1, HG_WIDTH, 75);
