@@ -18,9 +18,34 @@ attack_sound_grid[AT_EXTRA_1] = [{
     pitch_variation:0.2
 }]
 
+if has_rune("G") {
+
+    attack_sound_grid[AT_EXTRA_1] = [{
+        window:1,
+        frame:3,
+        sound:asset_get("sfx_absa_dattack"),
+        pitch:1.4,
+        pitch_variation:0.2
+    },
+    {
+        window:2,
+        frame:1,
+        sound:asset_get("sfx_land_light"),
+        pitch:1.8,
+        pitch_variation:0.2
+    },
+    {
+        window:2,
+        frame:5,
+        sound:asset_get("sfx_land_light"),
+        pitch:1.8,
+        pitch_variation:0.2
+    }]
+}
+
 // startup
 set_window_value(AT_EXTRA_1, 1, AG_WINDOW_TYPE, 1);
-set_window_value(AT_EXTRA_1, 1, AG_WINDOW_LENGTH, 16);
+set_window_value(AT_EXTRA_1, 1, AG_WINDOW_LENGTH, has_rune("G") ? 4 : 16);
 set_window_value(AT_EXTRA_1, 1, AG_WINDOW_ANIM_FRAMES, 2);
 set_window_value(AT_EXTRA_1, 1, AG_WINDOW_HSPEED_TYPE, 1);
 set_window_value(AT_EXTRA_1, 1, AG_WINDOW_VSPEED_TYPE, 1);
@@ -31,7 +56,7 @@ set_window_value(AT_EXTRA_1, 2, AG_WINDOW_LENGTH, 8);
 set_window_value(AT_EXTRA_1, 2, AG_WINDOW_ANIM_FRAMES, 4);
 set_window_value(AT_EXTRA_1, 2, AG_WINDOW_ANIM_FRAME_START, 2);
 set_window_value(AT_EXTRA_1, 2, AG_WINDOW_HSPEED, 0);
-set_window_value(AT_EXTRA_1, 2, AG_WINDOW_VSPEED, -12);
+set_window_value(AT_EXTRA_1, 2, AG_WINDOW_VSPEED, has_rune("G") ? -26 : -12);
 set_window_value(AT_EXTRA_1, 2, AG_WINDOW_HSPEED_TYPE, 1);
 set_window_value(AT_EXTRA_1, 2, AG_WINDOW_VSPEED_TYPE, 1);
 

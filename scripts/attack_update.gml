@@ -198,24 +198,29 @@ if (attack == AT_DSPECIAL) {
 }
 
 // wspecial
-if (attack == AT_EXTRA_1) && window == 2 {
-    var check_wall_x = x + (-40 * spr_dir)
-    var check_wall_y_up = y - 30
+if (attack == AT_EXTRA_1) {
+    if window == 1 && has_rune("G") {
+        spawn_hit_fx(x, y, HFX_CLA_TIP_PLUS)
+    }
+    if window == 2 {
+        var check_wall_x = x + (-40 * spr_dir)
+        var check_wall_y_up = y - 30
 
-    var available_up = collision_point(check_wall_x, check_wall_y_up, asset_get("par_block"), false, true) != noone
+        var available_up = collision_point(check_wall_x, check_wall_y_up, asset_get("par_block"), false, true) != noone
 
-    if !available_up || jump_pressed {
-        clear_button_buffer(PC_JUMP_PRESSED)
-        set_state(PS_FIRST_JUMP)
-        spr_dir = -spr_dir
-        if jump_pressed {
-            hsp = -walljump_hsp * spr_dir
-            vsp = -walljump_vsp
+        if !available_up || jump_pressed {
+            clear_button_buffer(PC_JUMP_PRESSED)
+            set_state(PS_FIRST_JUMP)
+            spr_dir = -spr_dir
+            if jump_pressed {
+                hsp = -walljump_hsp * spr_dir
+                vsp = -walljump_vsp
+            }
+            vsp = -jump_speed
+            djumps = 0
+            has_airdodge = true
+            has_walljump = false
         }
-        vsp = -jump_speed
-        djumps = 0
-        has_airdodge = true
-        has_walljump = false
     }
 }
 
