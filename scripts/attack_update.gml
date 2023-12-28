@@ -153,6 +153,11 @@ if (attack == AT_FSPECIAL) {
 
 // Down special
 if (attack == AT_DSPECIAL) {
+    if has_rune("F") && jump_pressed {
+        destroy_hitboxes()
+        attack_end()
+        set_state(PS_IDLE_AIR)
+    }
     if window == 2 {
         if window_timer == get_window_value(AT_DSPECIAL, 3, AG_WINDOW_LENGTH) && (special_down && free) {
             window_timer--
