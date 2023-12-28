@@ -24,7 +24,7 @@ set_window_value(AT_UAIR, 2, AG_WINDOW_TYPE, 1);
 set_window_value(AT_UAIR, 2, AG_WINDOW_LENGTH, 3);
 set_window_value(AT_UAIR, 2, AG_WINDOW_ANIM_FRAMES, 1);
 set_window_value(AT_UAIR, 2, AG_WINDOW_ANIM_FRAME_START, 3);
-set_window_value(AT_UAIR, 2, AG_WINDOW_VSPEED, -4);
+set_window_value(AT_UAIR, 2, AG_WINDOW_VSPEED, has_rune("C") ? -12 : -4);
 
 // endlag
 set_window_value(AT_UAIR, 3, AG_WINDOW_TYPE, 1);
