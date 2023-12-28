@@ -33,7 +33,7 @@ set_window_value(AT_DSPECIAL, 1, AG_WINDOW_VSPEED_TYPE, 2);
 
 // Airborne
 set_window_value(AT_DSPECIAL, 2, AG_WINDOW_TYPE, 8);
-set_window_value(AT_DSPECIAL, 2, AG_WINDOW_LENGTH, 15);
+set_window_value(AT_DSPECIAL, 2, AG_WINDOW_LENGTH, has_rune("I") ? 5 : 15);
 set_window_value(AT_DSPECIAL, 2, AG_WINDOW_ANIM_FRAMES, 1);
 set_window_value(AT_DSPECIAL, 2, AG_WINDOW_ANIM_FRAME_START, 2);
 set_window_value(AT_DSPECIAL, 2, AG_WINDOW_HSPEED, 10);
