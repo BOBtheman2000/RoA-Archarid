@@ -151,6 +151,7 @@ uspecial_boost_speed_y = 18
 
 uspecial_orb_target_x = 0
 uspecial_orb_target_y = 0
+uspecial_shield_cancel = false
 
 uspecial_orb_spawn_sprite = sprite_get("web_point_spawn")
 

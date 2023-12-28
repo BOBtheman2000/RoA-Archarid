@@ -33,6 +33,11 @@ if (attack == AT_NSPECIAL) {
 // up special
 if (attack == AT_USPECIAL){
     if window == 1 {
+        if window_timer == 1 {
+            uspecial_shield_cancel = shield_pressed
+        } else if shield_pressed {
+            uspecial_shield_cancel = true
+        }
         if barney_archarid_tethered_to_orb {
             uspecial_do_pratfall = false
             window = 4
@@ -45,6 +50,9 @@ if (attack == AT_USPECIAL){
         }
     }
     if window == 2 {
+        if shield_pressed {
+            uspecial_shield_cancel = true
+        }
         if window_timer == get_window_value(AT_USPECIAL, 2, AG_WINDOW_LENGTH) {
             // create a new orb
             barney_archarid_tethered_to_orb = true
@@ -55,11 +63,13 @@ if (attack == AT_USPECIAL){
             sound_play(web_point_spawn_sound, false, false, 1, 2)
         }
     }
-    if (window == 3 || window == 4) && !barney_archarid_tethered_to_orb {
+    if (window == 3 || window == 4) && (!barney_archarid_tethered_to_orb || uspecial_shield_cancel) {
         // accounts for orb being broken early
         destroy_hitboxes()
         attack_end()
         set_state(PS_PRATFALL)
+        hsp = 0
+        vsp = 0
     }
     if window == 5 && window_timer == 1 {
         if instance_exists (barney_archarid_current_orb) {
