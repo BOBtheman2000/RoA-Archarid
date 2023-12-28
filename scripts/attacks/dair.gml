@@ -59,7 +59,7 @@ if has_rune("D") {
     set_hitbox_value(AT_DAIR, 1, HG_HEIGHT, 75);
     set_hitbox_value(AT_DAIR, 1, HG_SHAPE, 0);
     set_hitbox_value(AT_DAIR, 1, HG_PRIORITY, 2);
-    set_hitbox_value(AT_DAIR, 1, HG_DAMAGE, 6);
+    set_hitbox_value(AT_DAIR, 1, HG_DAMAGE, 8);
     set_hitbox_value(AT_DAIR, 1, HG_ANGLE, 45);
     set_hitbox_value(AT_DAIR, 1, HG_BASE_KNOCKBACK, 6);
     set_hitbox_value(AT_DAIR, 1, HG_KNOCKBACK_SCALING, 0.7);
@@ -80,7 +80,7 @@ if has_rune("D") {
     set_hitbox_value(AT_DAIR, 1, HG_HEIGHT, 75);
     set_hitbox_value(AT_DAIR, 1, HG_SHAPE, 0);
     set_hitbox_value(AT_DAIR, 1, HG_PRIORITY, 1);
-    set_hitbox_value(AT_DAIR, 1, HG_DAMAGE, 12);
+    set_hitbox_value(AT_DAIR, 1, HG_DAMAGE, 8);
     set_hitbox_value(AT_DAIR, 1, HG_ANGLE, 250);
     set_hitbox_value(AT_DAIR, 1, HG_BASE_KNOCKBACK, 8);
     set_hitbox_value(AT_DAIR, 1, HG_KNOCKBACK_SCALING, 0.8);
@@ -102,7 +102,7 @@ set_hitbox_value(AT_DAIR, 2, HG_WIDTH, 50);
 set_hitbox_value(AT_DAIR, 2, HG_HEIGHT, 60);
 set_hitbox_value(AT_DAIR, 2, HG_SHAPE, 0);
 set_hitbox_value(AT_DAIR, 2, HG_PRIORITY, 2);
-set_hitbox_value(AT_DAIR, 2, HG_DAMAGE, 6);
+set_hitbox_value(AT_DAIR, 2, HG_DAMAGE, 8);
 set_hitbox_value(AT_DAIR, 2, HG_ANGLE, 45);
 set_hitbox_value(AT_DAIR, 2, HG_BASE_KNOCKBACK, 6);
 set_hitbox_value(AT_DAIR, 2, HG_KNOCKBACK_SCALING, 0.7);
