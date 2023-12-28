@@ -1,6 +1,9 @@
 Portrait art / Promotional pic
     - Edenbean
 
+Victory theme
+	- Hoodwink
+
 Playtesting
     - From the AUNZ Rivals Community!
 		- Solas
@@ -10,12 +13,11 @@ Playtesting
 		- Conga Heli
 		- Redshell
     - From the Rivals Workshop Community!
-		- J4C/dar'khar
+		- J4C
 		- Delta Parallax
     - From the Perth Smash Community!
 		- Hoodwink
 		- YukiDraco
-		- SharnyPooza
 		- Molly
 	- From the NA Rivals Community!
 		- Giga
