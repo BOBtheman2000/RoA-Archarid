@@ -8,7 +8,9 @@ var been_hit = false
 
 if instance_exists(tethered_player) {
     if hit_player_obj == tethered_player {
-        been_hit = true
+        if !(hit_player_obj.barney_archarid_yes && attack == AT_FSPECIAL) { // archarid fspecial should go through web points
+            been_hit = true
+        }
     } else {
         if hit_player_obj.barney_archarid_yes {
             if (attack == AT_DSTRONG || attack == AT_USTRONG || attack == AT_FSTRONG) {
