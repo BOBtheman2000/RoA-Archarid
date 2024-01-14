@@ -12,7 +12,7 @@ pip_width = 148
 
 tab_sprite = sprite_get('css_pip')
 
-skin_count = 27
+skin_count = 32
 skin_titles = [
     'Default',
     'Blue',
@@ -42,5 +42,10 @@ seen the show",
     "Cream & Cookies",
     'Blackpink',
     'Electric Feel',
-    'Coldhearted'
+    'Coldhearted',
+    'Batty',
+    "Fate's Dreamer",
+    'Hooded Helper',
+    'Deer God',
+    'Kitsune Weaver'
 ]

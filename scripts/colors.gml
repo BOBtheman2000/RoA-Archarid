@@ -26,7 +26,7 @@ set_color_profile_slot_range( 5, 1, 1, 31 );
 
 
 // ALTERNATE COLORS
-set_num_palettes( 27 );
+set_num_palettes( 32 );
 
 // ROACCO Blue
 set_color_profile_slot( 1, 0, 89, 145, 255 ); //Body
@@ -228,13 +228,53 @@ set_color_profile_slot( 25, 3, 0, 103, 237 ); //Abdomen Pattern
 set_color_profile_slot( 25, 4, 0, 103, 237 ); //Tooth
 set_color_profile_slot( 25, 5, 237, 237, 237 ); //Eyes & web string
 
-// Coldhearted (Coldwin)
+// Coldhearted (Coldwin - I helped with the character)
 set_color_profile_slot( 26, 0, 52, 32, 32 ); //Body
 set_color_profile_slot( 26, 1, 205, 0, 84 ); //Accent
 set_color_profile_slot( 26, 2, 205, 51, 114 ); //Bands
 set_color_profile_slot( 26, 3, 255, 185, 185 ); //Abdomen Pattern
 set_color_profile_slot( 26, 4, 220, 113, 255 ); //Tooth
 set_color_profile_slot( 26, 5, 255, 185, 185 ); //Eyes & web string
+
+// Batty (Gema - I helped with the character)
+set_color_profile_slot( 27, 0, 100, 99, 103 ); //Body
+set_color_profile_slot( 27, 1, 86, 61, 132 ); //Accent
+set_color_profile_slot( 27, 2, 245, 223, 77 ); //Bands
+set_color_profile_slot( 27, 3, 104, 87, 135 ); //Abdomen Pattern
+set_color_profile_slot( 27, 4, 177, 46, 45 ); //Tooth
+set_color_profile_slot( 27, 5, 216, 214, 221 ); //Eyes & web string
+
+// Fate's Dreamer (Hyu - She made the stage)
+set_color_profile_slot( 28, 0, 240, 208, 116 ); //Body
+set_color_profile_slot( 28, 1, 255, 255, 255 ); //Accent
+set_color_profile_slot( 28, 2, 63, 110, 76 ); //Bands
+set_color_profile_slot( 28, 3, 50, 255, 152 ); //Abdomen Pattern
+set_color_profile_slot( 28, 4, 53, 74, 50 ); //Tooth
+set_color_profile_slot( 28, 5, 255, 255, 255 ); //Eyes & web string
+
+// Hooded Helper (Hoodwink - He made the music)
+set_color_profile_slot( 29, 0, 212, 86, 126 ); //Body
+set_color_profile_slot( 29, 1, 135, 32, 67 ); //Accent
+set_color_profile_slot( 29, 2, 101, 193, 207 ); //Bands
+set_color_profile_slot( 29, 3, 101, 193, 207 ); //Abdomen Pattern
+set_color_profile_slot( 29, 4, 255, 170, 0 ); //Tooth
+set_color_profile_slot( 29, 5, 255, 255, 255 ); //Eyes & web string
+
+// Deer God (Eden - She made the portrait)
+set_color_profile_slot( 30, 0, 235, 190, 157 ); //Body
+set_color_profile_slot( 30, 1, 199, 131, 94 ); //Accent
+set_color_profile_slot( 30, 2, 151, 183, 105 ); //Bands
+set_color_profile_slot( 30, 3, 207, 122, 211 ); //Abdomen Pattern
+set_color_profile_slot( 30, 4, 189, 93, 194 ); //Tooth
+set_color_profile_slot( 30, 5, 186, 203, 205 ); //Eyes & web string
+
+// Kitsune Weaver (Karu - She's just cool :3)
+set_color_profile_slot( 31, 0, 224, 240, 255 ); //Body
+set_color_profile_slot( 31, 1, 224, 240, 255 ); //Accent
+set_color_profile_slot( 31, 2, 225, 61, 101 ); //Bands
+set_color_profile_slot( 31, 3, 233, 176, 195 ); //Abdomen Pattern
+set_color_profile_slot( 31, 4, 241, 248, 120 ); //Tooth
+set_color_profile_slot( 31, 5, 248, 248, 248 ); //Eyes & web string
 
 
 /* This is a comment used by that one RoA colors.gml generator tool to store palette data. You can safely keep it in your colors.gml if you plan to re-use the tool later, or safely remove it if you don't.
