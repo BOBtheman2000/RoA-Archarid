@@ -37,7 +37,7 @@ death_vfx = hit_fx_create(sprite_get("web_point_death"), 12)
     tether_list = []
 
 is_hittable = true
-disable_movement = true
+ignores_walls = false
 
 can_be_hit[other.player] = 10
 

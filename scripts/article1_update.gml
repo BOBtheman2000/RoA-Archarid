@@ -1,5 +1,9 @@
 lifetime++
 
+// we're fine with being stuck in a wall, just not spawning inside them
+ignores_walls = true
+disable_movement = true
+
 var spritesheet_length = 4
 var animation_time = 4
 var animation_timer = get_gameplay_time()
