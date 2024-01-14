@@ -72,6 +72,7 @@ if (attack == AT_USPECIAL){
         vsp = 0
     }
     if window == 5 && window_timer == 1 {
+        move_cooldown[AT_USPECIAL] = 2
         if instance_exists (barney_archarid_current_orb) {
             var orb_dir = point_direction(x, y, barney_archarid_current_orb.x, barney_archarid_current_orb.y)
             hsp = lengthdir_x(uspecial_boost_speed_x, orb_dir)

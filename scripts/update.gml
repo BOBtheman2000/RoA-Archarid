@@ -20,15 +20,18 @@ if barney_archarid_tethered_to_orb && ((state != PS_ATTACK_GROUND && state != PS
     barney_archarid_current_orb.override_all = false
 }
 
-// dspecial cooldown behavior
+// cooldown behavior
 if !free {
     move_cooldown[AT_DSPECIAL] = 0
+    move_cooldown[AT_USPECIAL] = 0
 } else {
     move_cooldown[AT_DSPECIAL] = move_cooldown[AT_DSPECIAL] + 1
+    move_cooldown[AT_USPECIAL] = move_cooldown[AT_USPECIAL] + 1
 }
 
 // Wallcling/Climbing behavior
 if state == PS_WALL_JUMP {
+    move_cooldown[AT_USPECIAL] = 0
     if state_timer == walljump_start_anim_time + 2 && walljump_extended_time > 0 {
         state_timer--;
         walljump_extended_time--;
