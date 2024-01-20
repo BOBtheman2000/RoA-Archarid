@@ -56,7 +56,7 @@ if (attack == AT_USPECIAL){
         if window_timer == get_window_value(AT_USPECIAL, 2, AG_WINDOW_LENGTH) {
             // create a new orb
             barney_archarid_tethered_to_orb = true
-            barney_archarid_current_orb = instance_create(uspecial_orb_target_x, uspecial_orb_target_y, "obj_article1")
+            barney_archarid_current_orb = instance_create(floor(uspecial_orb_target_x), floor(uspecial_orb_target_y), "obj_article1")
             barney_archarid_current_orb.tethered_player = id
             barney_archarid_current_orb.tension_snap_lockout = true
             barney_archarid_current_orb.override_all = true
