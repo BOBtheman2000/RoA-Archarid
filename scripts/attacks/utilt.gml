@@ -50,9 +50,10 @@ set_window_value(AT_UTILT, 4, AG_WINDOW_ANIM_FRAME_START, 5);
 
 // endlag
 set_window_value(AT_UTILT, 5, AG_WINDOW_TYPE, 1);
-set_window_value(AT_UTILT, 5, AG_WINDOW_LENGTH, 6);
+set_window_value(AT_UTILT, 5, AG_WINDOW_LENGTH, 4);
 set_window_value(AT_UTILT, 5, AG_WINDOW_ANIM_FRAMES, 1);
 set_window_value(AT_UTILT, 5, AG_WINDOW_ANIM_FRAME_START, 7);
+set_window_value(AT_UTILT, 5, AG_WINDOW_HAS_WHIFFLAG, true);
 
 set_num_hitboxes(AT_UTILT, 2);
 
