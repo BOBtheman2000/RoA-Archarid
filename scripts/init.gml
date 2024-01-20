@@ -189,6 +189,10 @@ hit_sound_grid = array_create(50, [])
 //     pitch_variation:0.2
 // }]
 
+// rune stuff
+phantom_tether_interrupt = false
+phantom_tethered = false
+
 // compat
 bd_has_custom_rail_grind_sprite = true
 bd_rail_grind_startup_frames = 0

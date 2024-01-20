@@ -126,4 +126,21 @@ if (state == PS_ATTACK_GROUND || state == PS_ATTACK_AIR) {
     }
 }
 
+
+// phantom tethering
+
+if has_rune("J") {
+    if phantom_tethered && barney_archarid_tethered_to_orb && instance_exists(barney_archarid_current_orb) {
+        var my_y = y - char_height / 2
+
+        tether_len = point_distance(x, my_y, barney_archarid_current_orb.x, barney_archarid_current_orb.y) - 20
+        tether_dir = point_direction(x, my_y, barney_archarid_current_orb.x, barney_archarid_current_orb.y)
+
+        var tether_opacity = 0.4 + (sin(get_gameplay_time() * 0.1) * 0.2)
+
+        draw_sprite_ext(web_line_sprite, 2, x, my_y, tether_len, 1, tether_dir, c_white, tether_opacity)
+    }
+}
+
+
 shader_end()

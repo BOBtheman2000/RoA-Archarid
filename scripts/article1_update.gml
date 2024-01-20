@@ -378,13 +378,23 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
                 if orb_data.jumping_hitstun {
                     hitstun = hitstun_full
                 }
+                var phantom_interrupt = false
+                if barney_archarid_yes && has_rune("J") {
+                    if special_pressed {
+                        phantom_interrupt = true
+                        phantom_tether_interrupt = true
+                        phantom_tethered = true
+                        barney_archarid_tethered_to_orb = true
+                        barney_archarid_current_orb = other
+                    }
+                }
                 x = lerp(x, orb_data.jump_midpoint_x, 0.6)
                 y = lerp(y, orb_data.jump_midpoint_y, 0.6)
-                if orb_data.jumping_state_timer <= 0 || shield_pressed {
+                if orb_data.jumping_state_timer <= 0 || shield_pressed || phantom_interrupt {
                     orb_data.jumping_lockout = 10
                     orb_data.jumping_state_timer = 0
 
-                    if shield_pressed {
+                    if shield_pressed || phantom_interrupt {
                         if orb_data.jumping_hitstun {
                             set_state(PS_PRATFALL)
                             other.queue_snap = true

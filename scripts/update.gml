@@ -7,6 +7,11 @@ with (oPlayer) {
     }
 }
 
+if barney_archarid_tethered_to_orb && !instance_exists(barney_archarid_current_orb) {
+    phantom_tethered = false
+    barney_archarid_tethered_to_orb = false
+}
+
 if rapid_jab_timer > 0 {
     rapid_jab_timer--
 }
@@ -87,4 +92,19 @@ if state == PS_WALL_JUMP {
 if has_rune("E") {
     outline_color[1] = max(outline_color[1] - 10, 0)
     init_shader()
+}
+
+if has_rune("J") {
+    if phantom_tether_interrupt {
+        clear_button_buffer(PC_SPECIAL_PRESSED)
+        set_state(PS_IDLE_AIR)
+        attack_end()
+        phantom_tethered = true
+        phantom_tether_interrupt = false
+    } else if !barney_archarid_tethered_to_orb {
+        phantom_tethered = false
+    }
+} else {
+    phantom_tether_interrupt = false
+    phantom_tethered = false
 }
