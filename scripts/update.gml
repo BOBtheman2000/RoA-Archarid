@@ -4,6 +4,10 @@ with (oPlayer) {
         barney_archarid_yes = false
         barney_archarid_tethered_to_orb = false
         barney_archarid_current_orb = 0
+        barney_archarid_airtime_jumps = 0
+    }
+    if !free {
+        barney_archarid_airtime_jumps = 0
     }
 }
 

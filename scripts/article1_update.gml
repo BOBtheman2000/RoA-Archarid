@@ -269,7 +269,7 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
 
             var player_collision = collision_line(other.x, other.y, tethered_orb.x, tethered_orb.y, id, true, false)
             if player_collision != noone {
-                if jump_pressed {
+                if jump_pressed && (barney_archarid_airtime_jumps <= other.jump_count_max) {
                     if (state == PS_JUMPSQUAT || state == PS_FIRST_JUMP || state == PS_DOUBLE_JUMP || state == PS_WALL_JUMP || state == PS_IDLE_AIR) {
                         hsp = 0
                         vsp = 0
@@ -287,6 +287,10 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
 
                         // you look sad. have your double jump back :)
                         djumps = min(djumps, max_djumps - 1)
+
+                        // modifier that decreases jump height with each consecutive jump
+                        // would've fixed this earlier if it wasn't delivered to me by the most fragile streamer imaginable LMAO
+                        barney_archarid_airtime_jumps += 1
                     }
                 }
                 if state == PS_HITSTUN {
@@ -375,8 +379,15 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
         if orb_data.jumping_type == 'player' {
 
             with (orb_data.jumping_player) {
+                var jump_mod = 1.0
                 if orb_data.jumping_hitstun {
                     hitstun = hitstun_full
+                } else {
+                    // stall fix
+                    if barney_archarid_airtime_jumps >= 3 {
+                        // not a cheap calculation but we're doing this once a millenia
+                        jump_mod = min(1.0, power(barney_archarid_airtime_jumps - 2, -other.jump_falloff_mod))
+                    }
                 }
                 var phantom_interrupt = false
                 if barney_archarid_yes && has_rune("J") {
@@ -409,8 +420,8 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
                         hsp = 0
                         vsp = 0
                     } else {
-                        hsp = lengthdir_x(orb_data.jump_strength, orb_data.jumping_player_direction)
-                        vsp = lengthdir_y(orb_data.jump_strength, orb_data.jumping_player_direction)
+                        hsp = lengthdir_x(orb_data.jump_strength * jump_mod, orb_data.jumping_player_direction)
+                        vsp = lengthdir_y(orb_data.jump_strength * jump_mod, orb_data.jumping_player_direction)
                     }
 
                     sound_stop(orb_data.jump_pull_sound)

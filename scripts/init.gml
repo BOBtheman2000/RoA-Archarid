@@ -159,6 +159,7 @@ uspecial_orb_spawn_sprite = sprite_get("web_point_spawn")
 with (oPlayer) {
     barney_archarid_tethered_to_orb = false
     barney_archarid_current_orb = 0
+    barney_archarid_airtime_jumps = 0
 }
 
 // always true if a character is archarid
