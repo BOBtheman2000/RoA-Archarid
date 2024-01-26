@@ -114,3 +114,10 @@ queue_snap = false
 awaiting_snap = 0
 awaiting_snap_x = 0
 awaiting_snap_y = 0
+
+// flo compat
+// not really necessary and a bit forceful but it's funny, so long as it works we should be good
+floStageCone = true
+otherCone = noone
+url = "3048939652"
+yOffset = 0

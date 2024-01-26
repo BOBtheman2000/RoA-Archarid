@@ -233,12 +233,43 @@ if instance_exists(tethered_player) && !override_all {
     }
 }
 
+var cone_last_angle_dist = 9999
+
 for (i=0; i < array_length_1d(tethered_orbs); i++) {
 
     var tethered_orb = tethered_orbs[i].target
 
     if !instance_exists(tethered_orb) {
+        otherCone = noone
         continue
+    }
+
+    // flo compat
+    if array_length_1d(tethered_orbs) <= 1 {
+        otherCone = tethered_orb
+    } else {
+        // "cones" now have to compete for flo's attention
+
+        var closest_flo = player_id
+        var closest_dist = 999999999
+        with (oPlayer) {
+            if url == "3048939652" {
+                var dist = distance_to_object(other)
+                if dist < closest_dist {
+                    closest_flo = self
+                    closest_dist = dist
+                }
+            }
+        }
+
+        var tether_dir = point_direction(x, y, tethered_orb.x, tethered_orb.y)
+        var flo_dir = point_direction(x, y, closest_flo.x, closest_flo.y)
+
+        var flo_angle = abs(tether_dir - flo_dir)
+        if flo_angle < cone_last_angle_dist {
+            cone_last_angle_dist = flo_angle
+            otherCone = tethered_orb
+        }
     }
 
     array_push(tether_list, point_direction(x, y, tethered_orb.x, tethered_orb.y))
