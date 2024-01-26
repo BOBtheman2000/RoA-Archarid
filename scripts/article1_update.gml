@@ -434,63 +434,73 @@ for (i=0; i < array_length_1d(tethered_orbs); i++) {
 
         if orb_data.jumping_type == 'proj' {
 
-            var influenced_direction = orb_data.jumping_player_direction
-            var min_influence = 9999
+            if !instance_exists(orb_data.jumping_player) {
+                // projectile was destroyed somewhere, so we just give up on this one
+                orb_data.jumping_lockout = 10
+                orb_data.jumping_state_timer = 0
+                sound_stop(orb_data.jump_pull_sound)
 
-            with (oPlayer) {
-                if id == orb_data.jumping_player.last_player_id {
-                    continue
-                }
-                var jp = orb_data.jumping_player
-                var my_dir = point_direction(jp.x + jp.hsp, jp.y + jp.vsp + 16, x, y)
-                var angle_diff = angle_difference(orb_data.jumping_player_direction, my_dir)
-                if abs(angle_diff) < abs(min_influence) {
-                    min_influence = angle_diff
-                }
-            }
+            } else {
 
-            if abs(min_influence) < 20 {
-                influenced_direction -= min_influence
-            }
+                var influenced_direction = orb_data.jumping_player_direction
+                var min_influence = 9999
 
-            with (orb_data.jumping_player) {
-                x = lerp(x, orb_data.jump_midpoint_x, 0.6)
-                y = lerp(y, orb_data.jump_midpoint_y, 0.6)
-                hitbox_timer = 0
-                if orb_data.jumping_state_timer <= 0 {
-                    orb_data.jumping_lockout = 10
-                    orb_data.jumping_state_timer = 0
-
-                    sprite_index = player_id.nspecial_sprite_fast
-
-                    hsp = lengthdir_x(player_id.nspecial_speed_fast, influenced_direction)
-                    vsp = lengthdir_y(player_id.nspecial_speed_fast, influenced_direction)
-
-                    spr_dir = sign(lengthdir_x(1, influenced_direction))
-
-                    draw_xscale = spr_dir
-
-                    kb_angle = influenced_direction
-                    if spr_dir = -1 && influenced_direction > 90 {
-                        kb_angle = kb_angle - 180
+                with (oPlayer) {
+                    if id == orb_data.jumping_player.last_player_id {
+                        continue
                     }
-
-                    damage = player_id.nspecial_damage_fast
-                    kb_value = player_id.nspecial_kb_fast
-                    kb_scale = player_id.nspecial_kb_scaling_fast
-                    hitpause = player_id.nspecial_hitpause_fast
-                    hitpause_growth = player_id.nspecial_hitpause_scaling_fast
-                    force_flinch = 0
-
-                    proj_angle = influenced_direction
-                    if spr_dir = -1 && influenced_direction > 90 {
-                        proj_angle = proj_angle - 180
+                    var jp = orb_data.jumping_player
+                    var my_dir = point_direction(jp.x + jp.hsp, jp.y + jp.vsp + 16, x, y)
+                    var angle_diff = angle_difference(orb_data.jumping_player_direction, my_dir)
+                    if abs(angle_diff) < abs(min_influence) {
+                        min_influence = angle_diff
                     }
-
-                    sound_stop(orb_data.jump_pull_sound)
-                    sound_play(asset_get("sfx_leafy_hit1"), false, noone, 1, 1.4)
-                    spawn_hit_fx(lerp(other.x, tethered_orb.x, 0.5), lerp(other.y, tethered_orb.y, 0.5), HFX_ORI_BASH_START)
                 }
+
+                if abs(min_influence) < 20 {
+                    influenced_direction -= min_influence
+                }
+
+                with (orb_data.jumping_player) {
+                    x = lerp(x, orb_data.jump_midpoint_x, 0.6)
+                    y = lerp(y, orb_data.jump_midpoint_y, 0.6)
+                    hitbox_timer = 0
+                    if orb_data.jumping_state_timer <= 0 {
+                        orb_data.jumping_lockout = 10
+                        orb_data.jumping_state_timer = 0
+
+                        sprite_index = player_id.nspecial_sprite_fast
+
+                        hsp = lengthdir_x(player_id.nspecial_speed_fast, influenced_direction)
+                        vsp = lengthdir_y(player_id.nspecial_speed_fast, influenced_direction)
+
+                        spr_dir = sign(lengthdir_x(1, influenced_direction))
+
+                        draw_xscale = spr_dir
+
+                        kb_angle = influenced_direction
+                        if spr_dir = -1 && influenced_direction > 90 {
+                            kb_angle = kb_angle - 180
+                        }
+
+                        damage = player_id.nspecial_damage_fast
+                        kb_value = player_id.nspecial_kb_fast
+                        kb_scale = player_id.nspecial_kb_scaling_fast
+                        hitpause = player_id.nspecial_hitpause_fast
+                        hitpause_growth = player_id.nspecial_hitpause_scaling_fast
+                        force_flinch = 0
+
+                        proj_angle = influenced_direction
+                        if spr_dir = -1 && influenced_direction > 90 {
+                            proj_angle = proj_angle - 180
+                        }
+
+                        sound_stop(orb_data.jump_pull_sound)
+                        sound_play(asset_get("sfx_leafy_hit1"), false, noone, 1, 1.4)
+                        spawn_hit_fx(lerp(other.x, tethered_orb.x, 0.5), lerp(other.y, tethered_orb.y, 0.5), HFX_ORI_BASH_START)
+                    }
+                }
+
             }
 
         }
